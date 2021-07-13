@@ -66,6 +66,7 @@ export default function App() {
       <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
       {/* We leave here until we add the toggle items button */}
+      {/* This will be or next step */}
       <h2>Completed (archived)</h2>
       <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
 
