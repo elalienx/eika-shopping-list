@@ -14,15 +14,6 @@ export default function App() {
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
   // Methods
-  function onUpdate(id) {
-    const item = list[id];
-    const status = item.isCompleted;
-
-    item.isCompleted = !status;
-
-    setList([...list]);
-  }
-
   function onCreate() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
@@ -38,6 +29,15 @@ export default function App() {
     }
 
     setList([...list, newItem]);
+  }
+
+  function onUpdate(id) {
+    const item = list[id];
+    const status = item.isCompleted;
+
+    item.isCompleted = !status;
+
+    setList([...list]);
   }
 
   return (
