@@ -61,13 +61,11 @@ export default function App() {
     }
   }, []);
 
-  // Note the app is showing the non empty state even if we dont have active items. This means that we need to use the filtered list as a parameter instead of the normal list.
-
   return (
     <div className="App">
       <h1>Shopping list</h1>
 
-      {list.length === 0 && <EmptyState />}
+      {activeItems.length === 0 && <EmptyState />}
 
       <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
