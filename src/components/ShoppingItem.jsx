@@ -9,7 +9,7 @@ export default function ShoppingItem({ item, oncChange }) {
         onChange={() => oncChange(id)}
         type="checkbox"
       />
-      <label>{name}</label>
+      <label>{name}, </label>
       <span>{price}</span>
     </article>
   );
