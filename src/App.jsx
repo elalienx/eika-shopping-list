@@ -3,6 +3,7 @@ import { useState } from "react";
 
 // Local imports
 import EmptyState from "./components/EmptyState";
+import ShoppingList from "./components/ShoppingList";
 
 export default function App() {
   // scratch data
@@ -19,7 +20,7 @@ export default function App() {
       <h1>Shopping list</h1>
 
       {list.length === 0 && <EmptyState />}
-      {list.length > 0 && <p>Here is the list...</p>}
+      {list.length > 0 && <ShoppingList list={list} />}
     </div>
   );
 }

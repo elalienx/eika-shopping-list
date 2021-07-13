@@ -1,4 +1,4 @@
-export default function ShoppingItem(item) {
+export default function ShoppingItem({ item }) {
   // Properties
   const { name, price, isCompleted } = item;
 
