@@ -2,3 +2,9 @@
   max-width: 200px;
   height: auto;
 }
+
+@media (min-width: 550px) {
+  .empty-state img {
+    max-width: 400px;
+  }
+}
