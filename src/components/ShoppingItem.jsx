@@ -3,14 +3,15 @@ export default function ShoppingItem({ item, onUpdate }) {
   const { id, name, price, isCompleted } = item;
 
   return (
-    <article>
+    <article className="shopping-item">
       <input
         checked={isCompleted}
         onChange={() => onUpdate(id)}
         type="checkbox"
       />
-      <label>{name}, </label>
-      <span>{price}</span>
+      <label className="name">{name}</label>
+      <span className="spacer"></span>
+      <span className="price">{price}sek</span>
     </article>
   );
 }

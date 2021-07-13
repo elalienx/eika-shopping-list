@@ -1,0 +1,33 @@
+.shopping-item {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-bottom: var(--space-small);
+}
+
+.shopping-item input[type="checkbox"] {
+  margin-right: var(--space-medium);
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.shopping-item .name,
+.shopping-item .price {
+  font-size: var(--font-text-mobile);
+}
+
+.shopping-item .spacer {
+  flex-grow: 1;
+}
+
+.shopping-item .price {
+  font-weight: bold;
+}
+
+@media (min-width: 550px) {
+  .shopping-item .name,
+  .shopping-item .price {
+    font-size: var(--font-text-desktop);
+  }
+}

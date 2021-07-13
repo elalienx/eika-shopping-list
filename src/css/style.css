@@ -9,6 +9,9 @@
 @import url("./atoms/headings.css");
 @import url("./atoms/paragraph.css");
 
+/* Molecules */
+@import url("./molecules/shopping-item.css");
+
 /* Organisms */
 @import url("./organisms/empty-state.css");
 @import url("./organisms/footer.css");

@@ -13,10 +13,12 @@
 
   /* Fonts */
   --font-family: "Noto Sans", Arial, Helvetica, sans-serif;
-  --font-title-desktop: 25px;
   --font-title-mobile: 18px;
-  --font-text-desktop: 14px;
+  --font-title-desktop: 25px;
+
   --font-text-mobile: 12px;
-  --font-button-desktop: 16px;
+  --font-text-desktop: 16px;
+
   --font-button-mobile: 14px;
+  --font-button-desktop: 18px;
 }
