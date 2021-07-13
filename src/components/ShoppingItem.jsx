@@ -1,4 +1,4 @@
-export default function ShoppingItem({ item, markAsComplete }) {
+export default function ShoppingItem({ item, oncChange }) {
   // Properties
   const { id, name, price, isCompleted } = item;
 
@@ -6,7 +6,7 @@ export default function ShoppingItem({ item, markAsComplete }) {
     <article>
       <input
         checked={isCompleted}
-        onChange={() => markAsComplete(id)}
+        onChange={() => oncChange(id)}
         type="checkbox"
       />
       <label>{name}</label>

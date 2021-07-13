@@ -11,7 +11,7 @@ export default function App() {
   const [list, setList] = useState(DummyData);
 
   // Methods
-  function markAsComplete(id) {
+  function oncChange(id) {
     const item = list[id];
     const status = item.isCompleted;
 
@@ -25,9 +25,7 @@ export default function App() {
       <h1>Shopping list</h1>
 
       {list.length === 0 && <EmptyState />}
-      {list.length > 0 && (
-        <ShoppingList list={list} markAsComplete={markAsComplete} />
-      )}
+      {list.length > 0 && <ShoppingList list={list} oncChange={oncChange} />}
     </div>
   );
 }
