@@ -61,7 +61,6 @@ export default function App() {
     }
   }, []);
 
-  // Note: Preparing to refactor by migrating the list methods and tags to a separate component called normal state
 
   return (
     <div className="App">
