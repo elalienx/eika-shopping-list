@@ -34,6 +34,7 @@ export default function App() {
         <ShoppingList list={activeItems} oncChange={oncChange} />
       )}
 
+      {/* We leave here until we add the toggle items button */}
       <h2>Completed</h2>
       <ShoppingList list={inactiveItems} oncChange={oncChange} />
     </div>
