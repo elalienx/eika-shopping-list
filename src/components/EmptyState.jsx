@@ -4,7 +4,12 @@ import Image from "../assets/images/urban-shopping.png";
 export default function EmptyState() {
   return (
     <header>
-      <img src={Image} alt="Woman getting out of a store with shopping bags" />
+      <img
+        src={Image}
+        alt="Woman getting out of a store with shopping bags"
+        width="200"
+        height="200"
+      />
       <h1>Shopping list</h1>
       <p>
         Welcome to EIKA’s shopping list. Here you will be able to create a todo

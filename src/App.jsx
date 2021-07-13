@@ -8,7 +8,7 @@ import ShoppingList from "./components/ShoppingList";
 
 export default function App() {
   // Local state
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(DummyData);
 
   const activeItems = list.filter((item) => item.isCompleted === false);
   const inactiveItems = list.filter((item) => item.isCompleted === true);
