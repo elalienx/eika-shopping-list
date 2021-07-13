@@ -42,9 +42,13 @@ export default function App() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
+  function onDeleteAll() {
+    setList([]);
+    window.localStorage.removeItem(STORAGE_KEY);
+  }
+
   useEffect(() => {
     const storedList = window.localStorage.getItem(STORAGE_KEY);
-    console.log(list);
 
     if (storedList !== null) {
       const parsedList = JSON.parse(storedList);
@@ -66,6 +70,7 @@ export default function App() {
       <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
 
       <button onClick={onCreate}>Add a new item</button>
+      <button onClick={onDeleteAll}>Debug delete all</button>
     </div>
   );
 }
