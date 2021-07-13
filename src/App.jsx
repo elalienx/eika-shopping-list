@@ -66,7 +66,12 @@ export default function App() {
     <div className="App">
       {activeItems.length === 0 && <EmptyState />}
 
-      <ShoppingList list={activeItems} onUpdate={onUpdate} />
+      {activeItems.length > 0 && (
+        <>
+          <h1>Shopping list</h1>
+          <ShoppingList list={activeItems} onUpdate={onUpdate} />
+        </>
+      )}
 
       <footer className="footer">
         <button className="button-main" onClick={onCreate}>
@@ -75,9 +80,7 @@ export default function App() {
         <button className="button-secondary" onClick={onToggle}>
           View adquired items
         </button>
-        <button className="button-secondary" onClick={onDeleteAll}>
-          Debug delete all
-        </button>
+        <button onClick={onDeleteAll}>Debug delete all</button>
       </footer>
 
       {showCompleted && (

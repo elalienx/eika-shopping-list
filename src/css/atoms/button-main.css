@@ -11,7 +11,7 @@
 }
 
 .button-main:hover {
-  text-decoration: underline;
+  background-color: var(--color-blue-dark);
 }
 
 @media (min-width: 550px) {
