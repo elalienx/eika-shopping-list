@@ -1,8 +1,10 @@
 .button-secondary {
+  background-color: transparent;
   border: none;
-  border-radius: 500px;
-  padding: 0 var(--space-big);
-  color: white;
+  color: var(--color-gray-4);
   font-family: var(--font-family);
-  font-weight: bold;
+}
+
+.button-secondary:hover {
+  text-decoration: underline;
 }

@@ -8,3 +8,7 @@
   font-family: var(--font-family);
   font-weight: bold;
 }
+
+.button-main:hover {
+  text-decoration: underline;
+}
