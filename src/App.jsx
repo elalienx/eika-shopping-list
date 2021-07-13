@@ -17,7 +17,7 @@ export default function App() {
 
     item.isCompleted = !status;
 
-    setList((previousArray) => [...previousArray]);
+    setList([...list]);
   }
 
   return (
@@ -25,7 +25,11 @@ export default function App() {
       <h1>Shopping list</h1>
 
       {list.length === 0 && <EmptyState />}
+
+      {/* Completed */}
       {list.length > 0 && <ShoppingList list={list} oncChange={oncChange} />}
+
+      {/* Archived */}
     </div>
   );
 }
