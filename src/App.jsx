@@ -12,9 +12,12 @@ export default function App() {
 
   // Methods
   function markAsComplete(id) {
-    const completedItem = list[id];
+    const item = list[id];
+    const status = item.isCompleted;
 
-    console.log(completedItem.name);
+    item.isCompleted = !status;
+
+    setList((previousArray) => [...previousArray]);
   }
 
   return (
