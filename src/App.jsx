@@ -14,7 +14,7 @@ export default function App() {
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
   // Methods
-  function oncChange(id) {
+  function onUpdate(id) {
     const item = list[id];
     const status = item.isCompleted;
 
@@ -23,7 +23,7 @@ export default function App() {
     setList([...list]);
   }
 
-  function onAddItem() {
+  function onCreate() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
     const promptName = prompt("Whats the name of the shopping item?");
@@ -48,14 +48,14 @@ export default function App() {
 
       <h2>Pending (active)</h2>
       {list.length > 0 && (
-        <ShoppingList list={activeItems} oncChange={oncChange} />
+        <ShoppingList list={activeItems} onUpdate={onUpdate} />
       )}
 
       {/* We leave here until we add the toggle items button */}
       <h2>Completed (archived)</h2>
-      <ShoppingList list={inactiveItems} oncChange={oncChange} />
+      <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
 
-      <button onClick={onAddItem}>Add a new item</button>
+      <button onClick={onCreate}>Add a new item</button>
     </div>
   );
 }
