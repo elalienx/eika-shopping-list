@@ -1,0 +1,5 @@
+.button-main {
+  background-color: var(--color-blue);
+  color: white;
+  font-weight: bold;
+}

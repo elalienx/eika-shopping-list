@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // Project files
 import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
+import "./css/style.css";
 
 export default function App() {
   // Local state

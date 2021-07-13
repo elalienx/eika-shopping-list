@@ -1,0 +1,19 @@
+:root {
+  /* Colors */
+  --color-blue: #0058ab;
+  --color-gray-1: #f6f4f5;
+  --color-gray-2: #e2e1e2;
+  --color-gray-3: #a9a9a8;
+  --color-gray-4: #484848;
+
+  /* Spacing */
+  --space-big: 24px;
+  --space-medium: 16px;
+  --space-small: 4px;
+
+  /* Font size */
+  --font-title-desktop: 25px;
+  --font-title-mobile: 18px;
+  --font-text-desktop: 14px;
+  --font-text-mobile: 12px;
+}
