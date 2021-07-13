@@ -1,8 +1,7 @@
 // Core
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Local imports
-import DummyData from "./dummyData.json";
 import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
 
@@ -11,6 +10,7 @@ export default function App() {
   const [list, setList] = useState([]);
 
   // Properties
+  const STORAGE_KEY = "eika-shopping-list";
   const activeItems = list.filter((item) => item.isCompleted === false);
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
@@ -21,15 +21,15 @@ export default function App() {
     const promptName = prompt("Whats the name of the shopping item?");
     const promptPrice = prompt("Whats its price?");
 
-    if (promptName !== null) {
-      newItem.name = promptName;
-    }
-    // Note: Add some test to verify that the price is just a number
-    if (promptPrice !== null) {
-      newItem.price = promptPrice;
-    }
+    if (promptName !== null) newItem.name = promptName;
 
-    setList([...list, newItem]);
+    // Note: Add some test to verify that the price is just a number
+    if (promptPrice !== null) newItem.price = promptPrice;
+
+    const newList = [...list, newItem];
+
+    setList(newList);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
   }
 
   function onUpdate(id) {
@@ -39,7 +39,18 @@ export default function App() {
     item.isCompleted = !status;
 
     setList([...list]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
+
+  useEffect(() => {
+    const storedList = window.localStorage.getItem(STORAGE_KEY);
+    console.log(list);
+
+    if (storedList !== null) {
+      const parsedList = JSON.parse(storedList);
+      setList(parsedList);
+    }
+  }, []);
 
   return (
     <div className="App">

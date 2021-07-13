@@ -1,6 +1,0 @@
-[
-  { "id": 0, "name": "Voxlöv chair", "price": 795, "isCompleted": false },
-  { "id": 1, "name": "Kipplan sofa", "price": 1995, "isCompleted": false },
-  { "id": 2, "name": "Morgedal matress", "price": 1495, "isCompleted": false },
-  { "id": 3, "name": "Bed sheets", "price": 79, "isCompleted": true }
-]
