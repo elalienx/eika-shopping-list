@@ -8,8 +8,9 @@ import ShoppingList from "./components/ShoppingList";
 
 export default function App() {
   // Local state
-  const [list, setList] = useState(DummyData);
+  const [list, setList] = useState([]);
 
+  // Properties
   const activeItems = list.filter((item) => item.isCompleted === false);
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
@@ -47,9 +48,7 @@ export default function App() {
       {list.length === 0 && <EmptyState />}
 
       <h2>Pending (active)</h2>
-      {list.length > 0 && (
-        <ShoppingList list={activeItems} onUpdate={onUpdate} />
-      )}
+      <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
       {/* We leave here until we add the toggle items button */}
       <h2>Completed (archived)</h2>
