@@ -68,15 +68,17 @@ export default function App() {
 
       <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
-      <button className="button-main" onClick={onCreate}>
-        Add a new item
-      </button>
-      <button className="button-secondary" onClick={onToggle}>
-        View adquired items
-      </button>
-      <button className="button-secondary" onClick={onDeleteAll}>
-        Debug delete all
-      </button>
+      <footer className="footer">
+        <button className="button-main" onClick={onCreate}>
+          Add a new item
+        </button>
+        <button className="button-secondary" onClick={onToggle}>
+          View adquired items
+        </button>
+        <button className="button-secondary" onClick={onDeleteAll}>
+          Debug delete all
+        </button>
+      </footer>
 
       {showCompleted && (
         <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
