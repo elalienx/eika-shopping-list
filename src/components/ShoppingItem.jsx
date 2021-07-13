@@ -9,7 +9,7 @@ export default function ShoppingItem({ item }) {
 
   return (
     <article>
-      <input type="checkbox" checked={isCompleted} onChange={onChange} />
+      <input checked={isCompleted} onChange={onChange} type="checkbox" />
       <label>{name}</label>
       <span>{price}</span>
     </article>
