@@ -1,7 +1,7 @@
-// Core
+// NPM Packages
 import { useEffect, useState } from "react";
 
-// Local imports
+// Project files
 import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
 
@@ -10,7 +10,7 @@ export default function App() {
   const [list, setList] = useState([]);
   const [showCompleted, setShowCompleted] = useState(false);
 
-  // Properties
+  // Constants
   const STORAGE_KEY = "eika-shopping-list";
   const activeItems = list.filter((item) => item.isCompleted === false);
   const inactiveItems = list.filter((item) => item.isCompleted === true);
@@ -60,7 +60,6 @@ export default function App() {
       setList(parsedList);
     }
   }, []);
-
 
   return (
     <div className="App">

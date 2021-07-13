@@ -1,5 +1,5 @@
 export default function ShoppingItem({ item, onUpdate }) {
-  // Properties
+  // Constants
   const { id, name, price, isCompleted } = item;
 
   return (

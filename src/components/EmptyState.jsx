@@ -1,4 +1,4 @@
-// Local imports
+// Project files
 import Image from "../assets/images/urban-shopping.png";
 
 export default function EmptyState() {
