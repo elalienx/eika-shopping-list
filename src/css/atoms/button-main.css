@@ -3,7 +3,7 @@
   background-color: var(--color-blue);
   border: none;
   border-radius: 500px;
-  padding: 0 var(--space-big);
+  padding: 0 80px;
   color: white;
   font-size: var(--font-button-mobile);
   font-family: var(--font-family);

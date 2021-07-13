@@ -44,11 +44,6 @@ export default function App() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
-  function onDeleteAll() {
-    setList([]);
-    window.localStorage.removeItem(STORAGE_KEY);
-  }
-
   function onToggle() {
     setShowCompleted(!showCompleted);
   }
@@ -80,7 +75,6 @@ export default function App() {
         <button className="button-secondary" onClick={onToggle}>
           View adquired items
         </button>
-        <button onClick={onDeleteAll}>Debug delete all</button>
       </footer>
 
       {showCompleted && (

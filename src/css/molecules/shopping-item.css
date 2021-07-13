@@ -6,9 +6,11 @@
 }
 
 .shopping-item input[type="checkbox"] {
+  --size: 20px;
+
   margin-right: var(--space-medium);
-  width: 20px;
-  height: 20px;
+  width: var(--size);
+  height: var(--size);
   background-color: red;
 }
 
