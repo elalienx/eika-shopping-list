@@ -10,6 +10,9 @@ export default function App() {
   // Local state
   const [list, setList] = useState(DummyData);
 
+  const activeItems = list.filter((item) => item.isCompleted === false);
+  const inactiveItems = list.filter((item) => item.isCompleted === true);
+
   // Methods
   function oncChange(id) {
     const item = list[id];
@@ -26,10 +29,13 @@ export default function App() {
 
       {list.length === 0 && <EmptyState />}
 
-      {/* Completed */}
-      {list.length > 0 && <ShoppingList list={list} oncChange={oncChange} />}
+      <h2>Pending</h2>
+      {list.length > 0 && (
+        <ShoppingList list={activeItems} oncChange={oncChange} />
+      )}
 
-      {/* Archived */}
+      <h2>Completed</h2>
+      <ShoppingList list={inactiveItems} oncChange={oncChange} />
     </div>
   );
 }
