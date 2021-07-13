@@ -1,9 +1,13 @@
-@import url("./variables.css");
-@import url("./button-main.css");
-@import url("./button-secondary.css");
-@import url("./typography.css");
+/* Base */
+@import url("./fonts.css");
+@import url("./_base/variables.css");
+@import url("./_base/layout.css");
 
-body {
-  font-family: var(--font-family);
-  text-align: center;
-}
+/* Atoms */
+@import url("./atoms/button-main.css");
+@import url("./atoms/button-secondary.css");
+@import url("./atoms/headings.css");
+@import url("./atoms/paragraph.css");
+
+/* State */
+@import url("./state/empty-state.css");
