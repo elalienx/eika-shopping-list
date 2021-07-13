@@ -1,0 +1,18 @@
+h1 {
+  font-size: var(--font-title-mobile);
+}
+
+p {
+  font-size: var(--font-text-mobile);
+  color: var(--color-gray-4);
+}
+
+@media (min-width: 550px) {
+  h1 {
+    font-size: var(--font-title-desktop);
+  }
+
+  p {
+    font-size: var(--font-text-desktop);
+  }
+}

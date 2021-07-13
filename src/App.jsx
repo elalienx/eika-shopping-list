@@ -64,13 +64,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Shopping list</h1>
-
       {activeItems.length === 0 && <EmptyState />}
 
       <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
-      <button onClick={onCreate}>Add a new item</button>
+      <button className="button-main" onClick={onCreate}>
+        Add a new item
+      </button>
       <button onClick={onToggle}>View adquired items</button>
       <button onClick={onDeleteAll}>Debug delete all</button>
 

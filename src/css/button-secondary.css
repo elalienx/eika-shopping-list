@@ -1,6 +1,4 @@
-.button-main {
-  min-height: 56px;
-  background-color: var(--color-blue);
+.button-secondary {
   border: none;
   border-radius: 500px;
   padding: 0 var(--space-big);
