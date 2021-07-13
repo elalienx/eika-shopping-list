@@ -8,6 +8,7 @@ import ShoppingList from "./components/ShoppingList";
 export default function App() {
   // Local state
   const [list, setList] = useState([]);
+  const [showCompleted, setShowCompleted] = useState(false);
 
   // Properties
   const STORAGE_KEY = "eika-shopping-list";
@@ -47,6 +48,10 @@ export default function App() {
     window.localStorage.removeItem(STORAGE_KEY);
   }
 
+  function onToggle() {
+    setShowCompleted(!showCompleted);
+  }
+
   useEffect(() => {
     const storedList = window.localStorage.getItem(STORAGE_KEY);
 
@@ -56,22 +61,23 @@ export default function App() {
     }
   }, []);
 
+  // Note the app is showing the non empty state even if we dont have active items. This means that we need to use the filtered list as a parameter instead of the normal list.
+
   return (
     <div className="App">
       <h1>Shopping list</h1>
 
       {list.length === 0 && <EmptyState />}
 
-      <h2>Pending (active)</h2>
       <ShoppingList list={activeItems} onUpdate={onUpdate} />
 
-      {/* We leave here until we add the toggle items button */}
-      {/* This will be or next step */}
-      <h2>Completed (archived)</h2>
-      <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
-
       <button onClick={onCreate}>Add a new item</button>
+      <button onClick={onToggle}>View adquired items</button>
       <button onClick={onDeleteAll}>Debug delete all</button>
+
+      {showCompleted && (
+        <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
+      )}
     </div>
   );
 }
