@@ -2,10 +2,8 @@
 import ShoppingItem from "./ShoppingItem";
 
 export default function ShoppingList({ list }) {
-  // Properties
-  const List = list.map((item, index) => (
-    <ShoppingItem key={index} item={item} />
-  ));
+  // Components
+  const List = list.map((item) => <ShoppingItem key={item.id} item={item} />);
 
   return <section>{List}</section>;
 }

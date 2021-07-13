@@ -1,10 +1,10 @@
 export default function ShoppingItem({ item }) {
   // Properties
-  const { name, price, isCompleted } = item;
+  const { id, name, price, isCompleted } = item;
 
   // Methods
   function onChange() {
-    alert("foo");
+    alert(`Item clicked #${id}`);
   }
 
   return (
