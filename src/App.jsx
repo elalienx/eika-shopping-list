@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // Project files
 import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
+import Logo from "./assets/images/logo.svg";
 import "./css/style.css";
 
 export default function App() {
@@ -73,6 +74,14 @@ export default function App() {
 
   return (
     <div className="App">
+      <nav>
+        <img
+          src={Logo}
+          className="logo"
+          alt="The word EIKA written on a yellow and blue background"
+        />
+      </nav>
+
       {activeItems.length === 0 && <EmptyState />}
 
       {activeItems.length > 0 && <h1>Shopping list</h1>}

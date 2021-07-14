@@ -4,6 +4,15 @@ body {
   margin: var(--space-big);
 }
 
+nav {
+  text-align: left;
+}
+
+.logo {
+  width: 90px;
+  height: auto;
+}
+
 @media (min-width: 550px) {
   body {
     max-width: 400px;
