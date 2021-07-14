@@ -27,9 +27,8 @@ export default function NormalState() {
     const status = updateList[index].isCompleted;
 
     updateList[index].isCompleted = !status;
-
     setList(updateList);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
+    window.localStorage.setItem(storageKey, JSON.stringify(updateList));
   }
 
   return (

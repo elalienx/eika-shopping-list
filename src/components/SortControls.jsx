@@ -17,8 +17,8 @@ export default function SortControls() {
     const sortedList = updateList.sort((a, b) => a.name > b.name);
 
     setSort("name");
-    setList([...sortedList]);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
+    setList(sortedList);
+    window.localStorage.setItem(storageKey, JSON.stringify(sortedList));
   }
 
   function sortListByPrice() {
@@ -26,8 +26,8 @@ export default function SortControls() {
     const sortedList = updateList.sort((a, b) => a.price - b.price);
 
     setSort("price");
-    setList([...sortedList]);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
+    setList(sortedList);
+    window.localStorage.setItem(storageKey, JSON.stringify(sortedList));
   }
 
   return (

@@ -15,6 +15,7 @@ export default function ListControls() {
   function createItem() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
+    let updatedList = [];
 
     const promptName = prompt("Whats the name of the shopping item?");
     if (promptName !== null && promptName !== "") newItem.name = promptName;
@@ -24,9 +25,9 @@ export default function ListControls() {
     if (promptPrice !== null && promptPrice !== "") newItem.price = promptPrice;
     else return;
 
-    const newList = [...list, newItem];
-    setList([...list, newItem]);
-    window.localStorage.setItem(storageKey, JSON.stringify(newList));
+    updatedList = [...list, newItem];
+    setList(updatedList);
+    window.localStorage.setItem(storageKey, JSON.stringify(updatedList));
   }
 
   function toggleCompleteList() {
