@@ -68,14 +68,14 @@ export default function App() {
         </>
       )}
 
-      <footer className="footer">
+      <section className="list-controls">
         <button className="button-main" onClick={onCreate}>
           Add a new item
         </button>
         <button className="button-secondary" onClick={onToggle}>
           View adquired items
         </button>
-      </footer>
+      </section>
 
       {showCompleted && (
         <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
