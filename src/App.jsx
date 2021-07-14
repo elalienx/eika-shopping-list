@@ -6,8 +6,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import Logo from "./assets/images/logo.svg";
 import EmptyState from "./pages/EmptyState";
 import NormalState from "./pages/NormalState";
-import ShoppingList from "./components/ShoppingList";
-import ListControls from "./components/ListControls";
 import { completedState } from "./state/completedState";
 import {
   listState,
