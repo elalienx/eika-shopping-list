@@ -32,22 +32,21 @@ export default function NormalState() {
   }
 
   return (
-    <div>
+    <div className="normal-state">
       <h1>Shopping list</h1>
+
+      {/* Sorting controls */}
       <SortControls />
-      <ShoppingList
-        className="active-items"
-        list={activeList}
-        onUpdate={onUpdate}
-      />
+
+      {/* Pending items */}
+      <ShoppingList list={activeList} onUpdate={onUpdate} />
+
+      {/* Main controls */}
       <ListControls />
 
+      {/* Completed items */}
       {showCompleted && (
-        <ShoppingList
-          className="inactive-items"
-          list={inactiveList}
-          onUpdate={onUpdate}
-        />
+        <ShoppingList list={inactiveList} onUpdate={onUpdate} />
       )}
     </div>
   );

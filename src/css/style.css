@@ -13,8 +13,9 @@
 @import url("./atoms/paragraph.css");
 
 /* Molecules */
+@import url("./molecules/list-controls.css");
 @import url("./molecules/shopping-item.css");
 
 /* Organisms */
 @import url("./organisms/empty-state.css");
-@import url("./organisms/list-controls.css");
+@import url("./organisms/normal-state.css");
