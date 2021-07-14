@@ -8,7 +8,11 @@ import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
 import ListControls from "./components/ListControls";
 import { completedState } from "./state/completedState";
-import { listState } from "./state/listState";
+import {
+  listState,
+  inactiveListState,
+  activeListState,
+} from "./state/listState";
 import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
@@ -18,8 +22,8 @@ export default function App() {
   const showCompleted = useRecoilValue(completedState);
 
   // Constants
-  const activeItems = list.filter((item) => item.isCompleted === false);
-  const inactiveItems = list.filter((item) => item.isCompleted === true);
+  const activeList = useRecoilValue(activeListState);
+  const inactiveList = useRecoilValue(inactiveListState);
 
   // Methods
   useEffect(() => {
@@ -41,16 +45,16 @@ export default function App() {
         />
       </nav>
 
-      {activeItems.length === 0 && <EmptyState />}
-      {activeItems.length > 0 && <h1>Shopping list</h1>}
-      {activeItems.length > 0 && (
-        <ShoppingList className="active-items" list={activeItems} />
+      {activeList.length === 0 && <EmptyState />}
+      {activeList.length > 0 && <h1>Shopping list</h1>}
+      {activeList.length > 0 && (
+        <ShoppingList className="active-items" list={activeList} />
       )}
 
       <ListControls />
 
       {showCompleted && (
-        <ShoppingList className="inactive-items" list={inactiveItems} />
+        <ShoppingList className="inactive-items" list={inactiveList} />
       )}
     </div>
   );

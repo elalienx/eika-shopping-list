@@ -6,16 +6,17 @@ export const listState = atom({
   default: [],
 });
 
-export const activeList = selector({
+export const activeListState = selector({
   key: "activeList",
   get: ({ get }) => {
     const list = get(listState);
+    console.log(list);
 
     return list.filter((item) => item.isCompleted === false);
   },
 });
 
-export const inactiveList = selector({
+export const inactiveListState = selector({
   key: "inactiveList",
   get: ({ get }) => {
     const list = get(listState);
