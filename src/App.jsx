@@ -48,6 +48,25 @@ export default function App() {
     setShowCompleted(!showCompleted);
   }
 
+  function onSortByName() {
+    const sortedList = list.sort((a, b) => a.name > b.name);
+
+    setList([...sortedList]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  function onSortPrice() {
+    const sortedList = list.sort((a, b) => a.price - b.price);
+
+    setList([...sortedList]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  function onDeleteAll() {
+    setList([]);
+    window.localStorage.clear(STORAGE_KEY);
+  }
+
   useEffect(() => {
     const storedList = window.localStorage.getItem(STORAGE_KEY);
 
@@ -60,6 +79,18 @@ export default function App() {
   return (
     <div className="App">
       {activeItems.length === 0 && <EmptyState />}
+
+      {activeItems.length > 0 && (
+        <section className="sorter-controls">
+          Sort by:
+          <button className="button-toogle" onClick={onSortByName}>
+            Name
+          </button>
+          <button className="button-toggle" onClick={onSortPrice}>
+            Price
+          </button>
+        </section>
+      )}
 
       {activeItems.length > 0 && (
         <section className="active-items">
@@ -75,6 +106,7 @@ export default function App() {
         <button className="button-secondary" onClick={onToggle}>
           View adquired items
         </button>
+        <button onClick={onDeleteAll}>Delete all</button>
       </section>
 
       {showCompleted && (
