@@ -49,13 +49,6 @@ export default function App() {
     setShowCompleted(!showCompleted);
   }
 
-  function sortListById() {
-    const sortedList = list.sort((a, b) => a.id - b.id);
-
-    setList([...sortedList]);
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  }
-
   function sortyListByName() {
     const sortedList = list.sort((a, b) => a.name > b.name);
 
@@ -68,11 +61,6 @@ export default function App() {
 
     setList([...sortedList]);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  }
-
-  function onDeleteAll() {
-    setList([]);
-    window.localStorage.clear(STORAGE_KEY);
   }
 
   useEffect(() => {
@@ -91,9 +79,6 @@ export default function App() {
       {activeItems.length > 0 && (
         <section className="sorter-controls">
           Sort by:
-          <button className="button-toogle" onClick={sortListById}>
-            Id
-          </button>
           <button className="button-toogle" onClick={sortyListByName}>
             Name
           </button>
@@ -117,7 +102,6 @@ export default function App() {
         <button className="button-secondary" onClick={toggleCompleteList}>
           View adquired items
         </button>
-        <button onClick={onDeleteAll}>Delete all</button>
       </section>
 
       {showCompleted && (
