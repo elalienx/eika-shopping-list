@@ -12,7 +12,6 @@ export const activeListState = selector({
     const list = get(listState);
     const filteredList = list.filter((item) => item.isCompleted === false);
 
-    console.log("activeListState", filteredList);
     return filteredList;
   },
 });
@@ -23,7 +22,6 @@ export const inactiveListState = selector({
     const list = get(listState);
     const filteredList = list.filter((item) => item.isCompleted === true);
 
-    console.log("inactiveListState", filteredList);
     return filteredList;
   },
 });

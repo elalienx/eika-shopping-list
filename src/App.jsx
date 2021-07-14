@@ -6,23 +6,16 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import Logo from "./assets/images/logo.svg";
 import EmptyState from "./pages/EmptyState";
 import NormalState from "./pages/NormalState";
-import { completedState } from "./state/completedState";
-import {
-  listState,
-  inactiveListState,
-  activeListState,
-} from "./state/listState";
+import { listState, activeListState } from "./state/listState";
 import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
 export default function App() {
   // External state
   const [, setList] = useRecoilState(listState);
-  const showCompleted = useRecoilValue(completedState);
 
   // Constants
   const activeList = useRecoilValue(activeListState);
-  const inactiveList = useRecoilValue(inactiveListState);
 
   // Methods
   useEffect(() => {
@@ -44,8 +37,7 @@ export default function App() {
         />
       </nav>
 
-      {activeList.length === 0 && <EmptyState />}
-      {activeList.length > 0 && <NormalState />}
+      {activeList.length === 0 ? <EmptyState /> : <NormalState />}
     </div>
   );
 }
