@@ -10,9 +10,10 @@ export const activeListState = selector({
   key: "activeList",
   get: ({ get }) => {
     const list = get(listState);
-    console.log(list);
+    const filteredList = list.filter((item) => item.isCompleted === false);
 
-    return list.filter((item) => item.isCompleted === false);
+    console.log("activeListState", filteredList);
+    return filteredList;
   },
 });
 
@@ -20,7 +21,9 @@ export const inactiveListState = selector({
   key: "inactiveList",
   get: ({ get }) => {
     const list = get(listState);
+    const filteredList = list.filter((item) => item.isCompleted === true);
 
-    return list.filter((item) => item.isCompleted === true);
+    console.log("inactiveListState", filteredList);
+    return filteredList;
   },
 });

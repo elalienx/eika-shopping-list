@@ -4,7 +4,8 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import EmptyState from "./components/EmptyState";
+import EmptyState from "./pages/EmptyState";
+import NormalState from "./pages/NormalState";
 import ShoppingList from "./components/ShoppingList";
 import ListControls from "./components/ListControls";
 import { completedState } from "./state/completedState";
@@ -18,7 +19,7 @@ import "./css/style.css";
 
 export default function App() {
   // External state
-  const [list, setList] = useRecoilState(listState);
+  const [, setList] = useRecoilState(listState);
   const showCompleted = useRecoilValue(completedState);
 
   // Constants
@@ -46,16 +47,7 @@ export default function App() {
       </nav>
 
       {activeList.length === 0 && <EmptyState />}
-      {activeList.length > 0 && <h1>Shopping list</h1>}
-      {activeList.length > 0 && (
-        <ShoppingList className="active-items" list={activeList} />
-      )}
-
-      <ListControls />
-
-      {showCompleted && (
-        <ShoppingList className="inactive-items" list={inactiveList} />
-      )}
+      {activeList.length > 0 && <NormalState />}
     </div>
   );
 }

@@ -1,9 +1,10 @@
 // Project files
 import Image from "../assets/images/urban-shopping.png";
+import ListControls from "../components/ListControls";
 
 export default function EmptyState() {
   return (
-    <header className="empty-state">
+    <div className="empty-state">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
       <h1>Shopping list</h1>
       <p>
@@ -14,6 +15,8 @@ export default function EmptyState() {
         To get started press the Add new item button and a popup will ask you
         the name and the price of the item you want to add.
       </p>
-    </header>
+
+      <ListControls />
+    </div>
   );
 }
