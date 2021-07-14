@@ -12,9 +12,9 @@ export default function ShoppingItem({ item, onUpdate }) {
         />
         <div className="icon-checkmark"></div>
       </label>
-      <span className="name">{name}</span>
+      <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
-      <span className="price">{price}sek</span>
+      <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
     </article>
   );
 }

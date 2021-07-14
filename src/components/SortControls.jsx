@@ -34,13 +34,13 @@ export default function SortControls() {
     <section className="sorter-controls">
       Sort by:
       <button
-        className={`button-toggle ${sort === "name" ? "active" : ""}`}
+        className={`button-toggle ${sort === "name" && "active"}`}
         onClick={sortyListByName}
       >
         Name
       </button>
       <button
-        className={`button-toggle ${sort ? "price" : "active"}`}
+        className={`button-toggle ${sort === "price" && "active"}`}
         onClick={sortListByPrice}
       >
         Price

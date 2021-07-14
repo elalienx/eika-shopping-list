@@ -30,6 +30,12 @@
   font-weight: bold;
 }
 
+.shopping-item .name.checked,
+.shopping-item .price.checked {
+  text-decoration: line-through;
+  color: var(--color-gray-3);
+}
+
 @media (min-width: 550px) {
   .shopping-item .name,
   .shopping-item .price {
