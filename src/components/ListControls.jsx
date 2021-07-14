@@ -42,7 +42,7 @@ export default function ListControls() {
 
       {list.length > 0 && (
         <button className="button-secondary" onClick={toggleCompleteList}>
-          View adquired items
+          {showCompleted ? "Hide" : "View"} adquired items
         </button>
       )}
     </section>
