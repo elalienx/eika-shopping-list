@@ -10,6 +10,7 @@ import {
   activeListState,
   inactiveListState,
 } from "../state/listState";
+import { completedState } from "../state/completedState";
 import { storageKey } from "../state/storageKey";
 
 export default function NormalState() {
@@ -17,6 +18,7 @@ export default function NormalState() {
   const [list, setList] = useRecoilState(listState);
   const activeList = useRecoilValue(activeListState);
   const inactiveList = useRecoilValue(inactiveListState);
+  const showCompleted = useRecoilValue(completedState);
 
   // Methods
   function onUpdate(id) {
@@ -40,11 +42,14 @@ export default function NormalState() {
         onUpdate={onUpdate}
       />
       <ListControls />
-      <ShoppingList
-        className="inactive-items"
-        list={inactiveList}
-        onUpdate={onUpdate}
-      />
+
+      {showCompleted && (
+        <ShoppingList
+          className="inactive-items"
+          list={inactiveList}
+          onUpdate={onUpdate}
+        />
+      )}
     </div>
   );
 }
