@@ -38,9 +38,12 @@ export default function ListControls() {
       <button className="button-main" onClick={createItem}>
         Add a new item
       </button>
-      <button className="button-secondary" onClick={toggleCompleteList}>
-        View adquired items
-      </button>
+
+      {list.length > 0 && (
+        <button className="button-secondary" onClick={toggleCompleteList}>
+          View adquired items
+        </button>
+      )}
     </section>
   );
 }

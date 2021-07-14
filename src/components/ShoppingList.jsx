@@ -7,5 +7,9 @@ export default function ShoppingList({ list, onUpdate }) {
     <ShoppingItem key={item.id} item={item} onUpdate={onUpdate} />
   ));
 
-  return <section>{List}</section>;
+  return (
+    <section>
+      {list.length > 0 ? List : <span>No items to show...</span>}
+    </section>
+  );
 }

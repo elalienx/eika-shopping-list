@@ -1,21 +1,18 @@
 // NPM Packages
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
 import EmptyState from "./pages/EmptyState";
 import NormalState from "./pages/NormalState";
-import { listState, activeListState } from "./state/listState";
+import { listState } from "./state/listState";
 import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
 export default function App() {
   // External state
-  const [, setList] = useRecoilState(listState);
-
-  // Constants
-  const activeList = useRecoilValue(activeListState);
+  const [list, setList] = useRecoilState(listState);
 
   // Methods
   useEffect(() => {
@@ -37,7 +34,7 @@ export default function App() {
         />
       </nav>
 
-      {activeList.length === 0 ? <EmptyState /> : <NormalState />}
+      {list.length === 0 ? <EmptyState /> : <NormalState />}
     </div>
   );
 }
