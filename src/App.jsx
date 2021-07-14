@@ -75,6 +75,8 @@ export default function App() {
     <div className="App">
       {activeItems.length === 0 && <EmptyState />}
 
+      {activeItems.length > 0 && <h1>Shopping list</h1>}
+
       {activeItems.length > 0 && (
         <section className="sorter-controls">
           Sort by:
@@ -88,10 +90,11 @@ export default function App() {
       )}
 
       {activeItems.length > 0 && (
-        <section className="active-items">
-          <h1>Shopping list</h1>
-          <ShoppingList list={activeItems} onUpdate={updateItem} />
-        </section>
+        <ShoppingList
+          className="active-items"
+          list={activeItems}
+          onUpdate={updateItem}
+        />
       )}
 
       <section className="list-controls">
@@ -104,9 +107,11 @@ export default function App() {
       </section>
 
       {showCompleted && (
-        <section className="inactive-items">
-          <ShoppingList list={inactiveItems} onUpdate={updateItem} />
-        </section>
+        <ShoppingList
+          className="inactive-items"
+          list={inactiveItems}
+          onUpdate={updateItem}
+        />
       )}
     </div>
   );
