@@ -4,12 +4,15 @@ export default function ShoppingItem({ item, onUpdate }) {
 
   return (
     <article className="shopping-item">
-      <input
-        checked={isCompleted}
-        onChange={() => onUpdate(id)}
-        type="checkbox"
-      />
-      <label className="name">{name}</label>
+      <label className="custom-checkbox">
+        <input
+          checked={isCompleted}
+          onChange={() => onUpdate(id)}
+          type="checkbox"
+        />
+        <div className="icon-checkmark"></div>
+      </label>
+      <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}sek</span>
     </article>

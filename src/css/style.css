@@ -6,6 +6,7 @@
 /* Atoms */
 @import url("./atoms/button-main.css");
 @import url("./atoms/button-secondary.css");
+@import url("./atoms/checkbox.css");
 @import url("./atoms/headings.css");
 @import url("./atoms/paragraph.css");
 

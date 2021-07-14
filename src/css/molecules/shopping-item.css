@@ -1,17 +1,20 @@
 .shopping-item {
   display: flex;
   justify-content: space-between;
-  text-align: left;
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
   margin-bottom: var(--space-small);
+  border-bottom: solid thin var(--color-gray-2);
+  text-align: left;
 }
 
-.shopping-item input[type="checkbox"] {
-  --size: 20px;
+.shopping-item:last-child {
+  border: none;
+}
 
+.shopping-item .custom-checkbox {
   margin-right: var(--space-medium);
-  width: var(--size);
-  height: var(--size);
-  background-color: red;
 }
 
 .shopping-item .name,

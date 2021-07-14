@@ -1,0 +1,27 @@
+.custom-checkbox {
+  --size: 24px;
+
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+}
+
+/* Norma state */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .icon-checkmark {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-gray-2);
+  border-radius: 4px;
+}
+
+/* Checked state */
+.custom-checkbox input[type="checkbox"]:checked + .icon-checkmark {
+  background-color: var(--color-blue);
+  background-image: url("../../assets/images/checkmark-white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}

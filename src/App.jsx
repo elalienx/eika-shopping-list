@@ -37,7 +37,6 @@ export default function App() {
 
   function updateItem(id) {
     const item = list.find((item) => item.id === id);
-    alert(item.name);
     const status = item.isCompleted;
 
     item.isCompleted = !status;
