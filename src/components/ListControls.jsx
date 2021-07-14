@@ -2,10 +2,11 @@
 import { useRecoilState } from "recoil";
 
 // Project files
-import { listState } from "../state/listState";
 import { completedState } from "../state/completedState";
+import { listState } from "../state/listState";
+import { storageKey } from "../state/storageKey";
 
-export default function ListControls({ storageKey }) {
+export default function ListControls() {
   // External state
   const [list, setList] = useRecoilState(listState);
   const [showCompleted, setShowCompleted] = useRecoilState(completedState);

@@ -9,6 +9,7 @@ import ShoppingList from "./components/ShoppingList";
 import ListControls from "./components/ListControls";
 import { completedState } from "./state/completedState";
 import { listState } from "./state/listState";
+import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
 export default function App() {
@@ -17,24 +18,12 @@ export default function App() {
   const showCompleted = useRecoilValue(completedState);
 
   // Constants
-  const STORAGE_KEY = "eika-shopping-list";
   const activeItems = list.filter((item) => item.isCompleted === false);
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
   // Methods
-  function updateItem(id) {
-    const index = list.findIndex((item) => item.id === id);
-    const updateList = JSON.parse(JSON.stringify(list));
-    const status = updateList[index].isCompleted;
-
-    updateList[index].isCompleted = !status;
-
-    setList(updateList);
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  }
-
   useEffect(() => {
-    const storedList = window.localStorage.getItem(STORAGE_KEY);
+    const storedList = window.localStorage.getItem(storageKey);
 
     if (storedList !== null) {
       const parsedList = JSON.parse(storedList);
@@ -55,21 +44,13 @@ export default function App() {
       {activeItems.length === 0 && <EmptyState />}
       {activeItems.length > 0 && <h1>Shopping list</h1>}
       {activeItems.length > 0 && (
-        <ShoppingList
-          className="active-items"
-          list={activeItems}
-          onUpdate={updateItem}
-        />
+        <ShoppingList className="active-items" list={activeItems} />
       )}
 
-      <ListControls storageKey={STORAGE_KEY} />
+      <ListControls />
 
       {showCompleted && (
-        <ShoppingList
-          className="inactive-items"
-          list={inactiveItems}
-          onUpdate={updateItem}
-        />
+        <ShoppingList className="inactive-items" list={inactiveItems} />
       )}
     </div>
   );
