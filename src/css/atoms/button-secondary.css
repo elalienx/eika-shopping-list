@@ -1,17 +1,8 @@
 .button-secondary {
   background-color: transparent;
-  border: none;
-  color: var(--color-gray-4);
-  font-size: var(--font-button-mobile);
-  font-family: var(--font-family);
+  font-weight: normal;
 }
 
 .button-secondary:hover {
   text-decoration: underline;
-}
-
-@media (min-width: 550px) {
-  .button-secondary {
-    font-size: var(--font-button-desktop);
-  }
 }

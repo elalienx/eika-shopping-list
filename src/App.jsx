@@ -11,6 +11,7 @@ export default function App() {
   // Local state
   const [list, setList] = useState([]);
   const [showCompleted, setShowCompleted] = useState(false);
+  const [isSortedByName, setIsSortedByName] = useState(true);
 
   // Constants
   const STORAGE_KEY = "eika-shopping-list";
@@ -52,6 +53,7 @@ export default function App() {
   function sortyListByName() {
     const sortedList = list.sort((a, b) => a.name > b.name);
 
+    setIsSortedByName(true);
     setList([...sortedList]);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
@@ -59,6 +61,7 @@ export default function App() {
   function sortListByPrice() {
     const sortedList = list.sort((a, b) => a.price - b.price);
 
+    setIsSortedByName(false);
     setList([...sortedList]);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
@@ -89,10 +92,16 @@ export default function App() {
       {activeItems.length > 0 && (
         <section className="sorter-controls">
           Sort by:
-          <button className="button-toogle" onClick={sortyListByName}>
+          <button
+            className={`button-toggle ${isSortedByName ? "active" : ""}`}
+            onClick={sortyListByName}
+          >
             Name
           </button>
-          <button className="button-toggle" onClick={sortListByPrice}>
+          <button
+            className={`button-toggle ${isSortedByName ? "" : "active"}`}
+            onClick={sortListByPrice}
+          >
             Price
           </button>
         </section>

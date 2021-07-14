@@ -1,21 +1,12 @@
 .button-main {
+  box-sizing: border-box;
   min-height: 56px;
   background-color: var(--color-blue);
-  border: none;
   border-radius: 500px;
   padding: 0 80px;
   color: white;
-  font-size: var(--font-button-mobile);
-  font-family: var(--font-family);
-  font-weight: bold;
 }
 
 .button-main:hover {
   background-color: var(--color-blue-dark);
-}
-
-@media (min-width: 550px) {
-  .button-main {
-    font-size: var(--font-button-desktop);
-  }
 }

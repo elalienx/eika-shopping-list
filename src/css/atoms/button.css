@@ -1,0 +1,13 @@
+button {
+  border: none;
+  color: var(--color-gray-4);
+  font-size: var(--font-button-mobile);
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+
+@media (min-width: 550px) {
+  button {
+    font-size: var(--font-button-desktop);
+  }
+}
