@@ -17,7 +17,7 @@ export default function App() {
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
   // Methods
-  function onCreate() {
+  function createItem() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
 
@@ -35,8 +35,9 @@ export default function App() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
   }
 
-  function onUpdate(id) {
-    const item = list[id];
+  function updateItem(id) {
+    const item = list.find((item) => item.id === id);
+    alert(item.name);
     const status = item.isCompleted;
 
     item.isCompleted = !status;
@@ -44,18 +45,25 @@ export default function App() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
-  function onToggle() {
+  function toggleCompleteList() {
     setShowCompleted(!showCompleted);
   }
 
-  function onSortByName() {
+  function sortListById() {
+    const sortedList = list.sort((a, b) => a.id - b.id);
+
+    setList([...sortedList]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  function sortyListByName() {
     const sortedList = list.sort((a, b) => a.name > b.name);
 
     setList([...sortedList]);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
-  function onSortPrice() {
+  function sortListByPrice() {
     const sortedList = list.sort((a, b) => a.price - b.price);
 
     setList([...sortedList]);
@@ -83,10 +91,13 @@ export default function App() {
       {activeItems.length > 0 && (
         <section className="sorter-controls">
           Sort by:
-          <button className="button-toogle" onClick={onSortByName}>
+          <button className="button-toogle" onClick={sortListById}>
+            Id
+          </button>
+          <button className="button-toogle" onClick={sortyListByName}>
             Name
           </button>
-          <button className="button-toggle" onClick={onSortPrice}>
+          <button className="button-toggle" onClick={sortListByPrice}>
             Price
           </button>
         </section>
@@ -95,15 +106,15 @@ export default function App() {
       {activeItems.length > 0 && (
         <section className="active-items">
           <h1>Shopping list</h1>
-          <ShoppingList list={activeItems} onUpdate={onUpdate} />
+          <ShoppingList list={activeItems} onUpdate={updateItem} />
         </section>
       )}
 
       <section className="list-controls">
-        <button className="button-main" onClick={onCreate}>
+        <button className="button-main" onClick={createItem}>
           Add a new item
         </button>
-        <button className="button-secondary" onClick={onToggle}>
+        <button className="button-secondary" onClick={toggleCompleteList}>
           View adquired items
         </button>
         <button onClick={onDeleteAll}>Delete all</button>
@@ -111,7 +122,7 @@ export default function App() {
 
       {showCompleted && (
         <section className="inactive-items">
-          <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
+          <ShoppingList list={inactiveItems} onUpdate={updateItem} />
         </section>
       )}
     </div>

@@ -9,7 +9,9 @@ export default function ShoppingItem({ item, onUpdate }) {
         onChange={() => onUpdate(id)}
         type="checkbox"
       />
-      <label className="name">{name}</label>
+      <label className="name">
+        #{id} {name}
+      </label>
       <span className="spacer"></span>
       <span className="price">{price}sek</span>
     </article>
