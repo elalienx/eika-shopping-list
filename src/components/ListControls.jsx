@@ -24,8 +24,7 @@ export default function ListControls({ storageKey }) {
     else return;
 
     const newList = [...list, newItem];
-
-    setList(newList);
+    setList([...list, newItem]);
     window.localStorage.setItem(storageKey, JSON.stringify(newList));
   }
 

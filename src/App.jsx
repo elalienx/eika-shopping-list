@@ -1,5 +1,5 @@
 // NPM Packages
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 // Project files
@@ -9,13 +9,11 @@ import ShoppingList from "./components/ShoppingList";
 import ListControls from "./components/ListControls";
 import { completedState } from "./state/completedState";
 import { listState } from "./state/listState";
-import { sortState } from "./state/sortState";
 import "./css/style.css";
 
 export default function App() {
   // External state
   const [list, setList] = useRecoilState(listState);
-  const [sortPriority, setSortPriority] = useRecoilState(sortState);
   const showCompleted = useRecoilValue(completedState);
 
   // Constants
@@ -24,13 +22,14 @@ export default function App() {
   const inactiveItems = list.filter((item) => item.isCompleted === true);
 
   // Methods
-
   function updateItem(id) {
-    const item = list.find((item) => item.id === id);
-    const status = item.isCompleted;
+    const index = list.findIndex((item) => item.id === id);
+    const updateList = JSON.parse(JSON.stringify(list));
+    const status = updateList[index].isCompleted;
 
-    item.isCompleted = !status;
-    setList([...list]);
+    updateList[index].isCompleted = !status;
+
+    setList(updateList);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
 
@@ -41,7 +40,7 @@ export default function App() {
       const parsedList = JSON.parse(storedList);
       setList(parsedList);
     }
-  }, []);
+  }, [setList]);
 
   return (
     <div className="App">
@@ -54,9 +53,7 @@ export default function App() {
       </nav>
 
       {activeItems.length === 0 && <EmptyState />}
-
       {activeItems.length > 0 && <h1>Shopping list</h1>}
-
       {activeItems.length > 0 && (
         <ShoppingList
           className="active-items"
