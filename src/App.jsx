@@ -20,13 +20,14 @@ export default function App() {
   function onCreate() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
+
     const promptName = prompt("Whats the name of the shopping item?");
+    if (promptName !== null && promptName !== "") newItem.name = promptName;
+    else return;
+
     const promptPrice = prompt("Whats its price?");
-
-    if (promptName !== null) newItem.name = promptName;
-
-    // Note: Add some test to verify that the price is just a number
-    if (promptPrice !== null) newItem.price = promptPrice;
+    if (promptPrice !== null && promptPrice !== "") newItem.price = promptPrice;
+    else return;
 
     const newList = [...list, newItem];
 
@@ -39,7 +40,6 @@ export default function App() {
     const status = item.isCompleted;
 
     item.isCompleted = !status;
-
     setList([...list]);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
   }
@@ -62,10 +62,10 @@ export default function App() {
       {activeItems.length === 0 && <EmptyState />}
 
       {activeItems.length > 0 && (
-        <>
+        <section className="active-items">
           <h1>Shopping list</h1>
           <ShoppingList list={activeItems} onUpdate={onUpdate} />
-        </>
+        </section>
       )}
 
       <section className="list-controls">
@@ -78,7 +78,9 @@ export default function App() {
       </section>
 
       {showCompleted && (
-        <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
+        <section className="inactive-items">
+          <ShoppingList list={inactiveItems} onUpdate={onUpdate} />
+        </section>
       )}
     </div>
   );
