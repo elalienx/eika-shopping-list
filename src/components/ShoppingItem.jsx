@@ -1,4 +1,4 @@
-export default function ShoppingItem({ item, onUpdate }) {
+export default function ShoppingItem({ item, updateItem }) {
   // Constants
   const { id, name, price, isCompleted } = item;
 
@@ -7,7 +7,7 @@ export default function ShoppingItem({ item, onUpdate }) {
       <label className="custom-checkbox">
         <input
           checked={isCompleted}
-          onChange={() => onUpdate(id)}
+          onChange={() => updateItem(id)}
           type="checkbox"
         />
         <div className="icon-checkmark"></div>

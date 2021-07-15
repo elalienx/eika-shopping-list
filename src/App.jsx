@@ -11,7 +11,7 @@ import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
 export default function App() {
-  // External state
+  // Global state
   const [list, setList] = useRecoilState(listState);
 
   // Methods
@@ -20,6 +20,7 @@ export default function App() {
 
     if (storedList !== null) {
       const parsedList = JSON.parse(storedList);
+
       setList(parsedList);
     }
 

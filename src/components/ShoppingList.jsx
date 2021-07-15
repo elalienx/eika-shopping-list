@@ -1,10 +1,10 @@
 // Project files
 import ShoppingItem from "./ShoppingItem";
 
-export default function ShoppingList({ list, onUpdate }) {
+export default function ShoppingList({ list, updateItem }) {
   // Components
   const List = list.map((item) => (
-    <ShoppingItem key={item.id} item={item} onUpdate={onUpdate} />
+    <ShoppingItem key={item.id} item={item} updateItem={updateItem} />
   ));
 
   return (

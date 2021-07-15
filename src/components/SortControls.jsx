@@ -7,7 +7,7 @@ import { sortState } from "../state/sortState";
 import { storageKey } from "../state/storageKey";
 
 export default function SortControls() {
-  // External state
+  // Global state
   const [list, setList] = useRecoilState(listState);
   const [sort, setSort] = useRecoilState(sortState);
 

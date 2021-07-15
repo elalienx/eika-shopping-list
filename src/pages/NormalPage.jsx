@@ -5,23 +5,20 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import ListControls from "../components/ListControls";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
-import {
-  listState,
-  activeListState,
-  inactiveListState,
-} from "../state/listState";
+import { listState } from "../state/listState";
+import { activeListState, inactiveListState } from "../state/listState";
 import { completedState } from "../state/completedState";
 import { storageKey } from "../state/storageKey";
 
 export default function NormalState() {
-  // External state
+  // Global state
   const [list, setList] = useRecoilState(listState);
   const activeList = useRecoilValue(activeListState);
   const inactiveList = useRecoilValue(inactiveListState);
   const showCompleted = useRecoilValue(completedState);
 
   // Methods
-  function onUpdate(id) {
+  function updateItem(id) {
     const index = list.findIndex((item) => item.id === id);
     const updateList = JSON.parse(JSON.stringify(list));
     const status = updateList[index].isCompleted;
@@ -39,14 +36,14 @@ export default function NormalState() {
       <SortControls />
 
       {/* Pending items */}
-      <ShoppingList list={activeList} onUpdate={onUpdate} />
+      <ShoppingList list={activeList} updateItem={updateItem} />
 
       {/* Main controls */}
       <ListControls />
 
       {/* Completed items */}
       {showCompleted && (
-        <ShoppingList list={inactiveList} onUpdate={onUpdate} />
+        <ShoppingList list={inactiveList} updateItem={updateItem} />
       )}
     </div>
   );

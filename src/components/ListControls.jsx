@@ -7,27 +7,41 @@ import { listState } from "../state/listState";
 import { storageKey } from "../state/storageKey";
 
 export default function ListControls() {
-  // External state
+  // Global state
   const [list, setList] = useRecoilState(listState);
   const [showCompleted, setShowCompleted] = useRecoilState(completedState);
 
   // Methods
-  function createItem() {
+  function createItem(list) {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
     let updatedList = [];
 
-    const promptName = prompt("Whats the name of the shopping item?");
-    if (promptName !== null && promptName !== "") newItem.name = promptName;
-    else return;
-
-    const promptPrice = prompt("Whats its price?");
-    if (promptPrice !== null && promptPrice !== "") newItem.price = promptPrice;
-    else return;
+    newItem.name = askName();
+    newItem.price = askPrice();
 
     updatedList = [...list, newItem];
-    setList(updatedList);
-    window.localStorage.setItem(storageKey, JSON.stringify(updatedList));
+
+    saveInformation(updatedList, storageKey);
+  }
+
+  function askName() {
+    const promptName = prompt("Whats the name of the shopping item?");
+
+    if (promptName !== null && promptName !== "") return promptName;
+    else return "new item";
+  }
+
+  function askPrice() {
+    const promptPrice = prompt("Whats its price?");
+
+    if (promptPrice !== null && promptPrice !== "") return promptPrice;
+    else return 0;
+  }
+
+  function saveInformation(list, storageKey) {
+    setList(list);
+    window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
 
   function toggleCompleteList() {
@@ -36,7 +50,7 @@ export default function ListControls() {
 
   return (
     <section className="list-controls">
-      <button className="button-main" onClick={createItem}>
+      <button className="button-main" onClick={() => createItem(list)}>
         Add a new item
       </button>
 
