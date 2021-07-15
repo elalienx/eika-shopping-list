@@ -13,8 +13,7 @@ export default function SortControls() {
 
   // Methods
   function sortyListByName(list) {
-    const updateList = JSON.parse(JSON.stringify(list));
-    const sortedList = updateList.sort(
+    const sortedList = [...list].sort(
       (a, b) => a.name.toLowerCase() > b.name.toLowerCase()
     );
 
@@ -23,8 +22,7 @@ export default function SortControls() {
   }
 
   function sortListByPrice(list) {
-    const updateList = JSON.parse(JSON.stringify(list));
-    const sortedList = updateList.sort((a, b) => a.price - b.price);
+    const sortedList = [...list].sort((a, b) => a.price - b.price);
 
     setSort("price");
     saveInformation(sortedList, storageKey);
