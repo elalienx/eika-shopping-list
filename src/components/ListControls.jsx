@@ -13,14 +13,13 @@ export default function ListControls() {
 
   // Methods
   function createItem(list) {
-    const newId = list.length;
-    const newItem = { name: "", price: "", id: newId, isCompleted: false };
-    let updatedList = [];
-
-    newItem.name = askName();
-    newItem.price = askPrice();
-
-    updatedList = [...list, newItem];
+    const newItem = {
+      name: askName(),
+      price: askPrice(),
+      id: list.length,
+      isCompleted: false,
+    };
+    const updatedList = [...list, newItem];
 
     saveInformation(updatedList, storageKey);
   }
