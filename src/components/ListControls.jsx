@@ -12,6 +12,7 @@ export default function ListControls() {
   const [showCompleted, setShowCompleted] = useRecoilState(completedState);
 
   // Methods
+  // Pure but void
   function createItem(list) {
     const newItem = {
       name: askName(),
@@ -24,6 +25,7 @@ export default function ListControls() {
     saveInformation(updatedList, storageKey);
   }
 
+  // Pure
   function askName() {
     const promptName = prompt("Whats the name of the shopping item?");
 
@@ -31,6 +33,7 @@ export default function ListControls() {
     else return "new item";
   }
 
+  // Pure
   function askPrice() {
     const promptPrice = prompt("Whats its price?");
 
@@ -38,6 +41,7 @@ export default function ListControls() {
     else return 0;
   }
 
+  // Impure
   function saveInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));

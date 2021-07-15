@@ -8,8 +8,6 @@ export default function ShoppingList({ list, updateItem }) {
   ));
 
   return (
-    <section>
-      {list.length > 0 ? List : <span>No items to show...</span>}
-    </section>
+    <section>{list.length > 0 ? List : <p>No items to show...</p>}</section>
   );
 }

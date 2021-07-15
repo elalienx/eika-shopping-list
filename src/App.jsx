@@ -15,6 +15,7 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
+  // Impure
   useEffect(() => {
     const storedList = window.localStorage.getItem(storageKey);
 

@@ -18,14 +18,20 @@ export default function NormalState() {
   const showCompleted = useRecoilValue(completedState);
 
   // Methods
+  // Impure (uses properties outside scope)
   function updateItem(id) {
     const index = list.findIndex((item) => item.id === id);
     const updateList = JSON.parse(JSON.stringify(list));
     const status = updateList[index].isCompleted;
 
     updateList[index].isCompleted = !status;
-    setList(updateList);
-    window.localStorage.setItem(storageKey, JSON.stringify(updateList));
+    saveInformation(updateList, storageKey);
+  }
+
+  // Impure
+  function saveInformation(list, storageKey) {
+    setList(list);
+    window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
 
   return (
