@@ -2,6 +2,8 @@
 import { useRecoilState } from "recoil";
 
 // Project files
+import IconOpenEye from "../assets/images/eye-open.svg";
+import IconCloseEye from "../assets/images/eye-close.svg";
 import { completedState } from "../state/completedState";
 import { listState } from "../state/listState";
 import { storageKey } from "../state/storageKey";
@@ -59,6 +61,8 @@ export default function ListControls() {
 
       {list.length > 0 && (
         <button className="button-secondary" onClick={toggleCompleteList}>
+          {!showCompleted && <img src={IconOpenEye} alt="An open eye icon" />}
+          {showCompleted && <img src={IconCloseEye} alt="A close eye icon" />}
           {showCompleted ? "Hide" : "View"} adquired items
         </button>
       )}

@@ -6,3 +6,7 @@
 .button-secondary:hover {
   text-decoration: underline;
 }
+
+.button-secondary img {
+  margin-right: var(--space-small);
+}
