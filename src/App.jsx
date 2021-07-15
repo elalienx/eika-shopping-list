@@ -22,6 +22,8 @@ export default function App() {
       const parsedList = JSON.parse(storedList);
       setList(parsedList);
     }
+
+    document.title = "EIKA Shopping list";
   }, [setList]);
 
   return (
