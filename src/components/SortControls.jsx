@@ -12,22 +12,27 @@ export default function SortControls() {
   const [sort, setSort] = useRecoilState(sortState);
 
   // Methods
-  function sortyListByName() {
+  function sortyListByName(list) {
     const updateList = JSON.parse(JSON.stringify(list));
-    const sortedList = updateList.sort((a, b) => a.name > b.name);
+    const sortedList = updateList.sort(
+      (a, b) => a.name.toLowerCase() > b.name.toLowerCase()
+    );
 
     setSort("name");
-    setList(sortedList);
-    window.localStorage.setItem(storageKey, JSON.stringify(sortedList));
+    saveInformation(sortedList, storageKey);
   }
 
-  function sortListByPrice() {
+  function sortListByPrice(list) {
     const updateList = JSON.parse(JSON.stringify(list));
     const sortedList = updateList.sort((a, b) => a.price - b.price);
 
     setSort("price");
-    setList(sortedList);
-    window.localStorage.setItem(storageKey, JSON.stringify(sortedList));
+    saveInformation(sortedList, storageKey);
+  }
+
+  function saveInformation(list, storageKey) {
+    setList(list);
+    window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
 
   return (
@@ -35,13 +40,13 @@ export default function SortControls() {
       Sort by:
       <button
         className={`button-toggle ${sort === "name" && "active"}`}
-        onClick={sortyListByName}
+        onClick={() => sortyListByName(list)}
       >
         Name
       </button>
       <button
         className={`button-toggle ${sort === "price" && "active"}`}
-        onClick={sortListByPrice}
+        onClick={() => sortListByPrice(list)}
       >
         Price
       </button>
