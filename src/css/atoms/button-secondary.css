@@ -1,6 +1,7 @@
 .button-secondary {
   background-color: transparent;
   font-weight: normal;
+  padding: 0;
 }
 
 .button-secondary:hover {
@@ -8,5 +9,16 @@
 }
 
 .button-secondary img {
+  --size: 20px;
+
+  width: var(--size);
+  height: var(--size);
+
   margin-right: var(--space-small);
+}
+
+/* To perfectly align the icon with the text */
+.button-secondary img,
+.button-secondary span {
+  vertical-align: middle;
 }

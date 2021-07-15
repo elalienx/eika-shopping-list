@@ -63,7 +63,7 @@ export default function ListControls() {
         <button className="button-secondary" onClick={toggleCompleteList}>
           {!showCompleted && <img src={IconOpenEye} alt="An open eye icon" />}
           {showCompleted && <img src={IconCloseEye} alt="A close eye icon" />}
-          {showCompleted ? "Hide" : "View"} adquired items
+          <span>{showCompleted ? "Hide" : "View"} adquired items</span>
         </button>
       )}
     </section>
