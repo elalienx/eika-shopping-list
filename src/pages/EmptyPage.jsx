@@ -4,7 +4,7 @@ import ListControls from "../components/ListControls";
 
 export default function EmptyState() {
   return (
-    <div className="empty-state">
+    <div id="empty-page">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
       <h1>Shopping list</h1>
       <p>

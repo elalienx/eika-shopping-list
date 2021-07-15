@@ -32,7 +32,7 @@ export default function NormalState() {
   }
 
   return (
-    <div className="normal-state">
+    <div id="normal-page">
       <h1>Shopping list</h1>
 
       {/* Sorting controls */}

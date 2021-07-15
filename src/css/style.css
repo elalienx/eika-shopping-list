@@ -16,6 +16,6 @@
 @import url("./molecules/list-controls.css");
 @import url("./molecules/shopping-item.css");
 
-/* Organisms */
-@import url("./organisms/empty-state.css");
-@import url("./organisms/normal-state.css");
+/* Templates */
+@import url("./templates/empty-page.css");
+@import url("./templates/normal-page.css");

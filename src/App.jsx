@@ -4,8 +4,8 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import EmptyState from "./pages/EmptyState";
-import NormalState from "./pages/NormalState";
+import EmptyState from "./pages/EmptyPage";
+import NormalState from "./pages/NormalPage";
 import { listState } from "./state/listState";
 import { storageKey } from "./state/storageKey";
 import "./css/style.css";
