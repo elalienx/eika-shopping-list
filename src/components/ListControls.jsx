@@ -22,7 +22,7 @@ export default function ListControls() {
     };
     const updatedList = [...list, newItem];
 
-    saveInformation(updatedList, storageKey);
+    storeInformation(updatedList, storageKey);
   }
 
   // Pure
@@ -42,7 +42,7 @@ export default function ListControls() {
   }
 
   // Impure
-  function saveInformation(list, storageKey) {
+  function storeInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));
   }

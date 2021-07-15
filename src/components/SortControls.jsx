@@ -18,17 +18,17 @@ export default function SortControls() {
     );
 
     setSort("name");
-    saveInformation(sortedList, storageKey);
+    storeInformation(sortedList, storageKey);
   }
 
   function sortListByPrice(list) {
     const sortedList = [...list].sort((a, b) => a.price - b.price);
 
     setSort("price");
-    saveInformation(sortedList, storageKey);
+    storeInformation(sortedList, storageKey);
   }
 
-  function saveInformation(list, storageKey) {
+  function storeInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));
   }

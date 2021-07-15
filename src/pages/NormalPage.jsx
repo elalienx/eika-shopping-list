@@ -25,11 +25,11 @@ export default function NormalState() {
     const status = updateList[index].isCompleted;
 
     updateList[index].isCompleted = !status;
-    saveInformation(updateList, storageKey);
+    storeInformation(updateList, storageKey);
   }
 
   // Impure
-  function saveInformation(list, storageKey) {
+  function storeInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
