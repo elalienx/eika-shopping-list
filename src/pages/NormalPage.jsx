@@ -32,14 +32,16 @@ export default function NormalState() {
   }
 
   async function updateImage(id, resizedImage) {
-    console.log("NormalPage.jsx id", id);
-    console.log("NormalPage.jsx resizedImage", resizedImage);
-
     const newName = `image-${new Date().getTime()}.png`;
     const imageForFirebase = await dataURLToFile(resizedImage, newName);
     const imageURL = await uploadFileToFirebase(firebase, imageForFirebase);
 
-    console.log("NormalPage.jsx imageURL", imageURL);
+    // Refactor we duplicated the code from updatedItem
+    const index = list.findIndex((item) => item.id === id);
+    const updateList = JSON.parse(JSON.stringify(list));
+
+    updateList[index].thumbnail = imageURL;
+    storeInformation(updateList, storageKey);
   }
 
   // Impure

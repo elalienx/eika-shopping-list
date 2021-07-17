@@ -43,12 +43,13 @@ export default function ListControls() {
     else return 0;
   }
 
-  // Impure
+  // Impure mutate state
   function storeInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
 
+  // Pure
   function toggleCompleteList() {
     setShowCompleted(!showCompleted);
   }

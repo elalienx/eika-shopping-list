@@ -1,26 +1,18 @@
-// NPM
-import { useState } from "react";
-
 // Project files
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
 export default function ShoppingItem({ item, updateItem, updateImage }) {
-  // Local state
-  const [resizedImage, setResizedImage] = useState("");
-
   // Constants
-  const { id, name, price, isCompleted } = item;
+  const { id, name, price, isCompleted, thumbnail } = item;
 
   // Methods
-  // Impure uses the external id
-  async function processImage(event) {
+  // Pure
+  async function processImage(event, id) {
     const file = event.target.files[0];
-
     const originalImage = await readImage(file);
     const resizedImage = await resizeImage(originalImage, 80, 80);
 
-    setResizedImage(resizedImage);
     updateImage(id, resizedImage);
   }
 
@@ -39,8 +31,12 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
       <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
 
       {/* Image uploader */}
-      <input type="file" accept="image/*" onChange={processImage} />
-      <img src={resizedImage} alt="The item thumbnail" />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(event) => processImage(event, id)}
+      />
+      <img src={thumbnail} alt="The item thumbnail" />
     </article>
   );
 }
