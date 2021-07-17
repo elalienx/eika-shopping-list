@@ -15,6 +15,8 @@ export default function ShoppingItem({ item, updateItem }) {
       <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
       <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
+
+      {/* Image uploader */}
     </article>
   );
 }
