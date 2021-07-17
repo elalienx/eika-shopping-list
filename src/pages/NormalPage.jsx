@@ -9,6 +9,9 @@ import { listState } from "../state/listState";
 import { activeListState, inactiveListState } from "../state/listState";
 import { completedState } from "../state/completedState";
 import { storageKey } from "../state/storageKey";
+import firebase from "../firebase";
+import dataURLToFile from "../js/dataURLToFile";
+import uploadFileToFirebase from "../js/uploadFileToFirebase";
 
 export default function NormalState() {
   // Global state
@@ -28,6 +31,17 @@ export default function NormalState() {
     storeInformation(updateList, storageKey);
   }
 
+  async function updateImage(id, resizedImage) {
+    console.log("NormalPage.jsx id", id);
+    console.log("NormalPage.jsx resizedImage", resizedImage);
+
+    const newName = `image-${new Date().getTime()}.png`;
+    const imageForFirebase = await dataURLToFile(resizedImage, newName);
+    const imageURL = await uploadFileToFirebase(firebase, imageForFirebase);
+
+    console.log("NormalPage.jsx imageURL", imageURL);
+  }
+
   // Impure
   function storeInformation(list, storageKey) {
     setList(list);
@@ -42,14 +56,22 @@ export default function NormalState() {
       <SortControls />
 
       {/* Pending items */}
-      <ShoppingList list={activeList} updateItem={updateItem} />
+      <ShoppingList
+        list={activeList}
+        updateItem={updateItem}
+        updateImage={updateImage}
+      />
 
       {/* Main controls */}
       <ListControls />
 
       {/* Completed items */}
       {showCompleted && (
-        <ShoppingList list={inactiveList} updateItem={updateItem} />
+        <ShoppingList
+          list={inactiveList}
+          updateItem={updateItem}
+          updateImage={updateImage}
+        />
       )}
     </div>
   );

@@ -1,28 +1,27 @@
+// NPM
+import { useState } from "react";
+
 // Project files
-import firebase from "../firebase"; // you are creating a heavy reference in each item?
-import dataURLToFile from "../js/dataURLToFile";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
-import uploadFileToFirebase from "../js/uploadFileToFirebase";
 
-export default function ShoppingItem({ item, updateItem }) {
+export default function ShoppingItem({ item, updateItem, updateImage }) {
+  // Local state
+  const [resizedImage, setResizedImage] = useState("");
+
   // Constants
   const { id, name, price, isCompleted } = item;
 
   // Methods
-  // Pure
+  // Impure uses the external id
   async function processImage(event) {
     const file = event.target.files[0];
-    const newName = `image-${new Date().getTime()}.png`;
 
     const originalImage = await readImage(file);
-    const resizedImage = await resizeImage(originalImage);
-    const imageForFirebase = await dataURLToFile(resizedImage, newName);
-    const imageURL = await uploadFileToFirebase(firebase, imageForFirebase);
+    const resizedImage = await resizeImage(originalImage, 80, 80);
 
-    setOriginalImage(originalImage);
-    setResizedImage(resizedImage, 80, 80);
-    console.log("imageURL", imageURL);
+    setResizedImage(resizedImage);
+    updateImage(id, resizedImage);
   }
 
   return (
@@ -41,6 +40,7 @@ export default function ShoppingItem({ item, updateItem }) {
 
       {/* Image uploader */}
       <input type="file" accept="image/*" onChange={processImage} />
+      <img src={resizedImage} alt="The item thumbnail" />
     </article>
   );
 }
