@@ -1,4 +1,5 @@
 // Project files
+import ImageChooser from "./ImageChooser";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
@@ -31,12 +32,7 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
       <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
 
       {/* Image uploader */}
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(event) => processImage(event, id)}
-      />
-      <img src={thumbnail} alt="The item thumbnail" />
+      <ImageChooser thumbnail={thumbnail} processImage={processImage} id={id} />
     </article>
   );
 }

@@ -28,6 +28,7 @@
 
 .shopping-item .price {
   font-weight: bold;
+  margin-right: var(--space-medium);
 }
 
 .shopping-item .name.checked,

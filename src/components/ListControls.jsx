@@ -21,6 +21,7 @@ export default function ListControls() {
       price: askPrice(),
       id: list.length,
       isCompleted: false,
+      thumbnail: "",
     };
     const updatedList = [...list, newItem];
 
