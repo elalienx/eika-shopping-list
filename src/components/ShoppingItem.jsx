@@ -1,26 +1,27 @@
 // Project files
-import ImageChooser from "./ImageChooser";
+import Placeholder from "../assets/images/placeholder.png";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
 export default function ShoppingItem({ item, updateItem, updateImage }) {
   // Constants
   const { id, name, price, isCompleted, thumbnail } = item;
+  const finalImage = thumbnail === "" ? Placeholder : thumbnail;
+  const uniqueID = `image-chooser-${id}`;
 
   // Methods
-  // Impure is using the id outside scope
-  async function processImage(event, id) {
-    console.log("ShoppingItem processImage", event, id);
-
+  // Pure
+  async function processImage(event, id, updateImage) {
     const file = event.target.files[0];
     const originalImage = await readImage(file);
-    const resizedImage = await resizeImage(originalImage, 80, 80);
+    const resizedImage = await resizeImage(originalImage);
 
     updateImage(id, resizedImage);
   }
 
   return (
     <article className="shopping-item">
+      {/* Refactor */}
       <label className="custom-checkbox">
         <input
           checked={isCompleted}
@@ -29,16 +30,22 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
         />
         <div className="icon-checkmark"></div>
       </label>
+
       <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
       <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
 
-      {/* Image uploader */}
-      <ImageChooser
-        myId={id}
-        thumbnail={thumbnail}
-        processImage={processImage}
-      />
+      {/* Refactor */}
+      <div className="image-chooser">
+        <input
+          type="file"
+          id={uniqueID}
+          onChange={(event) => processImage(event, id, updateImage)}
+        />
+        <label htmlFor={uniqueID}>
+          <img src={finalImage} alt="User generated content" />
+        </label>
+      </div>
     </article>
   );
 }

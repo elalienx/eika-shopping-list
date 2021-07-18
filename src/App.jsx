@@ -23,6 +23,9 @@ export default function App() {
       const parsedList = JSON.parse(storedList);
 
       setList(parsedList);
+
+      // For debug
+      // window.localStorage.clear(storageKey);
     }
 
     document.title = "EIKA Shopping list";
