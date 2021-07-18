@@ -32,6 +32,7 @@ export default function NormalState() {
   }
 
   async function updateImage(id, resizedImage) {
+    console.log("NormalPage.jsx updateImage id", id);
     const newName = `image-${new Date().getTime()}.png`;
     const imageForFirebase = await dataURLToFile(resizedImage, newName);
     const imageURL = await uploadFileToFirebase(firebase, imageForFirebase);

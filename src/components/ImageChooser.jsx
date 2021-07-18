@@ -3,9 +3,6 @@ import Placeholder from "../assets/images/placeholder.png";
 export default function ImageChooser({ id, thumbnail, processImage }) {
   const finalImage = thumbnail === "" ? Placeholder : thumbnail;
 
-  console.log("ImageChooser.jsx image", thumbnail);
-  console.log("ImageChooser.jsx finalImage", thumbnail);
-
   return (
     <div className="image-chooser">
       <input

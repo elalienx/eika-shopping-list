@@ -22,7 +22,6 @@ export default function App() {
     if (storedList !== null) {
       const parsedList = JSON.parse(storedList);
 
-      console.log(parsedList);
       setList(parsedList);
     }
 
