@@ -8,8 +8,10 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
   const { id, name, price, isCompleted, thumbnail } = item;
 
   // Methods
-  // Pure
+  // Impure is using the id outside scope
   async function processImage(event, id) {
+    console.log("ShoppingItem processImage", event, id);
+
     const file = event.target.files[0];
     const originalImage = await readImage(file);
     const resizedImage = await resizeImage(originalImage, 80, 80);
@@ -32,7 +34,11 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
       <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
 
       {/* Image uploader */}
-      <ImageChooser thumbnail={thumbnail} processImage={processImage} id={id} />
+      <ImageChooser
+        myId={id}
+        thumbnail={thumbnail}
+        processImage={processImage}
+      />
     </article>
   );
 }

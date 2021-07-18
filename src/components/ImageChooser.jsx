@@ -1,6 +1,7 @@
 import Placeholder from "../assets/images/placeholder.png";
 
-export default function ImageChooser({ id, thumbnail, processImage }) {
+export default function ImageChooser({ myId, thumbnail, processImage }) {
+  console.log("ImageChooser myId", myId);
   const finalImage = thumbnail === "" ? Placeholder : thumbnail;
 
   return (
@@ -9,7 +10,7 @@ export default function ImageChooser({ id, thumbnail, processImage }) {
         type="file"
         name="file"
         id="file"
-        onChange={(event) => processImage(event, id)}
+        onChange={(event) => processImage(event, myId)}
       />
       <label htmlFor="file">
         <img src={finalImage} alt="User generated content" />
