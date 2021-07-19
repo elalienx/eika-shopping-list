@@ -28,7 +28,7 @@ export default function NormalState() {
     const status = updateList[index].isCompleted;
 
     updateList[index].isCompleted = !status;
-    storeInformation(updateList, storageKey);
+    setList(updateList);
   }
 
   // Impure, uses firebase outside its scope
@@ -42,13 +42,7 @@ export default function NormalState() {
     const updateList = JSON.parse(JSON.stringify(list));
 
     updateList[index].thumbnail = imageURL;
-    storeInformation(updateList, storageKey);
-  }
-
-  // Impure, mutate localStorage and uses setList outside scope
-  function storeInformation(list, storageKey) {
-    setList(list);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
+    setList(updateList);
   }
 
   return (

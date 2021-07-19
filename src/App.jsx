@@ -15,16 +15,17 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
+  // Impure (but innevitable)
+  function saveData(storageKey, list) {
+    const stringifyList = JSON.stringify(list);
+
+    window.localStorage.setItem(storageKey, stringifyList);
+  }
+
   // Impure
   useEffect(() => {
-    const storedList = window.localStorage.getItem(storageKey);
-
-    if (storedList !== null) {
-      const parsedList = JSON.parse(storedList);
-
-      setList(parsedList);
-    }
-  }, [setList]);
+    saveData(storageKey, list);
+  }, [saveData]);
 
   return (
     <div className="App">

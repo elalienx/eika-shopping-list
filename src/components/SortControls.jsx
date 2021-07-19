@@ -19,7 +19,7 @@ export default function SortControls() {
     );
 
     setSort("name");
-    storeInformation(sortedList, storageKey);
+    setList(sortedList);
   }
 
   // Pure but void
@@ -27,13 +27,7 @@ export default function SortControls() {
     const sortedList = [...list].sort((a, b) => a.price - b.price);
 
     setSort("price");
-    storeInformation(sortedList, storageKey);
-  }
-
-  // Impure
-  function storeInformation(list, storageKey) {
-    setList(list);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
+    setList(sortedList);
   }
 
   return (

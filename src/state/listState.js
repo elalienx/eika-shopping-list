@@ -1,9 +1,10 @@
 // NPM Packages
 import { atom, selector } from "recoil";
+import { storageKey } from "./storageKey";
 
 export const listState = atom({
   key: "listState",
-  default: [],
+  default: loadData(storageKey),
 });
 
 export const activeListState = selector({
@@ -25,3 +26,10 @@ export const inactiveListState = selector({
     return filteredList;
   },
 });
+
+function loadData(storageKey) {
+  const storedList = window.localStorage.getItem(storageKey) ?? [];
+  const parsedList = JSON.parse(storedList);
+
+  return parsedList;
+}

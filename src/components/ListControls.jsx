@@ -25,7 +25,7 @@ export default function ListControls() {
     };
     const updatedList = [...list, newItem];
 
-    storeInformation(updatedList, storageKey);
+    setList(updatedList);
   }
 
   // Pure
@@ -43,12 +43,6 @@ export default function ListControls() {
     } while (isNaN(selection));
 
     return selection;
-  }
-
-  // Impure mutate state
-  function storeInformation(list, storageKey) {
-    setList(list);
-    window.localStorage.setItem(storageKey, JSON.stringify(list));
   }
 
   // Pure
