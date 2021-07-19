@@ -19,11 +19,11 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
   }
 
   return (
-    <article className="shopping-item">
+    <article className={`shopping-item ${isCompleted && "checked"}`}>
       <Checkbox isCompleted={isCompleted} updateItem={() => updateItem(id)} />
-      <span className={`name ${isCompleted && "checked"}`}>{name}</span>
+      <span className="name">{name}</span>
       <span className="spacer"></span>
-      <span className={`price ${isCompleted && "checked"}`}>{price}:-</span>
+      <span className="price">{price}:-</span>
       <ImageChooser
         thumbnail={thumbnail}
         processImage={(event) => processImage(event, id, updateImage)}

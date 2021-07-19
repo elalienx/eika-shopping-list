@@ -31,10 +31,15 @@
   margin-right: var(--space-medium);
 }
 
-.shopping-item .name.checked,
-.shopping-item .price.checked {
+/* Checked state */
+
+.shopping-item.checked .name,
+.shopping-item.checked .price {
   text-decoration: line-through;
   color: var(--color-gray-3);
+}
+.shopping-item.checked img {
+  opacity: 0.5;
 }
 
 @media (min-width: 550px) {
