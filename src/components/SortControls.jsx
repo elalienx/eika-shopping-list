@@ -37,8 +37,8 @@ export default function SortControls() {
   }
 
   return (
-    <section className="sorter-controls">
-      Sort by:
+    <section className="sort-controls">
+      <span className="label">Sort by:</span>
       <button
         className={`button-toggle ${sort === "name" && "active"}`}
         onClick={() => sortyListByName(list)}

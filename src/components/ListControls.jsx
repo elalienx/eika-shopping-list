@@ -32,7 +32,7 @@ export default function ListControls() {
   function askName() {
     const promptName = prompt("Whats the name of the shopping item?");
 
-    if (promptName !== null && promptName !== "") return promptName;
+    if (promptName !== null && promptName !== "") return promptName.trim();
     else return "new item";
   }
 
@@ -40,7 +40,7 @@ export default function ListControls() {
   function askPrice() {
     const promptPrice = prompt("Whats its price in swedish kronas?");
 
-    if (promptPrice !== null && promptPrice !== "") return promptPrice;
+    if (promptPrice !== null && promptPrice !== "") return promptPrice.trim();
     else return 0;
   }
 
