@@ -1,5 +1,5 @@
 // Project files
-import Placeholder from "../assets/images/placeholder.png";
+import Placeholder from "../assets/images/image-placeholder.png";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
@@ -33,7 +33,7 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
 
       <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
-      <span className={`price ${isCompleted && "checked"}`}>{price}sek</span>
+      <span className={`price ${isCompleted && "checked"}`}>{price}:-</span>
 
       {/* Refactor */}
       <div className="image-chooser">
