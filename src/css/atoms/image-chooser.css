@@ -12,6 +12,7 @@
 
   width: var(--size);
   height: var(--size);
+  object-fit: cover;
   background-color: var(--grey-4);
   vertical-align: middle;
   border-radius: 4px;
