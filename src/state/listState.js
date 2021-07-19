@@ -28,8 +28,14 @@ export const inactiveListState = selector({
 });
 
 function loadData(storageKey) {
-  const storedList = window.localStorage.getItem(storageKey) ?? [];
-  const parsedList = JSON.parse(storedList);
+  try {
+    const storedList = localStorage.getItem(storageKey);
+    const parsedList = JSON.parse(storedList) ?? [];
 
-  return parsedList;
+    return parsedList;
+  } catch {
+    console.error("The shopping items could not be parsed into JSON");
+
+    return [];
+  }
 }
