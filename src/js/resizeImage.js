@@ -7,6 +7,8 @@ export default async function resizeImage(image, width = 100, height = 100) {
   let newHeight = 0;
 
   resizedImage.src = image;
+  await new Promise((result) => (resizedImage.onload = result)); // to force the machine to wait until the image loading is done
+
   newWidth = resizedImage.width;
   newHeight = resizedImage.height;
   originalContext.drawImage(resizedImage, 0, 0);

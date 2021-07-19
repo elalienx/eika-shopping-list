@@ -1,13 +1,13 @@
 export default async function dataURLToFile(dataURL, filename) {
-  let array = dataURL.split(","),
-    mime = array[0].match(/:(.*?);/)[1],
-    bstr = atob(array[1]),
-    n = bstr.length,
-    u8arr = new Uint8Array(n);
+  const array = dataURL.split(",");
+  const fileType = array[0].match(/:(.*?);/)[1];
+  const binaryString = atob(array[1]);
+  let length = binaryString.length; // must be let to allow the while to reduce it
+  const uint8array = new Uint8Array(length);
 
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
+  while (length--) {
+    uint8array[length] = binaryString.charCodeAt(length);
   }
 
-  return new File([u8arr], filename, { type: mime });
+  return new File([uint8array], filename, { type: fileType });
 }
