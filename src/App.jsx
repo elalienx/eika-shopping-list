@@ -24,8 +24,6 @@ export default function App() {
 
       setList(parsedList);
     }
-
-    document.title = "EIKA Shopping list";
   }, [setList]);
 
   return (
