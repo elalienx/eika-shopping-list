@@ -1,5 +1,6 @@
 // Project files
 import Placeholder from "../assets/images/image-placeholder.png";
+import ImageChooser from "./ImageChooser";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
@@ -10,8 +11,8 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
   const uniqueID = `image-chooser-${id}`;
 
   // Methods
-  // Pure
-  async function processImage(event, id, updateImage) {
+  // Impure, uses the id and updateImage outside its scope
+  async function processImage(event) {
     const file = event.target.files[0];
     const originalImage = await readImage(file);
     const resizedImage = await resizeImage(originalImage);
@@ -34,15 +35,7 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
       <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
       <span className={`price ${isCompleted && "checked"}`}>{price}:-</span>
-
-      {/* Refactor */}
-      <label className="custom-file-chooser">
-        <input
-          onChange={(event) => processImage(event, id, updateImage)}
-          type="file"
-        />
-        <img src={finalImage} alt="User generated content" />
-      </label>
+      <ImageChooser thumbnail={thumbnail} processImage={processImage} />
     </article>
   );
 }
