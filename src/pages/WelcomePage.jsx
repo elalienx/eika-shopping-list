@@ -13,7 +13,8 @@ export default function EmptyState() {
       </p>
       <p>
         To get started press the Add new item button and a popup will ask you
-        the name and the price in swedish kronas of the item you want to add.
+        the name and the price of the item you want to add. You can also and an
+        image after the item is added by touching the camera icon.
       </p>
 
       <ListControls />

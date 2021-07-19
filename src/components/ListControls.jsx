@@ -38,7 +38,7 @@ export default function ListControls() {
 
   // Pure
   function askPrice() {
-    const promptPrice = prompt("Whats its price?");
+    const promptPrice = prompt("Whats its price in swedish kronas?");
 
     if (promptPrice !== null && promptPrice !== "") return promptPrice;
     else return 0;
