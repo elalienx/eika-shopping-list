@@ -1,5 +1,5 @@
 // Project files
-import Placeholder from "../assets/images/image-placeholder.png";
+import Checkbox from "./Checkbox";
 import ImageChooser from "./ImageChooser";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
@@ -7,12 +7,10 @@ import resizeImage from "../js/resizeImage";
 export default function ShoppingItem({ item, updateItem, updateImage }) {
   // Constants
   const { id, name, price, isCompleted, thumbnail } = item;
-  const finalImage = thumbnail === "" ? Placeholder : thumbnail;
-  const uniqueID = `image-chooser-${id}`;
 
   // Methods
-  // Impure, uses the id and updateImage outside its scope
-  async function processImage(event) {
+  // Pure
+  async function processImage(event, id, updateImage) {
     const file = event.target.files[0];
     const originalImage = await readImage(file);
     const resizedImage = await resizeImage(originalImage);
@@ -22,20 +20,14 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
 
   return (
     <article className="shopping-item">
-      {/* Refactor */}
-      <label className="custom-checkbox">
-        <input
-          checked={isCompleted}
-          onChange={() => updateItem(id)}
-          type="checkbox"
-        />
-        <div className="icon-checkmark"></div>
-      </label>
-
+      <Checkbox isCompleted={isCompleted} updateItem={() => updateItem(id)} />
       <span className={`name ${isCompleted && "checked"}`}>{name}</span>
       <span className="spacer"></span>
       <span className={`price ${isCompleted && "checked"}`}>{price}:-</span>
-      <ImageChooser thumbnail={thumbnail} processImage={processImage} />
+      <ImageChooser
+        thumbnail={thumbnail}
+        processImage={(event) => processImage(event, id, updateImage)}
+      />
     </article>
   );
 }

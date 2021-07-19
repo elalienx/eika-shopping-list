@@ -19,7 +19,7 @@
 }
 
 /* Checked state */
-.custom-checkbox input[type="checkbox"]:checked + .icon-checkmark {
+.custom-checkbox .icon-checkmark.checked {
   background-color: var(--color-blue);
   background-image: url("../../assets/images/checkmark-white.svg");
   background-repeat: no-repeat;
