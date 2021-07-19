@@ -30,7 +30,7 @@ export default function ListControls() {
 
   // Pure
   function askName() {
-    const promptName = prompt("Whats the name of the shopping item?");
+    const promptName = prompt("What's  the name of the shopping item?");
 
     if (promptName !== null && promptName !== "") return promptName.trim();
     else return "new item";
@@ -38,10 +38,11 @@ export default function ListControls() {
 
   // Pure
   function askPrice() {
-    const promptPrice = prompt("Whats its price in swedish kronas?");
+    do {
+      var selection = parseInt(prompt("What's the price in kronas?"), 10);
+    } while (isNaN(selection));
 
-    if (promptPrice !== null && promptPrice !== "") return promptPrice.trim();
-    else return 0;
+    return selection;
   }
 
   // Impure mutate state
