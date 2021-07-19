@@ -23,9 +23,6 @@ export default function App() {
       const parsedList = JSON.parse(storedList);
 
       setList(parsedList);
-
-      // For debug
-      // window.localStorage.clear(storageKey);
     }
 
     document.title = "EIKA Shopping list";
@@ -33,13 +30,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <nav>
+      <header>
         <img
           src={Logo}
           className="logo"
           alt="The word EIKA written on a yellow and blue background"
         />
-      </nav>
+      </header>
 
       {list.length === 0 ? <EmptyState /> : <NormalState />}
     </div>
