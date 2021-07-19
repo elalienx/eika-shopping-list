@@ -31,7 +31,7 @@ export default function NormalState() {
     storeInformation(updateList, storageKey);
   }
 
-  // Pure
+  // Impure, uses firebase outside its scope
   async function updateImage(id, resizedImage) {
     const newName = `image-${new Date().getTime()}.png`;
     const imageForFirebase = await dataURLToFile(resizedImage, newName);
