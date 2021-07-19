@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-/* Norma state */
+/* Normal state */
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }

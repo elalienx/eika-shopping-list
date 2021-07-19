@@ -1,4 +1,10 @@
-.image-chooser input[type="file"] {
+.custom-file-chooser {
+  background-color: var(--color-gray-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.custom-file-chooser input[type="file"] {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -7,13 +13,11 @@
   z-index: -1;
 }
 
-.image-chooser img {
+.custom-file-chooser img {
   --size: 40px;
 
   width: var(--size);
   height: var(--size);
   object-fit: cover;
-  background-color: var(--grey-4);
   vertical-align: middle;
-  border-radius: 4px;
 }

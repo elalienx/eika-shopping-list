@@ -36,16 +36,13 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
       <span className={`price ${isCompleted && "checked"}`}>{price}:-</span>
 
       {/* Refactor */}
-      <div className="image-chooser">
+      <label className="custom-file-chooser">
         <input
-          type="file"
-          id={uniqueID}
           onChange={(event) => processImage(event, id, updateImage)}
+          type="file"
         />
-        <label htmlFor={uniqueID}>
-          <img src={finalImage} alt="User generated content" />
-        </label>
-      </div>
+        <img src={finalImage} alt="User generated content" />
+      </label>
     </article>
   );
 }
