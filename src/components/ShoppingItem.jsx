@@ -4,7 +4,7 @@ import ImageChooser from "./ImageChooser";
 import readImage from "../js/readImage";
 import resizeImage from "../js/resizeImage";
 
-export default function ShoppingItem({ item, updateItem, updateImage }) {
+export default function ShoppingItem({ item, updateIsCompleted, updateImage }) {
   // Constants
   const { id, name, price, isCompleted, thumbnail } = item;
 
@@ -20,7 +20,10 @@ export default function ShoppingItem({ item, updateItem, updateImage }) {
 
   return (
     <article className={`shopping-item ${isCompleted && "checked"}`}>
-      <Checkbox isCompleted={isCompleted} updateItem={() => updateItem(id)} />
+      <Checkbox
+        isCompleted={isCompleted}
+        updateIsCompleted={() => updateIsCompleted(id)}
+      />
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>

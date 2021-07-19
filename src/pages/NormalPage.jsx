@@ -22,7 +22,7 @@ export default function NormalState() {
 
   // Methods
   // Impure (uses properties outside scope)
-  function updateItem(id) {
+  function updateIsCompleted(id) {
     const index = list.findIndex((item) => item.id === id);
     const updateList = JSON.parse(JSON.stringify(list));
     const status = updateList[index].isCompleted;
@@ -31,6 +31,7 @@ export default function NormalState() {
     storeInformation(updateList, storageKey);
   }
 
+  // Pure
   async function updateImage(id, resizedImage) {
     const newName = `image-${new Date().getTime()}.png`;
     const imageForFirebase = await dataURLToFile(resizedImage, newName);
@@ -44,7 +45,7 @@ export default function NormalState() {
     storeInformation(updateList, storageKey);
   }
 
-  // Impure
+  // Impure, mutate localStorage and uses setList outside scope
   function storeInformation(list, storageKey) {
     setList(list);
     window.localStorage.setItem(storageKey, JSON.stringify(list));
@@ -60,7 +61,7 @@ export default function NormalState() {
       {/* Pending items */}
       <ShoppingList
         list={activeList}
-        updateItem={updateItem}
+        updateIsCompleted={updateIsCompleted}
         updateImage={updateImage}
       />
 
@@ -71,7 +72,7 @@ export default function NormalState() {
       {showCompleted && (
         <ShoppingList
           list={inactiveList}
-          updateItem={updateItem}
+          updateIsCompleted={updateIsCompleted}
           updateImage={updateImage}
         />
       )}
