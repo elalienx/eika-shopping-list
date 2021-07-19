@@ -4,7 +4,7 @@ import ListControls from "../components/ListControls";
 
 export default function EmptyState() {
   return (
-    <div id="empty-page">
+    <div id="welcome-page">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
       <h1>Shopping list</h1>
       <p>
@@ -13,7 +13,7 @@ export default function EmptyState() {
       </p>
       <p>
         To get started press the Add new item button and a popup will ask you
-        the name and the price of the item you want to add.
+        the name and the price in swedish kronas of the item you want to add.
       </p>
 
       <ListControls />

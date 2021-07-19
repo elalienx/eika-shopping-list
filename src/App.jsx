@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import EmptyState from "./pages/EmptyPage";
+import WelcomePage from "./pages/WelcomePage";
 import NormalState from "./pages/NormalPage";
 import { listState } from "./state/listState";
 import { storageKey } from "./state/storageKey";
@@ -36,7 +36,7 @@ export default function App() {
         />
       </header>
 
-      {list.length === 0 ? <EmptyState /> : <NormalState />}
+      {list.length === 0 ? <EmptyState /> : <WelcomePage />}
     </div>
   );
 }
