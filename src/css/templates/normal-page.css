@@ -1,3 +1,8 @@
 #normal-page section {
   margin-bottom: var(--space-big);
 }
+
+#normal-page .button-main,
+#normal-page .button-secondary {
+  margin-bottom: var(--space-medium);
+}

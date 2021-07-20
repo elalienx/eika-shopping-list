@@ -40,7 +40,6 @@ export default function NormalState() {
 
       {/* Main controls */}
       <ButtonCreateItem />
-      <br />
       <ButtonToggleAcquiredList />
 
       {/* Acquired items */}
