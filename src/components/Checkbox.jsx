@@ -1,9 +1,7 @@
 export default function Checkbox({ status, editItem }) {
-  // Method
+  // Methods
   function toggleCheck(status) {
-    console.log("checkbox old status", status);
     const newStatus = !status;
-    console.log("checkbox new status", newStatus);
 
     editItem("acquired", newStatus);
   }
