@@ -4,7 +4,6 @@ import { useRecoilState } from "recoil";
 // Project files
 import { listState } from "../state/listState";
 import { sortState } from "../state/sortState";
-import { storageKey } from "../state/storageKey";
 
 export default function SortControls() {
   // Global state

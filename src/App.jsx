@@ -1,5 +1,5 @@
 // NPM Packages
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useRecoilState } from "recoil";
 
 // Project files
@@ -12,20 +12,20 @@ import "./css/style.css";
 
 export default function App() {
   // Global state
-  const [list, setList] = useRecoilState(listState);
+  const [list] = useRecoilState(listState);
 
   // Methods
   // Impure (but innevitable)
-  function saveData(storageKey, list) {
+  const saveData = useCallback((storageKey, list) => {
     const stringifyList = JSON.stringify(list);
 
     window.localStorage.setItem(storageKey, stringifyList);
-  }
+  }, []);
 
-  // Impure
+  // Pure
   useEffect(() => {
     saveData(storageKey, list);
-  }, [saveData]);
+  }, [saveData, list]);
 
   return (
     <div className="App">

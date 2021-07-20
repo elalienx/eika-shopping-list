@@ -8,7 +8,6 @@ import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
 import { activeListState, inactiveListState } from "../state/listState";
 import { completedState } from "../state/completedState";
-import { storageKey } from "../state/storageKey";
 import firebase from "../firebase";
 import dataURLToFile from "../js/dataURLToFile";
 import uploadFileToFirebase from "../js/uploadFileToFirebase";

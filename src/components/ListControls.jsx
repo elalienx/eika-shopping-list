@@ -6,7 +6,6 @@ import IconOpenEye from "../assets/images/eye-open.svg";
 import IconCloseEye from "../assets/images/eye-close.svg";
 import { completedState } from "../state/completedState";
 import { listState } from "../state/listState";
-import { storageKey } from "../state/storageKey";
 
 export default function ListControls() {
   // Global state
