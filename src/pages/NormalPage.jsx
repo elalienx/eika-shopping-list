@@ -7,12 +7,12 @@ import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
-import { completedState } from "../state/completedState";
+import { acquiredState } from "../state/acquiredState";
 
 export default function NormalState() {
   // Global state
   const [list, setList] = useRecoilState(listState);
-  const showAcquired = useRecoilValue(completedState);
+  const showAcquired = useRecoilValue(acquiredState);
 
   // Constants
   const activeList = list.filter((item) => item.isCompleted === false);

@@ -4,16 +4,16 @@ import { useRecoilState } from "recoil";
 // Project files
 import IconOpenEye from "../assets/images/eye-open.svg";
 import IconCloseEye from "../assets/images/eye-close.svg";
-import { completedState } from "../state/completedState";
+import { acquiredState } from "../state/acquiredState";
 
 export default function ButtonToggleAcquiredList() {
   // Global state
-  const [showCompleted, setShowCompleted] = useRecoilState(completedState);
+  const [showAcquired, setShowAcquired] = useRecoilState(acquiredState);
 
   // Methods
   // Pure
   function toggleAcquiredList() {
-    setShowCompleted(!showCompleted);
+    setShowAcquired(!showAcquired);
   }
 
   // Constants
@@ -22,8 +22,8 @@ export default function ButtonToggleAcquiredList() {
 
   return (
     <button className="button-secondary" onClick={toggleAcquiredList}>
-      {showCompleted ? ImageCloseEye : ImageOpenEye}
-      <span>{showCompleted ? "Hide" : "View"} acquired items</span>
+      {showAcquired ? ImageOpenEye : ImageCloseEye}
+      <span>{showAcquired ? "Hide" : "View"} acquired items</span>
     </button>
   );
 }
