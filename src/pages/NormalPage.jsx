@@ -15,7 +15,7 @@ import uploadFileToFirebase from "../js/uploadFileToFirebase";
 export default function NormalState() {
   // Global state
   const [list, setList] = useRecoilState(listState);
-  const showCompleted = useRecoilValue(completedState);
+  const showAcquired = useRecoilValue(completedState);
 
   // Constants
   const activeList = list.filter((item) => item.isCompleted === false);
@@ -46,6 +46,8 @@ export default function NormalState() {
     setList(updateList);
   }
 
+  function editList(editedItem) {}
+
   return (
     <div id="normal-page">
       <h1>Shopping list</h1>
@@ -54,26 +56,15 @@ export default function NormalState() {
       <SortControls />
 
       {/* Pending items */}
-      <ShoppingList
-        list={activeList}
-        updateIsCompleted={updateIsCompleted}
-        updateImage={updateImage}
-      />
+      <ShoppingList list={activeList} editList={editList} />
 
       {/* Main controls */}
-      <section className="list-controls">
-        <ButtonCreateItem />
-        <ButtonToggleAcquiredList />
-      </section>
+      <ButtonCreateItem />
+      <br />
+      <ButtonToggleAcquiredList />
 
-      {/* Completed items */}
-      {showCompleted && (
-        <ShoppingList
-          list={inactiveList}
-          updateIsCompleted={updateIsCompleted}
-          updateImage={updateImage}
-        />
-      )}
+      {/* Acquired items */}
+      {showAcquired && <ShoppingList list={inactiveList} editList={editList} />}
     </div>
   );
 }

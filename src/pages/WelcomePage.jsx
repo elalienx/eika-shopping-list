@@ -5,8 +5,11 @@ import ButtonCreateItem from "../components/ButtonCreateItem";
 export default function EmptyState() {
   return (
     <div id="welcome-page">
+      {/* Title */}
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
       <h1>Shopping list</h1>
+
+      {/* Text */}
       <p>
         Welcome to EIKA’s shopping list. Here you will be able to create a todo
         list with for the furniture you want to buy.
@@ -17,9 +20,8 @@ export default function EmptyState() {
         image after the item is added by touching the camera icon.
       </p>
 
-      <section className="list-controls">
-        <ButtonCreateItem />
-      </section>
+      {/* Main controls */}
+      <ButtonCreateItem />
     </div>
   );
 }
