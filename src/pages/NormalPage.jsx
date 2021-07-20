@@ -15,8 +15,8 @@ export default function NormalState() {
   const showAcquired = useRecoilValue(acquiredState);
 
   // Constants
-  const activeList = list.filter((item) => item.isCompleted === false);
-  const inactiveList = list.filter((item) => item.isCompleted === true);
+  const activeList = list.filter((item) => item.acquired === false);
+  const inactiveList = list.filter((item) => item.acquired === true);
 
   // Methods
   // Pure
