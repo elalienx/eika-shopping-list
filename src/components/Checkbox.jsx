@@ -1,5 +1,6 @@
 export default function Checkbox({ status, editItem }) {
   // Methods
+  // Pure but void
   function toggleCheck(status) {
     const newStatus = !status;
 

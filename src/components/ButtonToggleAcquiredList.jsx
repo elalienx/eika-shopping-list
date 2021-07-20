@@ -11,7 +11,7 @@ export default function ButtonToggleAcquiredList() {
   const [showAcquired, setShowAcquired] = useRecoilState(acquiredState);
 
   // Methods
-  // Pure
+  // Pure but void
   function toggleAcquiredList() {
     setShowAcquired(!showAcquired);
   }

@@ -19,7 +19,7 @@ export default function NormalState() {
   const inactiveList = list.filter((item) => item.acquired === true);
 
   // Methods
-  // Pure
+  // Pure but void
   function editList(editedItem) {
     const index = list.findIndex((item) => item.id === editedItem.id);
     const updateList = JSON.parse(JSON.stringify(list));
