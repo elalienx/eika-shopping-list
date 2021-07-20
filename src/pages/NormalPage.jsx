@@ -6,7 +6,6 @@ import ListControls from "../components/ListControls";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
-import { activeListState, inactiveListState } from "../state/listState";
 import { completedState } from "../state/completedState";
 import firebase from "../firebase";
 import dataURLToFile from "../js/dataURLToFile";
@@ -15,9 +14,11 @@ import uploadFileToFirebase from "../js/uploadFileToFirebase";
 export default function NormalState() {
   // Global state
   const [list, setList] = useRecoilState(listState);
-  const activeList = useRecoilValue(activeListState);
-  const inactiveList = useRecoilValue(inactiveListState);
   const showCompleted = useRecoilValue(completedState);
+
+  // Constants
+  const activeList = list.filter((item) => item.isCompleted === false);
+  const inactiveList = list.filter((item) => item.isCompleted === true);
 
   // Methods
   // Impure (uses properties outside scope)
