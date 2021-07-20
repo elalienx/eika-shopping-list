@@ -1,5 +1,6 @@
 // Project files
 import ImageChooser from "./ImageChooser";
+import Checkbox from "./Checkbox";
 
 export default function ShoppingItem({ item, editList }) {
   // Constants
@@ -15,6 +16,7 @@ export default function ShoppingItem({ item, editList }) {
 
   return (
     <article className={`shopping-item ${isCompleted && "checked"}`}>
+      <Checkbox isCompleted={isCompleted} editItem={editItem} />
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>

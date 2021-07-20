@@ -1,1 +1,1 @@
-export const storageKey = "eirka-shopping-list";
+export const storageKey = "eika-shopping-list";
