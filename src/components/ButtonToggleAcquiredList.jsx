@@ -17,12 +17,12 @@ export default function ButtonToggleAcquiredList() {
   }
 
   // Constants
-  IconCloseEye = <img src={IconOpenEye} alt="An open eye icon" />;
-  IconOpenEye = <img src={IconCloseEye} alt="A close eye icon" />;
+  const ImageCloseEye = <img src={IconOpenEye} alt="An open eye icon" />;
+  const ImageOpenEye = <img src={IconCloseEye} alt="A close eye icon" />;
 
   return (
     <button className="button-secondary" onClick={toggleAcquiredList}>
-      {showCompleted ? IconCloseEye : IconCloseEye}
+      {showCompleted ? ImageCloseEye : ImageOpenEye}
       <span>{showCompleted ? "Hide" : "View"} acquired items</span>
     </button>
   );

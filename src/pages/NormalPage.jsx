@@ -2,7 +2,8 @@
 import { useRecoilValue, useRecoilState } from "recoil";
 
 // Project files
-import ListControls from "../components/ListControls";
+import ButtonCreateItem from "../components/ButtonCreateItem";
+import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
@@ -60,7 +61,10 @@ export default function NormalState() {
       />
 
       {/* Main controls */}
-      <ListControls />
+      <section className="list-controls">
+        <ButtonCreateItem />
+        <ButtonToggleAcquiredList />
+      </section>
 
       {/* Completed items */}
       {showCompleted && (

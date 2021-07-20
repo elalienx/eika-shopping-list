@@ -1,6 +1,6 @@
 // Project files
 import Image from "../assets/images/urban-shopping.png";
-import ListControls from "../components/ListControls";
+import ButtonCreateItem from "../components/ButtonCreateItem";
 
 export default function EmptyState() {
   return (
@@ -17,7 +17,9 @@ export default function EmptyState() {
         image after the item is added by touching the camera icon.
       </p>
 
-      <ListControls />
+      <section className="list-controls">
+        <ButtonCreateItem />
+      </section>
     </div>
   );
 }
