@@ -12,15 +12,14 @@ export default function ButtonCreateItem() {
   // Pure but void
   function createItem(list) {
     const newItem = {
+      id: list.length,
       name: askName(),
       price: askPrice(),
-      id: list.length,
-      isCompleted: false,
-      thumbnail: "",
+      acquired: false,
+      imageURL: "",
     };
-    const updatedList = [...list, newItem];
-
-    setList(updatedList);
+    
+    setList([...list, newItem]);
   }
 
   // Pure

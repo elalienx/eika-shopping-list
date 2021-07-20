@@ -4,7 +4,7 @@ import Checkbox from "./Checkbox";
 
 export default function ShoppingItem({ item, editList }) {
   // Constants
-  const { name, price, isCompleted, thumbnail } = item;
+  const { name, price, acquired, imageURL } = item;
 
   // Methods
   function editItem(key, editedValue) {
@@ -15,12 +15,12 @@ export default function ShoppingItem({ item, editList }) {
   }
 
   return (
-    <article className={`shopping-item ${isCompleted && "checked"}`}>
-      <Checkbox isCompleted={isCompleted} editItem={editItem} />
+    <article className={`shopping-item ${acquired && "checked"}`}>
+      <Checkbox acquired={acquired} editItem={editItem} />
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
-      <ImageChooser thumbnail={thumbnail} editItem={editItem} />
+      <ImageChooser imageURL={imageURL} editItem={editItem} />
     </article>
   );
 }
