@@ -26,6 +26,10 @@
   flex-grow: 1;
 }
 
+.shopping-item .name {
+  text-transform: uppercase;
+}
+
 .shopping-item .price {
   font-weight: bold;
   margin-right: var(--space-medium);
