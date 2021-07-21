@@ -1,5 +1,6 @@
 // NPM Packages
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
 
 // Project files
 import ButtonCreateItem from "../components/ButtonCreateItem";
@@ -7,12 +8,11 @@ import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
-import { acquiredState } from "../state/acquiredState";
 
 export default function NormalState() {
   // Global state
   const [list, setList] = useRecoilState(listState);
-  const showAcquired = useRecoilValue(acquiredState);
+  const [showAcquired, setShowAcquired] = useState(false);
 
   // Constants
   const activeList = list.filter((item) => item.acquired === false);
@@ -28,6 +28,11 @@ export default function NormalState() {
     setList(updateList);
   }
 
+  // Impure
+  function toggleAcquiredList() {
+    setShowAcquired(!showAcquired);
+  }
+
   return (
     <div id="normal-page">
       <h1>Shopping list</h1>
@@ -40,7 +45,10 @@ export default function NormalState() {
 
       {/* Main controls */}
       <ButtonCreateItem />
-      <ButtonToggleAcquiredList />
+      <ButtonToggleAcquiredList
+        status={showAcquired}
+        toggleStatus={toggleAcquiredList}
+      />
 
       {/* Acquired items */}
       {showAcquired && <ShoppingList list={inactiveList} editList={editList} />}
