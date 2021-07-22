@@ -3,7 +3,6 @@
 
   width: var(--size);
   height: var(--size);
-  cursor: pointer;
 }
 
 /* Normal state */
