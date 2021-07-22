@@ -2,12 +2,12 @@
 import { atom } from "recoil";
 import STORAGE_KEY from "../scripts/storageKey";
 
-export const listState = atom({
+const listState = atom({
   key: "listState",
-  default: loadData(STORAGE_KEY),
+  default: _loadData(STORAGE_KEY),
 });
 
-function loadData(storageKey) {
+function _loadData(storageKey) {
   try {
     const storedList = localStorage.getItem(storageKey);
     const parsedList = JSON.parse(storedList) ?? [];
@@ -19,3 +19,5 @@ function loadData(storageKey) {
     return [];
   }
 }
+
+export default listState;

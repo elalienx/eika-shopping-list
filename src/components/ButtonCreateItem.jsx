@@ -1,8 +1,8 @@
 // NPM Packages
 import { useRecoilState } from "recoil";
 
-// Project list
-import { listState } from "../state/listState";
+// Project files
+import listState from "../state/listState";
 
 export default function ButtonCreateItem() {
   // Global state
@@ -38,6 +38,7 @@ export default function ButtonCreateItem() {
 
     return selection;
   }
+
   return (
     <button className="button-main" onClick={() => createItem(list)}>
       Add a new item

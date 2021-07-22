@@ -7,7 +7,7 @@ import Logo from "./assets/images/logo.svg";
 import WelcomePage from "./pages/WelcomePage";
 import NormalPage from "./pages/NormalPage";
 import STORAGE_KEY from "./scripts/storageKey";
-import { listState } from "./state/listState";
+import listState from "./state/listState";
 import "./css/style.css";
 
 export default function App() {
