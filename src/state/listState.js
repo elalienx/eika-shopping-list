@@ -1,6 +1,6 @@
 // NPM Packages
 import { atom } from "recoil";
-import { STORAGE_KEY } from "../scripts/storageKey";
+import STORAGE_KEY from "../scripts/storageKey";
 
 export const listState = atom({
   key: "listState",
