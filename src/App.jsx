@@ -6,8 +6,8 @@ import { useRecoilState } from "recoil";
 import Logo from "./assets/images/logo.svg";
 import WelcomePage from "./pages/WelcomePage";
 import NormalPage from "./pages/NormalPage";
+import { STORAGE_KEY } from "./scripts/storageKey";
 import { listState } from "./state/listState";
-import { storageKey } from "./state/storageKey";
 import "./css/style.css";
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
 
   // Pure
   useEffect(() => {
-    saveData(storageKey, list);
+    saveData(STORAGE_KEY, list);
   }, [saveData, list]);
 
   return (

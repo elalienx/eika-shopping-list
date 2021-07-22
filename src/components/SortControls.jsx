@@ -1,14 +1,16 @@
 // NPM Packages
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 
 // Project files
 import { listState } from "../state/listState";
-import { sortState } from "../state/sortState";
 
 export default function SortControls() {
+  // Local state
+  const [sort, setSort] = useState("");
+
   // Global state
   const [list, setList] = useRecoilState(listState);
-  const [sort, setSort] = useRecoilState(sortState);
 
   // Methods
   // Pure but void

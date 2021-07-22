@@ -29,7 +29,7 @@ export default function NormalState() {
   }
 
   // Impure
-  function toggleAcquiredList() {
+  function toggleAcquired() {
     setShowAcquired(!showAcquired);
   }
 
@@ -47,7 +47,7 @@ export default function NormalState() {
       <ButtonCreateItem />
       <ButtonToggleAcquiredList
         status={showAcquired}
-        toggleStatus={toggleAcquiredList}
+        toggleStatus={toggleAcquired}
       />
 
       {/* Acquired items */}
