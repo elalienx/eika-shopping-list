@@ -3,7 +3,6 @@ export default function Checkbox({ status, editItem }) {
   // Pure but void
   function toggleCheck(status) {
     const newStatus = !status;
-    console.log("old status", status, "newStatus", newStatus);
 
     editItem("acquired", newStatus);
   }

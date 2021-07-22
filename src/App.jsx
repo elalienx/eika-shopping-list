@@ -12,20 +12,29 @@ import "./css/style.css";
 
 export default function App() {
   // Global state
-  const [list] = useRecoilState(listState);
+  const [list, setList] = useRecoilState(listState);
 
   // Methods
-  // Impure (but innevitable)
+  // Pure
+  const loadData = (storageKey) => {
+    const data = localStorage.getItem(storageKey);
+    const parsedData = JSON.parse(data) ?? [];
+
+    return parsedData;
+  };
+
+  // Impure but innevitable
   const saveData = useCallback((storageKey, list) => {
     const stringifyList = JSON.stringify(list);
 
     window.localStorage.setItem(storageKey, stringifyList);
   }, []);
 
-  // Pure
-  useEffect(() => {
-    saveData(STORAGE_KEY, list);
-  }, [saveData, list]);
+  // Pure but void
+  useEffect(() => setList(loadData(STORAGE_KEY)), [setList]);
+
+  // Pure but void
+  useEffect(() => saveData(STORAGE_KEY, list), [saveData, list]);
 
   return (
     <div className="App">
