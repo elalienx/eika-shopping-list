@@ -2,7 +2,7 @@
 import IconOpenEye from "../assets/images/eye-open.svg";
 import IconCloseEye from "../assets/images/eye-close.svg";
 
-export default function ButtonToggleAcquiredList({ status, toggleStatus }) {
+export default function ButtonToggleAcquired({ status, toggleStatus }) {
   // Constants
   const ImageCloseEye = <img src={IconOpenEye} alt="An open eye icon" />;
   const ImageOpenEye = <img src={IconCloseEye} alt="A close eye icon" />;

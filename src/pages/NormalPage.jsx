@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import ButtonCreateItem from "../components/ButtonCreateItem";
-import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
+import ButtonToggleAcquired from "../components/ButtonToggleAcquired";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import listState from "../state/listState";
@@ -47,7 +47,7 @@ export default function NormalState() {
 
       {/* Primary controls */}
       <ButtonCreateItem />
-      <ButtonToggleAcquiredList
+      <ButtonToggleAcquired
         status={showAcquired}
         toggleStatus={toggleAcquired}
       />
