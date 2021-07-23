@@ -39,13 +39,13 @@ export default function NormalState() {
     <div id="normal-page">
       <h1>Shopping list</h1>
 
-      {/* Sorting controls */}
+      {/* Secondary controls */}
       <SortControls />
 
       {/* Pending items */}
       <ShoppingList list={activeList} editList={editList} />
 
-      {/* Main controls */}
+      {/* Primary controls */}
       <ButtonCreateItem />
       <ButtonToggleAcquiredList
         status={showAcquired}

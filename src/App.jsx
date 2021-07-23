@@ -15,7 +15,7 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  // Pure
+  // Impure but innevitable
   const loadData = (storageKey) => {
     const data = localStorage.getItem(storageKey);
     const parsedData = JSON.parse(data) ?? [];
@@ -27,23 +27,16 @@ export default function App() {
   const saveData = useCallback((storageKey, list) => {
     const stringifyList = JSON.stringify(list);
 
-    window.localStorage.setItem(storageKey, stringifyList);
+    localStorage.setItem(storageKey, stringifyList);
   }, []);
 
-  // Pure but void
   useEffect(() => setList(loadData(STORAGE_KEY)), [setList]);
-
-  // Pure but void
   useEffect(() => saveData(STORAGE_KEY, list), [saveData, list]);
 
   return (
     <div className="App">
       <header>
-        <img
-          src={Logo}
-          className="logo"
-          alt="The word EIKA written on a yellow and blue background"
-        />
+        <img src={Logo} className="logo" alt="The company logo" />
       </header>
 
       {list.length === 0 ? <WelcomePage /> : <NormalPage />}

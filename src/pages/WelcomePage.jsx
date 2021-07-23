@@ -17,7 +17,7 @@ export default function WelcomePage() {
         image after the item is added by touching the camera icon.
       </p>
 
-      {/* Main controls */}
+      {/* Primary controls */}
       <ButtonCreateItem />
     </div>
   );
