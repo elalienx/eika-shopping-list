@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import { listState } from "../state/listState";
+import askName from "../scripts/askName";
 
 export default function ButtonCreateItem() {
   // Global state
@@ -10,22 +11,21 @@ export default function ButtonCreateItem() {
 
   // Methods
   function createItem(list) {
+    const name = askName();
+    if (name === null) return;
+
+    const price = askPrice();
+    if (price === null) return;
+
     const newItem = {
       id: list.length,
-      name: askName(),
-      price: askPrice(),
+      name: name,
+      price: price,
       acquired: false,
       imageURL: "",
     };
 
     setList([...list, newItem]);
-  }
-
-  function askName() {
-    const promptName = prompt("What's  the name of the shopping item?");
-
-    if (promptName !== null && promptName !== "") return promptName.trim();
-    else return "new item";
   }
 
   function askPrice() {
