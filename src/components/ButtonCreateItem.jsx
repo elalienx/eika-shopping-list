@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 // Project files
 import { listState } from "../state/listState";
 import askName from "../scripts/askName";
+import askPrice from "../scripts/askPrice";
 
 export default function ButtonCreateItem() {
   // Global state
@@ -16,6 +17,7 @@ export default function ButtonCreateItem() {
 
     const price = askPrice();
     if (price === null) return;
+    console.log(price);
 
     const newItem = {
       id: list.length,
@@ -26,14 +28,6 @@ export default function ButtonCreateItem() {
     };
 
     setList([...list, newItem]);
-  }
-
-  function askPrice() {
-    do {
-      var selection = parseInt(prompt("What's the price in kronas?"), 10);
-    } while (isNaN(selection));
-
-    return selection;
   }
 
   return (
