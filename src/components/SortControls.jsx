@@ -13,7 +13,6 @@ export default function SortControls() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  // Pure but void
   function sortyListByName(list) {
     const sortedList = [...list].sort(
       (a, b) => a.name.toLowerCase() > b.name.toLowerCase()
@@ -23,7 +22,6 @@ export default function SortControls() {
     setList(sortedList);
   }
 
-  // Pure but void
   function sortListByPrice(list) {
     const sortedList = [...list].sort((a, b) => a.price - b.price);
 

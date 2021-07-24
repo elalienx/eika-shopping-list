@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import ButtonCreateItem from "../components/ButtonCreateItem";
-import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
+import ButtonToggle from "../components/ButtonToggle";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
 import { listState } from "../state/listState";
@@ -21,7 +21,6 @@ export default function NormalScreen() {
   const inactiveList = list.filter((item) => item.acquired === true);
 
   // Methods
-  // Pure but void
   function editList(editedItem) {
     const index = list.findIndex((item) => item.id === editedItem.id);
     const updateList = JSON.parse(JSON.stringify(list));
@@ -30,9 +29,8 @@ export default function NormalScreen() {
     setList(updateList);
   }
 
-  // Impure
-  function toggleAcquired() {
-    setShowAcquired(!showAcquired);
+  function toggleAcquired(newStatus) {
+    setShowAcquired(newStatus);
   }
 
   return (
@@ -42,17 +40,14 @@ export default function NormalScreen() {
       {/* Secondary controls */}
       <SortControls />
 
-      {/* Pending items */}
+      {/* Pending list */}
       <ShoppingList list={activeList} editList={editList} />
 
-      {/* Primary controls */}
+      {/* Main controls */}
       <ButtonCreateItem />
-      <ButtonToggleAcquiredList
-        status={showAcquired}
-        toggleStatus={toggleAcquired}
-      />
+      <ButtonToggle status={showAcquired} toggleStatus={toggleAcquired} />
 
-      {/* Acquired items */}
+      {/* Acquired list */}
       {showAcquired && <ShoppingList list={inactiveList} editList={editList} />}
     </div>
   );

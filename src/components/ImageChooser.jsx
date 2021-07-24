@@ -11,7 +11,6 @@ export default function ImageChooser({ imageURL, editItem }) {
   const finalImage = imageURL === "" ? Placeholder : imageURL;
 
   // Methods
-  // Pure but void
   async function uploadImage(event, editItem, key) {
     const file = event.target.files[0];
     const filename = `image-${new Date().getTime()}.png`;

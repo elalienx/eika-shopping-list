@@ -9,7 +9,6 @@ export default function ButtonCreateItem() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  // Pure but void
   function createItem(list) {
     const newItem = {
       id: list.length,

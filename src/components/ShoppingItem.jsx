@@ -7,7 +7,6 @@ export default function ShoppingItem({ item, editList }) {
   const { name, price, acquired, imageURL } = item;
 
   // Methods
-  // Pure but void
   function editItem(key, editedValue) {
     const editedItem = { ...item };
 
