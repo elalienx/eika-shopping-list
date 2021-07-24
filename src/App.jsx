@@ -4,10 +4,10 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import WelcomePage from "./pages/WelcomePage";
-import NormalPage from "./pages/NormalPage";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import NormalScreen from "./screens/NormalScreen";
 import STORAGE_KEY from "./scripts/storageKey";
-import listState from "./state/listState";
+import { listState } from "./state/listState";
 import "./css/style.css";
 
 export default function App() {
@@ -15,7 +15,6 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  // Impure but innevitable
   const loadData = (storageKey) => {
     const data = localStorage.getItem(storageKey);
     const parsedData = JSON.parse(data) ?? [];
@@ -23,7 +22,6 @@ export default function App() {
     return parsedData;
   };
 
-  // Impure but innevitable
   const saveData = useCallback((storageKey, list) => {
     const stringifyList = JSON.stringify(list);
 
@@ -36,10 +34,10 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <img src={Logo} className="logo" alt="The company logo" />
+        <img src={Logo} className="logo" alt="Company logo" />
       </header>
 
-      {list.length === 0 ? <WelcomePage /> : <NormalPage />}
+      {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
     </div>
   );
 }

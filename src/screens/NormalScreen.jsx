@@ -7,9 +7,9 @@ import ButtonCreateItem from "../components/ButtonCreateItem";
 import ButtonToggleAcquiredList from "../components/ButtonToggleAcquiredList";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
-import listState from "../state/listState";
+import { listState } from "../state/listState";
 
-export default function NormalState() {
+export default function NormalScreen() {
   // Local state
   const [showAcquired, setShowAcquired] = useState(false);
 

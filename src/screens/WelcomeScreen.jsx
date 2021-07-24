@@ -2,7 +2,7 @@
 import Image from "../assets/images/urban-shopping.png";
 import ButtonCreateItem from "../components/ButtonCreateItem";
 
-export default function WelcomePage() {
+export default function WelcomeScreen() {
   return (
     <div id="welcome-page">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />

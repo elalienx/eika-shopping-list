@@ -2,7 +2,7 @@
 import { useRecoilState } from "recoil";
 
 // Project files
-import listState from "../state/listState";
+import { listState } from "../state/listState";
 
 export default function ButtonCreateItem() {
   // Global state
