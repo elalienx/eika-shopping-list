@@ -21,7 +21,6 @@ export default function ButtonCreateItem() {
     setList([...list, newItem]);
   }
 
-  // Pure
   function askName() {
     const promptName = prompt("What's  the name of the shopping item?");
 
@@ -29,7 +28,6 @@ export default function ButtonCreateItem() {
     else return "new item";
   }
 
-  // Pure
   function askPrice() {
     do {
       var selection = parseInt(prompt("What's the price in kronas?"), 10);
