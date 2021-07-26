@@ -1,8 +1,22 @@
+// NPM Packages
+import { useRecoilState } from "recoil";
+
 // Project files
 import Image from "../assets/images/urban-shopping.png";
-import ButtonCreateItem from "../components/ButtonCreateItem";
+import requestNewItem from "../scripts/requestNewItem";
+import { listState } from "../state/listState";
 
 export default function WelcomeScreen() {
+  // Global state
+  const [list, setList] = useRecoilState(listState);
+
+  // Methods
+  function createItem(newId) {
+    const newItem = requestNewItem(newId);
+
+    setList([newItem]);
+  }
+
   return (
     <div id="welcome-page">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
@@ -18,7 +32,9 @@ export default function WelcomeScreen() {
       </p>
 
       {/* Primary controls */}
-      <ButtonCreateItem />
+      <button className="button-main" onClick={() => createItem(list.length)}>
+        Add a new item
+      </button>
     </div>
   );
 }

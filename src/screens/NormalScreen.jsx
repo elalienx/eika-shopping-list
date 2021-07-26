@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 
 // Project files
-import ButtonCreateItem from "../components/ButtonCreateItem";
 import ButtonToggle from "../components/ButtonToggle";
 import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
+import requestNewItem from "../scripts/requestNewItem";
 import { listState } from "../state/listState";
 
 export default function NormalScreen() {
@@ -21,6 +21,12 @@ export default function NormalScreen() {
   const inactiveList = list.filter((item) => item.acquired === true);
 
   // Methods
+  function createItem(newId) {
+    const newItem = requestNewItem(newId);
+
+    setList([...list, newItem]);
+  }
+
   function editList(editedItem) {
     const index = list.findIndex((item) => item.id === editedItem.id);
     const clonedList = JSON.parse(JSON.stringify(list));
@@ -44,7 +50,9 @@ export default function NormalScreen() {
       <ShoppingList list={activeList} editList={editList} />
 
       {/* Main controls */}
-      <ButtonCreateItem />
+      <button className="button-main" onClick={() => createItem(list.length)}>
+        Add a new item
+      </button>
       <ButtonToggle status={showAcquired} toggleStatus={toggleAcquired} />
 
       {/* Acquired list */}
