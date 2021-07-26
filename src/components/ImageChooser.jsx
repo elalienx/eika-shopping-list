@@ -1,10 +1,10 @@
 // Project files
 import Placeholder from "../assets/images/image-placeholder.png";
 import dataURLToFile from "../scripts/dataURLToFile";
+import firebase from "../scripts/firebase";
 import readImage from "../scripts/readImage";
 import resizeImage from "../scripts/resizeImage";
 import uploadFileToFirebase from "../scripts/uploadFileToFirebase";
-import firebase from "../firebase";
 
 export default function ImageChooser({ imageURL, editItem }) {
   // Constants
