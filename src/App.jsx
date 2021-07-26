@@ -15,11 +15,11 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  const loadData = (storageKey) => {
+  const loadData = (storageKey, setList) => {
     const data = localStorage.getItem(storageKey);
     const parsedData = JSON.parse(data) ?? [];
 
-    return parsedData;
+    setList(parsedData);
   };
 
   const saveData = useCallback((storageKey, list) => {
@@ -28,8 +28,8 @@ export default function App() {
     localStorage.setItem(storageKey, stringifyList);
   }, []);
 
-  useEffect(() => setList(loadData(STORAGE_KEY)), [setList]);
-  useEffect(() => saveData(STORAGE_KEY, list), [saveData, list]);
+  useEffect(() => loadData(STORAGE_KEY, setList), []);
+  useEffect(() => saveData(STORAGE_KEY, list), [list]);
 
   return (
     <div className="App">
