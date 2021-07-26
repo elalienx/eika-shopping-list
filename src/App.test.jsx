@@ -4,7 +4,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 // Project files
-import User from "./user";
+import App from "./App";
 
 // Setup test
 let container = null;
