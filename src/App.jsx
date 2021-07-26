@@ -28,14 +28,8 @@ export default function App() {
     localStorage.setItem(storageKey, stringifyList);
   }, []);
 
-  useEffect(() => {
-    console.log("useEffect for loading data");
-    loadData(STORAGE_KEY, setList);
-  }, []);
-  useEffect(() => {
-    console.log("useEffect for saving data");
-    saveData(STORAGE_KEY, list);
-  }, [list]);
+  useEffect(() => loadData(STORAGE_KEY, setList), []);
+  useEffect(() => saveData(STORAGE_KEY, list), [list]);
 
   return (
     <div className="App">
