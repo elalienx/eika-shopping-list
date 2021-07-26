@@ -16,7 +16,7 @@ export default function ShoppingItem({ item, editList }) {
 
   return (
     <article className={`shopping-item ${acquired && "checked"}`}>
-      <Checkbox value={acquired} onClick={editItem} />
+      <Checkbox value={acquired} onChange={editItem} />
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
