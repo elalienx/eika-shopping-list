@@ -1,45 +1,18 @@
 // NPM Packages
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { render, screen } from "@testing-library/react";
+import { RecoilRoot } from "recoil";
 
 // Project files
 import App from "./App";
 
-// Setup test
-let container = null;
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+test("renders user data", async () => {
+  Storage.prototype.getItem = jest.fn(() => [{}, {}]);
 
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it("renders user data", async () => {
-  const fakeUser = {
-    name: "Joni Baez",
-    age: "32",
-    address: "123, Charming Avenue",
-  };
-  jest.spyOn(global, "fetch").mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(fakeUser),
-    })
+  render(
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   );
-
-  // Use the asynchronous version of act to apply resolved promises
-  await act(async () => {
-    render(<User id="123" />, container);
-  });
-
-  expect(container.querySelector("summary").textContent).toBe(fakeUser.name);
-  expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
-  expect(container.textContent).toContain(fakeUser.address);
-
-  // remove the mock to ensure tests are completely isolated
-  global.fetch.mockRestore();
+  const textElement = screen.getByText(/Your shopping list/i);
+  expect(textElement).toBeInTheDocument();
 });

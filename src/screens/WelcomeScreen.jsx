@@ -20,7 +20,7 @@ export default function WelcomeScreen() {
   return (
     <div id="welcome-page">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
-      <h1>Shopping list</h1>
+      <h1>EIKA's shopping list</h1>
       <p>
         Welcome to EIKA’s shopping list. Here you will be able to create a todo
         list with for the furniture you want to buy.
