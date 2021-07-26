@@ -23,10 +23,10 @@ export default function NormalScreen() {
   // Methods
   function editList(editedItem) {
     const index = list.findIndex((item) => item.id === editedItem.id);
-    const updateList = JSON.parse(JSON.stringify(list));
+    const clonedList = JSON.parse(JSON.stringify(list));
 
-    updateList[index] = editedItem;
-    setList(updateList);
+    clonedList[index] = editedItem;
+    setList(clonedList);
   }
 
   function toggleAcquired(newStatus) {
