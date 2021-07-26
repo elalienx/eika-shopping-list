@@ -1,19 +1,19 @@
-export default function Checkbox({ status, editItem }) {
+export default function Checkbox({ value, onClick }) {
   // Methods
-  function toggleCheck(status) {
-    const newStatus = !status;
+  function toggleCheck(value) {
+    const newStatus = !value;
 
-    editItem("acquired", newStatus);
+    onClick("acquired", newStatus);
   }
 
   return (
     <label className="custom-checkbox">
       <input
-        defaultChecked={status}
-        onClick={() => toggleCheck(status)}
+        defaultChecked={value}
+        onClick={() => toggleCheck(value)}
         type="checkbox"
       />
-      <div className={`icon-checkmark ${status && "checked"}`}></div>
+      <div className={`icon-checkmark ${value && "checked"}`}></div>
     </label>
   );
 }

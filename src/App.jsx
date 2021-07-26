@@ -19,13 +19,6 @@ export default function App() {
     const data = localStorage.getItem(storageKey);
     const parsedData = JSON.parse(data) ?? [];
 
-    console.log(
-      "App loadData() storageKey,data,parsedData",
-      storageKey,
-      data,
-      parsedData
-    );
-
     setList(parsedData);
   };
 
