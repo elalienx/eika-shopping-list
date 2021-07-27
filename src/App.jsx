@@ -37,8 +37,6 @@ export default function App() {
         <img src={Logo} className="logo" alt="Company logo" />
       </header>
 
-      <p>@ {list.length} @</p>
-
       {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
     </div>
   );
