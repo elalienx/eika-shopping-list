@@ -1,5 +1,5 @@
 // NPM Packages
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
 // Project files
@@ -15,18 +15,18 @@ export default function App() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  const loadData = (storageKey, setList) => {
+  function loadData(storageKey, setList) {
     const data = localStorage.getItem(storageKey);
     const parsedData = JSON.parse(data) ?? [];
 
     setList(parsedData);
-  };
+  }
 
-  const saveData = useCallback((storageKey, list) => {
+  function saveData(storageKey, list) {
     const stringifyList = JSON.stringify(list);
 
     localStorage.setItem(storageKey, stringifyList);
-  }, []);
+  }
 
   useEffect(() => loadData(STORAGE_KEY, setList), []);
   useEffect(() => saveData(STORAGE_KEY, list), [list]);
@@ -37,7 +37,7 @@ export default function App() {
         <img src={Logo} className="logo" alt="Company logo" />
       </header>
 
-      <p>@{list.length}@</p>
+      <p>@ {list.length} @</p>
 
       {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
     </div>
