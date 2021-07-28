@@ -11,10 +11,8 @@ export default function WelcomeScreen() {
   const [, setList] = useRecoilState(listState);
 
   // Methods
-  function createItem() {
-    const firstId = 0;
-    const newItem = requestNewItem(firstId);
-    console.log(newItem);
+  function createItem(newId) {
+    const newItem = requestNewItem(newId);
 
     if (newItem !== null) setList([newItem]);
   }
@@ -34,7 +32,7 @@ export default function WelcomeScreen() {
       </p>
 
       {/* Primary controls */}
-      <button className="button-main" onClick={createItem}>
+      <button className="button-main" onClick={() => createItem(0)}>
         Add a new item
       </button>
     </div>

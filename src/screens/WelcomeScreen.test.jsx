@@ -22,7 +22,6 @@ test("creates item when user press the button", async () => {
   requestItem.mockReturnValue({ id: 0, name: "Eduardo", price: 777 });
 
   // Act
-  // fire event
   const titleElement = screen.getByText(/EIKA's shopping list/i);
   const buttonElement = screen.getByText("Add a new item");
 
