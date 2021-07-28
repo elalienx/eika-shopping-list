@@ -24,7 +24,7 @@ export default function NormalScreen() {
   function createItem(newId) {
     const newItem = requestNewItem(newId);
 
-    setList([...list, newItem]);
+    if (newItem !== null) setList([newItem]);
   }
 
   function editList(editedItem) {

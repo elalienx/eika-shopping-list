@@ -14,8 +14,9 @@ export default function WelcomeScreen() {
   function createItem() {
     const firstId = 0;
     const newItem = requestNewItem(firstId);
+    console.log(newItem);
 
-    setList([newItem]);
+    if (newItem !== null) setList([newItem]);
   }
 
   return (
