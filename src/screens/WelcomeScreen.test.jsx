@@ -1,10 +1,5 @@
 // NPM Packages
-import {
-  render,
-  screen,
-  fireEvent,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
 
 // Project files
@@ -19,10 +14,15 @@ test("creates item when user press the button", async () => {
       <WelcomeScreen />
     </RecoilRoot>
   );
-  requestItem.mockReturnValue({ id: 0, name: "Eduardo", price: 777 });
+  requestItem.mockReturnValue({
+    id: 0,
+    name: "Eduardo",
+    price: 777,
+    acquired: false,
+    imageURL: "",
+  });
 
   // Act
-  const titleElement = screen.getByText(/EIKA's shopping list/i);
   const buttonElement = screen.getByText("Add a new item");
 
   fireEvent.click(buttonElement);

@@ -8,7 +8,7 @@ export default function ShoppingList({ list, editList }) {
   ));
 
   return (
-    <section>
+    <section className="shopping-list">
       {list.length > 0 ? List : <p>No items to show...</p>}
     </section>
   );
