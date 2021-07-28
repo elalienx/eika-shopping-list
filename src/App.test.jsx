@@ -5,6 +5,7 @@ import App from "./App";
 test("Shows welcome screen if list is empty", () => {
   // Arrange
   const fakeData = [];
+
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
   render(
@@ -20,23 +21,17 @@ test("Shows welcome screen if list is empty", () => {
   expect(textElement).toBeInTheDocument();
 });
 
-test("Shows normal screen if list is empty", () => {
+test("Shows normal screen if list has items", () => {
   // Arrange
-  const fakeItem1 = {
+  const fakeItem = {
     id: 0,
     name: "Sofa",
     price: 1900,
     acquired: false,
     imageURL: "",
   };
-  const fakeItem2 = {
-    id: 1,
-    name: "TV stand",
-    price: 4500,
-    acquired: false,
-    imageURL: "",
-  };
-  const fakeData = [fakeItem1, fakeItem2];
+  const fakeData = [fakeItem, fakeItem, fakeItem];
+
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
   render(
