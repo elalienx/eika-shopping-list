@@ -8,11 +8,12 @@ import { listState } from "../state/listState";
 
 export default function WelcomeScreen() {
   // Global state
-  const [list, setList] = useRecoilState(listState);
+  const [, setList] = useRecoilState(listState);
 
   // Methods
-  function createItem(newId) {
-    const newItem = requestNewItem(newId);
+  function createItem() {
+    const firstId = 0;
+    const newItem = requestNewItem(firstId);
 
     setList([newItem]);
   }
@@ -32,7 +33,7 @@ export default function WelcomeScreen() {
       </p>
 
       {/* Primary controls */}
-      <button className="button-main" onClick={() => createItem(list.length)}>
+      <button className="button-main" onClick={createItem}>
         Add a new item
       </button>
     </div>

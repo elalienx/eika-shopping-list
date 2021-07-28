@@ -1,5 +1,8 @@
+// NPM Packages
 import { render, screen } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
+
+// Project files
 import App from "./App";
 
 test("Shows welcome screen if list is empty", () => {
