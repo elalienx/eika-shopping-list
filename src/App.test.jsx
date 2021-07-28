@@ -30,7 +30,7 @@ test("Shows normal screen if list has items", () => {
     acquired: false,
     imageURL: "",
   };
-  const fakeData = [fakeItem, fakeItem, fakeItem];
+  const fakeData = [fakeItem];
 
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
