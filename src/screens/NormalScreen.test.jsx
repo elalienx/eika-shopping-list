@@ -7,7 +7,7 @@ import NormalScreen from "./NormalScreen";
 import requestItem from "../scripts/requestNewItem";
 jest.mock("../scripts/requestNewItem");
 
-test("creates item when user press the button", async () => {
+test("creates item when user press the button", () => {
   // Arrange
   render(
     <RecoilRoot>
@@ -34,7 +34,46 @@ test("creates item when user press the button", async () => {
   expect(screen.getByText(priceResult)).toBeInTheDocument();
 });
 
-test("dont create a new item when the user cancel the creation", async () => {
+test("creates 2 items when user press the button twice", () => {
+  // Arrange
+  render(
+    <RecoilRoot>
+      <NormalScreen />
+    </RecoilRoot>
+  );
+  const fakeItemA = {
+    id: 0,
+    name: "Sofa",
+    price: 777,
+    acquired: false,
+    imageURL: "",
+  };
+  const fakeItemB = {
+    id: 1,
+    name: "TV Stand",
+    price: 2500,
+    acquired: false,
+    imageURL: "",
+  };
+
+  // Act
+  const buttonElement = screen.getByText("Add a new item");
+
+  // Assert
+  requestItem.mockReturnValue(fakeItemA);
+  fireEvent.click(buttonElement);
+  expect(requestItem).toHaveBeenCalled();
+  expect(screen.getByText("Sofa")).toBeInTheDocument();
+  expect(screen.getByText(/777/i)).toBeInTheDocument();
+
+  requestItem.mockReturnValue(fakeItemB);
+  fireEvent.click(buttonElement);
+  expect(requestItem).toHaveBeenCalled();
+  expect(screen.getByText("TV Stand")).toBeInTheDocument();
+  expect(screen.getByText(/2500/i)).toBeInTheDocument();
+});
+
+test("dont create a new item when the user cancel the creation", () => {
   // Arrange
   render(
     <RecoilRoot>
