@@ -7,7 +7,7 @@ import WelcomeScreen from "./WelcomeScreen";
 import requestItem from "../scripts/requestNewItem";
 jest.mock("../scripts/requestNewItem");
 
-test("creates item when user press the button", async () => {
+test("checks that the main button triggers the request item function", async () => {
   // Arrange
   render(
     <RecoilRoot>
