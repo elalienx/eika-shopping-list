@@ -29,13 +29,9 @@ export default function NormalScreen() {
     setList(clonedList);
   }
 
-  function toggleAcquired(newStatus) {
-    setShowAcquired(newStatus);
-  }
-
   return (
     <div id="normal-page">
-      <h1>Shopping list</h1>
+      <h1>Your shopping list</h1>
 
       {/* Secondary controls */}
       <SortControls />
@@ -45,7 +41,10 @@ export default function NormalScreen() {
 
       {/* Main controls */}
       <ButtonCreateItem />
-      <ButtonToggle status={showAcquired} toggleStatus={toggleAcquired} />
+      <ButtonToggle
+        status={showAcquired}
+        onClick={() => setShowAcquired(!showAcquired)}
+      />
 
       {/* Acquired list */}
       {showAcquired && <ShoppingList list={inactiveList} editList={editList} />}

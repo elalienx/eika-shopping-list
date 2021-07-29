@@ -7,7 +7,7 @@ import { listState } from "../state/listState";
 
 export default function SortControls() {
   // Local state
-  const [sort, setSort] = useState("");
+  const [activeButton, setActiveButton] = useState("");
 
   // Global state
   const [list, setList] = useRecoilState(listState);
@@ -18,14 +18,14 @@ export default function SortControls() {
       (a, b) => a.name.toLowerCase() > b.name.toLowerCase()
     );
 
-    setSort("name");
+    setActiveButton("name");
     setList(sortedList);
   }
 
   function sortListByPrice(list) {
     const sortedList = [...list].sort((a, b) => a.price - b.price);
 
-    setSort("price");
+    setActiveButton("price");
     setList(sortedList);
   }
 
@@ -33,13 +33,13 @@ export default function SortControls() {
     <section className="sort-controls">
       <span className="label">Sort by:</span>
       <button
-        className={`button-toggle ${sort === "name" && "active"}`}
+        className={`button-toggle ${activeButton === "name" ? "active" : ""}`}
         onClick={() => sortyListByName(list)}
       >
         Name
       </button>
       <button
-        className={`button-toggle ${sort === "price" && "active"}`}
+        className={`button-toggle ${activeButton === "price" ? "active" : ""}`}
         onClick={() => sortListByPrice(list)}
       >
         Price
