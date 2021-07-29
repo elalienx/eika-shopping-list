@@ -13,34 +13,9 @@ test("returns null if value is null", () => {
   expect(name).toBe(result);
 });
 
-test("returns null if value is empty", () => {
-  // Arrange
-  window.prompt = jest.fn().mockImplementation(() => "");
-
-  // Act
-  const name = askName();
-  const result = null;
-
-  // Assert
-  expect(name).toBe(result);
-});
-
-test("rreturns null if undenided", () => {
+test("returns null if undenided", () => {
   // Arrange
   window.prompt = jest.fn().mockImplementation(() => undefined);
-
-  // Act
-  const name = askName();
-  const result = null;
-
-  // Assert
-  expect(name).toBe(result);
-});
-
-test("returns null if there multiple empty spaces", () => {
-  // Arrange
-  const faultyEmptySpace = "              "; // empty spaces with space bar and tab on purpose
-  window.prompt = jest.fn().mockImplementation(() => faultyEmptySpace);
 
   // Act
   const name = askName();

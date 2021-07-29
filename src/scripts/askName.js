@@ -1,10 +1,26 @@
 export default function askName() {
-  const promptName = prompt("What's  the name of the shopping item?");
+  do {
+    var selection = prompt("What's  the name of the shopping item?");
 
-  // Guards if the user cancel o put an invalid value
-  if (promptName === null) return null;
-  if (promptName === undefined) return null;
-  if (promptName.trim() === "") return null;
+    // guard if user clicks on cancel
+    if (selection === undefined) return null;
+    if (selection === null) return null;
 
-  return promptName.trim();
+    // parse the user input
+    selection = _validate(selection);
+  } while (_isEmpty(selection));
+
+  return selection;
+}
+
+function _validate(string) {
+  if (string.trim() !== "") {
+    return string.trim();
+  }
+  return "";
+}
+
+function _isEmpty(string) {
+  if (string.trim() === "") return true;
+  else return false;
 }
