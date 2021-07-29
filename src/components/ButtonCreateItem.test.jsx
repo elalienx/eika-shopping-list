@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
 
 // Project files
-import WelcomeScreen from "./WelcomeScreen";
+import ButtonCreateItem from "./ButtonCreateItem";
 import requestItem from "../scripts/requestNewItem";
 jest.mock("../scripts/requestNewItem");
 
@@ -11,7 +11,7 @@ test("checks that the main button triggers the request item function", async () 
   // Arrange
   render(
     <RecoilRoot>
-      <WelcomeScreen />
+      <ButtonCreateItem />
     </RecoilRoot>
   );
   requestItem.mockReturnValue({
