@@ -4,17 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import ButtonToggle from "./ButtonToggle";
 
-/**
- * Test to do:
- * status:
- * Check that the text is view when status is true
- * Check that the text is hide when the status is false
- *
- * onClick():
- * Check that a function is fired
- */
-
-test("Text says View acquired items when status is false", () => {
+test("Should say View acquired items when status is false", () => {
   // Arrange
   const fakeStatus = false;
   render(<ButtonToggle status={fakeStatus} />);
@@ -26,7 +16,7 @@ test("Text says View acquired items when status is false", () => {
   expect(textElement).toBeInTheDocument();
 });
 
-test("Text says Hide acquired items when status is true", () => {
+test("Should say Hide acquired items when status is true", () => {
   // Arrange
   const fakeStatus = true;
   render(<ButtonToggle status={fakeStatus} />);
@@ -36,4 +26,18 @@ test("Text says Hide acquired items when status is true", () => {
 
   // Assert
   expect(textElement).toBeInTheDocument();
+});
+
+test("Should fire an event when press", () => {
+  // Arrange
+  const fakeMethod = jest.fn();
+  render(<ButtonToggle onClick={fakeMethod} />);
+
+  // Act
+  const buttonElement = screen.getByText(/acquired items/i);
+
+  fireEvent.click(buttonElement);
+
+  // Assert
+  expect(fakeMethod).toHaveBeenCalledTimes(1);
 });

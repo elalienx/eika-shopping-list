@@ -17,7 +17,7 @@ export default function ShoppingItem({ item, editList }) {
   return (
     <article className={`shopping-item ${acquired && "checked"}`}>
       <Checkbox
-        value={acquired}
+        checked={acquired}
         onChange={() => editItem("acquired", !acquired)}
       />
       <span className="name">{name}</span>
