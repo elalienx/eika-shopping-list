@@ -31,7 +31,7 @@ export default function NormalScreen() {
 
   return (
     <div id="normal-page">
-      <h1>Your shopping list</h1>
+      <h1>Your shopping list 🐈‍⬛</h1>
 
       {/* Secondary controls */}
       <SortControls />
