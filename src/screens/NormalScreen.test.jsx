@@ -4,8 +4,8 @@ import { RecoilRoot } from "recoil";
 
 // Project files
 import NormalScreen from "./NormalScreen";
-import requestItem from "../scripts/requestNewItem";
-jest.mock("../scripts/requestNewItem");
+import requestItem from "../scripts/create-item/requestNewItem";
+jest.mock("../scripts/create-item/requestNewItem");
 
 test("creates item when user press the button", () => {
   // Arrange

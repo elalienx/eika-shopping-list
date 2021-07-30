@@ -2,7 +2,7 @@
 import { useRecoilState } from "recoil";
 
 // Project files
-import requestNewItem from "../scripts/requestNewItem";
+import requestNewItem from "../scripts/create-item/requestNewItem";
 import { listState } from "../state/listState";
 
 export default function ButtonCreateItem() {
