@@ -1,26 +1,21 @@
 export default function askName() {
   do {
-    var selection = prompt("What's  the name of the shopping item?");
+    var userInput = prompt("What's  your name?");
 
-    // guard if user clicks on cancel
-    if (selection === undefined) return null;
-    if (selection === null) return null;
+    // guard if user press escape or clicks on the cancel button on the popup window
+    if (userInput === null) return null;
 
     // parse the user input
-    selection = _validate(selection);
-  } while (_isEmpty(selection));
+    userInput = _parseString(userInput);
+  } while (_isEmpty(userInput));
 
-  return selection;
+  return userInput;
 }
 
-function _validate(string) {
-  if (string.trim() !== "") {
-    return string.trim();
-  }
-  return "";
+export function _parseString(string) {
+  return string.trim() !== "" ? string.trim() : "";
 }
 
-function _isEmpty(string) {
-  if (string.trim() === "") return true;
-  else return false;
+export function _isEmpty(string) {
+  return string.trim() === "" ? true : false;
 }
