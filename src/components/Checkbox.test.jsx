@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import Checkbox from "./Checkbox";
 
-test("Should be unckeched when is false", async () => {
+test("Should be unckeched when is false.", async () => {
   // Arrange
   const fakeChecked = false;
   const fakeMethod = jest.fn();

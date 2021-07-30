@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import ButtonToggle from "./ButtonToggle";
 
-test("Should say View acquired items when status is false", () => {
+test("Should say View acquired items when status is false.", () => {
   // Arrange
   const fakeStatus = false;
   render(<ButtonToggle status={fakeStatus} />);
