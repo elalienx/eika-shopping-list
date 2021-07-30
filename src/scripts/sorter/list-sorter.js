@@ -1,13 +1,12 @@
 export function sortByString(array, key) {
-  console.log("oldArray ", array);
+  console.log("key", key);
+  console.log("old list", array);
+  const sortedList = [...array].sort(
+    (a, b) => a[key].toLowerCase() > b[key].toLowerCase()
+  );
+  console.log("new list", sortedList);
 
-  const sortedList = [...array].sort((a, b) => {
-    console.log(`Is ${a.name} greater than ${b.name}? ${a.name > b.name}`);
-
-    a.name > b.name;
-  });
-
-  console.log("newArray", sortedList);
+  sortedList[0].name = "hello world";
 
   return sortedList;
 }
