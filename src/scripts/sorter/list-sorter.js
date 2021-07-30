@@ -1,12 +1,15 @@
 export function sortByString(array, key) {
-  console.log("key", key);
-  console.log("old list", array);
+  const sortedList = [...array].sort((a, b) => {
+    // we upper case to ignore upper and lowercase
+    const stringA = a[key].toUpperCase();
+    const stringB = b[key].toUpperCase();
 
-  const sortedList = [...array].sort((a, b) => a.name < b.name);
+    if (stringA < stringB) return -1;
+    if (stringA > stringB) return 1;
 
-  console.log("new list", sortedList);
-
-  sortedList[0].name = "hello world";
+    // names must be equal
+    return 0;
+  });
 
   return sortedList;
 }
