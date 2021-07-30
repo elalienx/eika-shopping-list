@@ -4,14 +4,14 @@ test("Should sort list using a key called name", () => {
   // Arrange
   const mockKey = "name";
   const mockArray = [
-    { id: 1, name: "Charlie", price: 500 },
-    { id: 2, name: "Alfa", price: 900 },
-    { id: 3, name: "Beta", price: 100 },
+    { id: 3, name: "beta", price: 100 },
+    { id: 1, name: "charlie", price: 500 },
+    { id: 2, name: "alfa", price: 900 },
   ];
   const result = [
-    { id: 2, name: "Alfa", price: 900 },
-    { id: 3, name: "Beta", price: 100 },
-    { id: 1, name: "Charlie", price: 500 },
+    { id: 2, name: "alfa", price: 900 },
+    { id: 3, name: "beta", price: 100 },
+    { id: 1, name: "charlie", price: 500 },
   ];
   // Act
   const test = sortByString(mockArray, mockKey);

@@ -1,11 +1,15 @@
 export function sortByString(array, key) {
   console.log("oldArray ", array);
-  const clonedArray = JSON.parse(JSON.stringify(array));
-  const newArray = clonedArray.sort((a, b) => a.name > b.name);
 
-  console.log("newArray", newArray);
+  const sortedList = [...array].sort((a, b) => {
+    console.log(`Is ${a.name} greater than ${b.name}? ${a.name > b.name}`);
 
-  return newArray;
+    a.name > b.name;
+  });
+
+  console.log("newArray", sortedList);
+
+  return sortedList;
 }
 
 export function sortByNumber(array, key) {
