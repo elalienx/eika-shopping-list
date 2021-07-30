@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import { listState } from "../state/listState";
+import { sortByNumber, sortByString } from "../scripts/sorter/list-sorter";
 
 export default function SortControls() {
   // Local state
@@ -13,19 +14,17 @@ export default function SortControls() {
   const [list, setList] = useRecoilState(listState);
 
   // Methods
-  function sortyListByName(list) {
-    const sortedList = [...list].sort(
-      (a, b) => a.name.toLowerCase() > b.name.toLowerCase()
-    );
+  function sortyListByName(list, key) {
+    const sortedList = sortByString(list, key);
 
-    setActiveButton("name");
+    setActiveButton(key);
     setList(sortedList);
   }
 
   function sortListByPrice(list) {
-    const sortedList = [...list].sort((a, b) => a.price - b.price);
+    const sortedList = sortByNumber(list, key);
 
-    setActiveButton("price");
+    setActiveButton(key);
     setList(sortedList);
   }
 
@@ -34,13 +33,13 @@ export default function SortControls() {
       <span className="label">Sort by:</span>
       <button
         className={`button-toggle ${activeButton === "name" ? "active" : ""}`}
-        onClick={() => sortyListByName(list)}
+        onClick={() => sortyListByName(list, "name")}
       >
         Name
       </button>
       <button
         className={`button-toggle ${activeButton === "price" ? "active" : ""}`}
-        onClick={() => sortListByPrice(list)}
+        onClick={() => sortListByPrice(list, "price")}
       >
         Price
       </button>
