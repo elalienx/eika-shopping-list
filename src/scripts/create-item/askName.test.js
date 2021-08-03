@@ -33,6 +33,20 @@ test("should fail the first time and second time, then pass the on the third tim
   expect(name).toBe(result);
 });
 
+test("Should return null when user cancel the input", () => {
+  // Arrange
+  const mockValue = null;
+  const result = null;
+
+  window.prompt = jest.fn().mockImplementation(() => mockValue);
+
+  // Act
+  const test = askName();
+
+  // Assert
+  expect(test).toBe(result);
+});
+
 // _parseString
 test("Should return the string back withouth alterations", () => {
   // Arrange
