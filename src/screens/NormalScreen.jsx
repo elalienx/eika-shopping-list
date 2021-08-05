@@ -23,7 +23,7 @@ export default function NormalScreen() {
   // Methods
   function editList(editedItem) {
     const index = list.findIndex((item) => item.id === editedItem.id);
-    const clonedList = JSON.parse(JSON.stringify(list)); // spreadlist operator
+    const clonedList = [...list];
 
     clonedList[index] = editedItem;
     setList(clonedList);
@@ -31,12 +31,12 @@ export default function NormalScreen() {
 
   return (
     <div id="normal-page">
-      <h1>Your shopping list 🐈‍⬛</h1>
+      <h1>Your shopping list</h1>
 
       {/* Secondary controls */}
       <SortControls />
 
-      {/* Pending list */}  
+      {/* Pending list */}
       <ShoppingList list={activeList} editList={editList} />
 
       {/* Main controls */}

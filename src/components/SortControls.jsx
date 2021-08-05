@@ -15,11 +15,9 @@ export default function SortControls() {
 
   // Methods
   function sortyListByName(list, key) {
-    console.log("sortyListByName, old list", list);
     const sortedList = [...list].sort(
       (a, b) => a[key].toLowerCase() > b[key].toLowerCase()
     );
-    console.log("sortyListByName, new list", sortedList);
 
     setActiveButton("name");
     setList(sortedList);
