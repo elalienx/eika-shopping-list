@@ -35,7 +35,6 @@ export default function App() {
     <div className="App">
       <header>
         <img src={Logo} className="logo" alt="Company logo" />
-        <span>🐈‍⬛</span>
       </header>
 
       {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
