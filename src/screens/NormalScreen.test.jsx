@@ -7,7 +7,22 @@ import NormalScreen from "./NormalScreen";
 import requestItem from "../scripts/create-item/requestNewItem";
 jest.mock("../scripts/create-item/requestNewItem");
 
-test("creates item when user press the button", () => {
+test("Should have a create item button to start adding items", () => {
+  // Arrange
+  render(
+    <RecoilRoot>
+      <NormalScreen />
+    </RecoilRoot>
+  );
+
+  // Assert
+  const buttonElement = screen.getByText("Add a new item");
+
+  // Act
+  expect(buttonElement).toBeInTheDocument();
+});
+
+test("Should create an item item when press the new button", () => {
   // Arrange
   render(
     <RecoilRoot>
@@ -34,7 +49,7 @@ test("creates item when user press the button", () => {
   expect(screen.getByText(priceResult)).toBeInTheDocument();
 });
 
-test("creates 2 items when user press the button twice", () => {
+test("Should create a second item when user press the button twice", () => {
   // Arrange
   render(
     <RecoilRoot>
@@ -71,23 +86,4 @@ test("creates 2 items when user press the button twice", () => {
   expect(requestItem).toHaveBeenCalled();
   expect(screen.getByText("TV Stand")).toBeInTheDocument();
   expect(screen.getByText(/2500/i)).toBeInTheDocument();
-});
-
-test("dont create a new item when the user cancel the creation", () => {
-  // Arrange
-  render(
-    <RecoilRoot>
-      <NormalScreen />
-    </RecoilRoot>
-  );
-  requestItem.mockReturnValue(null);
-
-  // Act
-  const buttonElement = screen.getByText("Add a new item");
-  const emptyMessage = /no items to show/i;
-  fireEvent.click(buttonElement);
-
-  // Assert
-  expect(requestItem).toHaveBeenCalled(); // to verify if our React component call this external module method
-  expect(screen.getByText(emptyMessage)).toBeInTheDocument();
 });

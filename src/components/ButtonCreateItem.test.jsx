@@ -7,7 +7,7 @@ import ButtonCreateItem from "./ButtonCreateItem";
 import requestItem from "../scripts/create-item/requestNewItem";
 jest.mock("../scripts/create-item/requestNewItem");
 
-test("checks that the main button triggers the request item function", async () => {
+test("Should call the requestItem function", async () => {
   // Arrange
   render(
     <RecoilRoot>
