@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
 
 // Project files
-import SortControls from "./Sorter";
+import Sorter from "./Sorter";
 import { sortByString, sortByNumber } from "../scripts/sorter/list-sorter";
 jest.mock("../scripts/sorter/list-sorter");
 
@@ -11,7 +11,7 @@ test("Should call the sortByString function", async () => {
   // Arrange
   render(
     <RecoilRoot>
-      <SortControls />
+      <Sorter />
     </RecoilRoot>
   );
 
@@ -28,7 +28,7 @@ test("Should cal the sortByNumber function", async () => {
   // Arrange
   render(
     <RecoilRoot>
-      <SortControls />
+      <Sorter />
     </RecoilRoot>
   );
 
