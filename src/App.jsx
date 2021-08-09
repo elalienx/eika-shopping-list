@@ -4,8 +4,8 @@ import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import WelcomeScreen from "./screens/WelcomeScreen";
 import NormalScreen from "./screens/NormalScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 import STORAGE_KEY from "./scripts/storageKey";
 import { listState } from "./state/listState";
 import "./css/style.css";
