@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
 
 // Project files
-import SortControls from "./SortControls";
+import SortControls from "./Sorter";
 import { sortByString, sortByNumber } from "../scripts/sorter/list-sorter";
 jest.mock("../scripts/sorter/list-sorter");
 

@@ -5,8 +5,8 @@ import { useRecoilState } from "recoil";
 // Project files
 import ButtonCreateItem from "../components/ButtonCreateItem";
 import ButtonToggle from "../components/ButtonToggle";
-import SortControls from "../components/SortControls";
 import ShoppingList from "../components/ShoppingList";
+import Sorter from "../components/Sorter";
 import { listState } from "../state/listState";
 
 export default function NormalScreen() {
@@ -17,8 +17,8 @@ export default function NormalScreen() {
   const [list, setList] = useRecoilState(listState);
 
   // Constants
-  const activeList = list.filter((item) => item.acquired === false);
-  const inactiveList = list.filter((item) => item.acquired === true);
+  const pendingList = list.filter((item) => item.acquired === false);
+  const acquiredList = list.filter((item) => item.acquired === true);
 
   // Methods
   function editList(editedItem) {
@@ -34,10 +34,10 @@ export default function NormalScreen() {
       <h1>Your shopping list</h1>
 
       {/* Secondary controls */}
-      <SortControls />
+      <Sorter />
 
       {/* Pending list */}
-      <ShoppingList list={activeList} editList={editList} />
+      <ShoppingList list={pendingList} editList={editList} />
 
       {/* Main controls */}
       <ButtonCreateItem />
@@ -47,7 +47,7 @@ export default function NormalScreen() {
       />
 
       {/* Acquired list */}
-      {showAcquired && <ShoppingList list={inactiveList} editList={editList} />}
+      {showAcquired && <ShoppingList list={acquiredList} editList={editList} />}
     </div>
   );
 }
