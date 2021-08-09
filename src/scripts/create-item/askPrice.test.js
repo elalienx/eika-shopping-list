@@ -85,3 +85,43 @@ test("Should return NaN when pass a string with letters", () => {
   // Assert
   expect(test).toBe(result);
 });
+
+test("Should not accept the number 0 and then a valid number", () => {
+  // Arrange
+  const mockValue1 = 0;
+  const mockValue2 = 0;
+  const mockValue3 = 10;
+  const result = 10;
+
+  window.prompt = jest
+    .fn()
+    .mockReturnValueOnce(mockValue1)
+    .mockReturnValueOnce(mockValue2)
+    .mockReturnValue(mockValue3);
+
+  // Act
+  const name = askPrice();
+
+  // Assert
+  expect(name).toBe(result);
+});
+
+test("Should not accept a negative number and then a valid number", () => {
+  // Arrange
+  const mockValue1 = -1;
+  const mockValue2 = -5;
+  const mockValue3 = 10;
+  const result = 10;
+
+  window.prompt = jest
+    .fn()
+    .mockReturnValueOnce(mockValue1)
+    .mockReturnValueOnce(mockValue2)
+    .mockReturnValue(mockValue3);
+
+  // Act
+  const name = askPrice();
+
+  // Assert
+  expect(name).toBe(result);
+});
