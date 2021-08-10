@@ -17,8 +17,8 @@ export default function NormalScreen() {
   const [list, setList] = useRecoilState(listState);
 
   // Constants
-  const pendingList = list.filter((item) => item.acquired === false);
   const acquiredList = list.filter((item) => item.acquired === true);
+  const pendingList = list.filter((item) => item.acquired === false);
 
   // Methods
   function editList(editedItem) {

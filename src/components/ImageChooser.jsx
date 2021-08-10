@@ -8,7 +8,7 @@ import uploadFileToFirebase from "../scripts/upload-image/uploadFileToFirebase";
 
 export default function ImageChooser({ imageURL, editItem }) {
   // Constants
-  const finalImage = imageURL === "" ? Placeholder : imageURL;
+  const Image = imageURL === "" ? Placeholder : imageURL;
 
   // Methods
   async function uploadImage(event, editItem, key) {
@@ -28,7 +28,7 @@ export default function ImageChooser({ imageURL, editItem }) {
         onChange={(event) => uploadImage(event, editItem, "imageURL")}
         type="file"
       />
-      <img src={finalImage} alt="User generated content" />
+      <img src={Image} alt="User generated content" />
     </label>
   );
 }
