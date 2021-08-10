@@ -4,17 +4,18 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import Checkbox from "./Checkbox";
 
-test("Should be unckeched when is false.", async () => {
+test("Should fire an event changes", async () => {
   // Arrange
-  const fakeChecked = false;
   const fakeMethod = jest.fn();
-  render(<Checkbox checked={fakeChecked} onChange={fakeMethod} />);
+  render(<Checkbox onChange={fakeMethod} />);
 
   // Act
   const inputCheckboxElement = screen.getByTestId("checkbox");
 
+  fireEvent.click(inputCheckboxElement);
+
   // Assert
-  expect(inputCheckboxElement.checked).toBe(false);
+  expect(fakeMethod).toHaveBeenCalledTimes(1);
 });
 
 test("Should be checked when is true", async () => {
@@ -30,16 +31,15 @@ test("Should be checked when is true", async () => {
   expect(inputCheckboxElement.checked).toBe(true);
 });
 
-test("Should fire an event changes", async () => {
+test("Should be unckeched when is false.", async () => {
   // Arrange
+  const fakeChecked = false;
   const fakeMethod = jest.fn();
-  render(<Checkbox onChange={fakeMethod} />);
+  render(<Checkbox checked={fakeChecked} onChange={fakeMethod} />);
 
   // Act
   const inputCheckboxElement = screen.getByTestId("checkbox");
 
-  fireEvent.click(inputCheckboxElement);
-
   // Assert
-  expect(fakeMethod).toHaveBeenCalledTimes(1);
+  expect(inputCheckboxElement.checked).toBe(false);
 });

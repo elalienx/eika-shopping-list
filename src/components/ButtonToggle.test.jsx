@@ -4,6 +4,20 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import ButtonToggle from "./ButtonToggle";
 
+test("Should fire an event when press", () => {
+  // Arrange
+  const fakeMethod = jest.fn();
+  render(<ButtonToggle onClick={fakeMethod} />);
+
+  // Act
+  const buttonElement = screen.getByText(/acquired items/i);
+
+  fireEvent.click(buttonElement);
+
+  // Assert
+  expect(fakeMethod).toHaveBeenCalledTimes(1);
+});
+
 test("Should say View acquired items when status is false.", () => {
   // Arrange
   const fakeStatus = false;
@@ -26,18 +40,4 @@ test("Should say Hide acquired items when status is true", () => {
 
   // Assert
   expect(textElement).toBeInTheDocument();
-});
-
-test("Should fire an event when press", () => {
-  // Arrange
-  const fakeMethod = jest.fn();
-  render(<ButtonToggle onClick={fakeMethod} />);
-
-  // Act
-  const buttonElement = screen.getByText(/acquired items/i);
-
-  fireEvent.click(buttonElement);
-
-  // Assert
-  expect(fakeMethod).toHaveBeenCalledTimes(1);
 });

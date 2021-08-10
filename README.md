@@ -79,9 +79,11 @@ The component tree allows to visualize the overall hierarchy of the project.
 
 The first diagram covers the overal application layout:
 ![Main component tree](./public/readme/component-tree-main.png)
+[View latest version](https://whimsical.com/shopping-list-Km3VRQ31QthCZPVwaqDmQ4@7YNFXnKbZAHrBurNHVRXX)
 
 The second diagram covers the `ShoppingItem` component in detail.
 ![Image chooser](./public/readme/component-tree-image-chooser.png)
+[View latest version](https://whimsical.com/shopping-list-Km3VRQ31QthCZPVwaqDmQ4@7YNFXnKbZAHa3e6QpwuLi)
 
 ## 6. Atribbutions
 
