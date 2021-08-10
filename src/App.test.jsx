@@ -5,7 +5,7 @@ import { RecoilRoot } from "recoil";
 // Project files
 import App from "./App";
 
-test("Shows welcome screen if list is empty", () => {
+test("Should show the welcome screen if the list is empty", () => {
   // Arrange
   const fakeData = [];
 
@@ -24,7 +24,7 @@ test("Shows welcome screen if list is empty", () => {
   expect(textElement).toBeInTheDocument();
 });
 
-test("Shows normal screen if list has items", () => {
+test("Should show the normal screen if the list has items", () => {
   // Arrange
   const fakeItem = {
     id: 0,
