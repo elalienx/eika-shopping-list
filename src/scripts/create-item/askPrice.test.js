@@ -86,7 +86,7 @@ test("Should return NaN when pass a string with letters", () => {
   expect(test).toBe(result);
 });
 
-test("Should not accept the number 0 and then a valid number", () => {
+test("Should not accept the number 0. It need to pass using a valid number", () => {
   // Arrange
   const mockValue1 = 0;
   const mockValue2 = 0;
@@ -106,7 +106,7 @@ test("Should not accept the number 0 and then a valid number", () => {
   expect(name).toBe(result);
 });
 
-test("Should not accept a negative number and then a valid number", () => {
+test("Should not accept a negative number. It need to pass using a valid number", () => {
   // Arrange
   const mockValue1 = -1;
   const mockValue2 = -5;
