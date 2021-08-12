@@ -1,13 +1,12 @@
 // NPM Packages
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
 import NormalScreen from "./screens/NormalScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import STORAGE_KEY from "./scripts/storageKey";
-import { listState } from "./state/listState";
+import { ListProvider } from "./state/ListProvider";
 import "./css/style.css";
 
 export default function App() {
@@ -32,12 +31,14 @@ export default function App() {
   useEffect(() => saveData(STORAGE_KEY, list), [list]);
 
   return (
-    <div className="App">
-      <header>
-        <img src={Logo} className="logo" alt="Company logo" />
-      </header>
+    <ListProvider>
+      <div className="App">
+        <header>
+          <img src={Logo} className="logo" alt="Company logo" />
+        </header>
 
-      {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
-    </div>
+        {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
+      </div>
+    </ListProvider>
   );
 }

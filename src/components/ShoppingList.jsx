@@ -1,11 +1,9 @@
 // Project files
 import ShoppingItem from "./ShoppingItem";
 
-export default function ShoppingList({ list, editList }) {
+export default function ShoppingList({ list }) {
   // Components
-  const List = list.map((item) => (
-    <ShoppingItem key={item.id} item={item} editList={editList} />
-  ));
+  const List = list.map((item) => <ShoppingItem key={item.id} item={item} />);
 
   return (
     <section className="shopping-list">

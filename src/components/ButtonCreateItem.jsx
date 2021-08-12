@@ -1,23 +1,15 @@
-// NPM Packages
-import { useRecoilState } from "recoil";
-
 // Project files
-import requestNewItem from "../scripts/create-item/requestNewItem";
-import { listState } from "../state/listState";
+import { useList } from "../state/ListProvider";
 
 export default function ButtonCreateItem() {
   // Global state
-  const [list, setList] = useRecoilState(listState);
-
-  // Methods
-  function createItem(newId) {
-    const newItem = requestNewItem(newId);
-
-    if (newItem !== null) setList([...list, newItem]);
-  }
+  const { dispatch } = useList();
 
   return (
-    <button className="button-main" onClick={() => createItem(list)}>
+    <button
+      className="button-main"
+      onClick={() => dispatch({ type: "createItem" })}
+    >
       Add a new item
     </button>
   );
