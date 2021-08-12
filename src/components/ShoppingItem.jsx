@@ -15,7 +15,9 @@ export default function ShoppingItem({ item }) {
         checked={acquired}
         onChange={() => dispatch({ type: "editItem", id, acquired: !acquired })}
       />
-      <span className="name">{name}</span>
+      <span className="name">
+        #{id} {name}
+      </span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
     </article>
