@@ -20,11 +20,11 @@ function createItem(state) {
 }
 
 function editItem(state, action) {
-  const { editedItem } = action;
+  const { editedItem, key, value } = action;
   const index = state.findIndex((item) => item.id === editedItem.id);
-  const clonedList = [...list];
+  const clonedState = [...state];
 
-  clonedList[index] = editedItem;
+  clonedState[index][key] = value;
 
-  return clonedList;
+  return clonedState;
 }

@@ -13,7 +13,14 @@ export default function ShoppingItem({ item }) {
     <article className={`shopping-item ${acquired && "checked"}`}>
       <Checkbox
         checked={acquired}
-        onChange={() => dispatch({ type: "editItem", id, acquired: !acquired })}
+        onChange={() =>
+          dispatch({
+            type: "editItem",
+            editedItem: item,
+            key: "acquired",
+            value: !acquired,
+          })
+        }
       />
       <span className="name">
         #{id} {name}
