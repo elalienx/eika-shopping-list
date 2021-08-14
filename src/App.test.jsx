@@ -1,9 +1,9 @@
 // NPM Packages
 import { render, screen } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
 
 // Project files
 import App from "./App";
+import { ListProvider } from "./state/ListProvider";
 
 test("Should show the welcome screen if the list is empty", () => {
   // Arrange
@@ -12,9 +12,9 @@ test("Should show the welcome screen if the list is empty", () => {
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
   render(
-    <RecoilRoot>
+    <ListProvider>
       <App />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Act
@@ -38,9 +38,9 @@ test("Should show the normal screen if the list has items", () => {
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
   render(
-    <RecoilRoot>
+    <ListProvider>
       <App />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Act

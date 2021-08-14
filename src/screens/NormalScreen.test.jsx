@@ -1,18 +1,18 @@
 // NPM Packages
 import { render, screen, fireEvent } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
 
 // Project files
-import NormalScreen from "./NormalScreen";
 import requestItem from "../scripts/create-item/requestNewItem";
+import { ListProvider } from "../state/ListProvider";
+import NormalScreen from "./NormalScreen";
 jest.mock("../scripts/create-item/requestNewItem");
 
 test("Should have a create item button to start adding items", () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <NormalScreen />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Assert
@@ -25,9 +25,9 @@ test("Should have a create item button to start adding items", () => {
 test("Should create an item item when press the new button", () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <NormalScreen />
-    </RecoilRoot>
+    </ListProvider>
   );
   requestItem.mockReturnValue({
     id: 0,
@@ -52,10 +52,11 @@ test("Should create an item item when press the new button", () => {
 test("Should create a second item when user press the button twice", () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <NormalScreen />
-    </RecoilRoot>
+    </ListProvider>
   );
+
   const fakeItemA = {
     id: 0,
     name: "Sofa",

@@ -1,18 +1,18 @@
 // NPM Packages
 import { render, screen, fireEvent } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
 
 // Project files
 import ButtonCreateItem from "./ButtonCreateItem";
 import requestItem from "../scripts/create-item/requestNewItem";
+import { ListProvider } from "../state/ListProvider";
 jest.mock("../scripts/create-item/requestNewItem");
 
 test("Should call the requestItem function", async () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <ButtonCreateItem />
-    </RecoilRoot>
+    </ListProvider>
   );
   requestItem.mockReturnValue({
     id: 0,

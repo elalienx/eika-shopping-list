@@ -1,8 +1,8 @@
 // NPM Packages
 import { render, screen, fireEvent } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
 
 // Project files
+import ListProvider from "../state/ListProvider";
 import Sorter from "./Sorter";
 import { sortByString, sortByNumber } from "../scripts/sorter/list-sorter";
 jest.mock("../scripts/sorter/list-sorter");
@@ -10,9 +10,9 @@ jest.mock("../scripts/sorter/list-sorter");
 test("Should call the sortByString function", async () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <Sorter />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Act
@@ -27,9 +27,9 @@ test("Should call the sortByString function", async () => {
 test("Should cal the sortByNumber function", async () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <Sorter />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Act

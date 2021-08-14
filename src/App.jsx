@@ -10,12 +10,12 @@ export default function App() {
   const { list } = useList();
 
   return (
-      <div className="App">
-        <header>
-          <img src={Logo} className="logo" alt="Company logo" />
-        </header>
+    <div className="App">
+      <header>
+        <img src={Logo} className="logo" alt="Company logo" />
+      </header>
 
-        {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
-      </div>
+      {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
+    </div>
   );
 }

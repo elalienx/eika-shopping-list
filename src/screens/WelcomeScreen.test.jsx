@@ -1,16 +1,16 @@
 // NPM Packages
 import { render, screen } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
 
 // Project files
+import { ListProvider } from "../state/ListProvider";
 import WelcomeScreen from "./WelcomeScreen";
 
 test("Should have a create item button to start adding items", () => {
   // Arrange
   render(
-    <RecoilRoot>
+    <ListProvider>
       <WelcomeScreen />
-    </RecoilRoot>
+    </ListProvider>
   );
 
   // Assert
