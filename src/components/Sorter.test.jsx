@@ -2,9 +2,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 
 // Project files
-import ListProvider from "../state/ListProvider";
-import Sorter from "./Sorter";
+import { ListProvider } from "../state/ListProvider";
 import { sortByString, sortByNumber } from "../scripts/sorter/list-sorter";
+import Sorter from "./Sorter";
 jest.mock("../scripts/sorter/list-sorter");
 
 test("Should call the sortByString function", async () => {
