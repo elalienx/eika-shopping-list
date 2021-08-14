@@ -3,6 +3,7 @@ export default function askName() {
   let userInput;
 
   do {
+    console.log("askName() do()");
     userInput = prompt("What's the name of the shopping item?");
 
     // guard if user press escape or clicks on the cancel button on the popup window

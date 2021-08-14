@@ -7,7 +7,7 @@ export default function ShoppingItem({ item }) {
   const { dispatch } = useList();
 
   // Constants
-  const { id, name, price, acquired, imageURL } = item;
+  const { name, price, acquired } = item;
 
   return (
     <article className={`shopping-item ${acquired && "checked"}`}>
@@ -22,9 +22,7 @@ export default function ShoppingItem({ item }) {
           })
         }
       />
-      <span className="name">
-        #{id} {name}
-      </span>
+      <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
     </article>
