@@ -1,5 +1,4 @@
 export default function askName() {
-  console.log("askName()");
   let userInput;
 
   do {
