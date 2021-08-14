@@ -1,31 +1,28 @@
-// NPM Packages
-import { useState } from "react";
-import { useRecoilState } from "recoil";
-
 // Project files
-import { listState } from "../state/listState";
+import { useState } from "react";
 import { sortByNumber, sortByString } from "../scripts/sorter/list-sorter";
+import { useList } from "../state/ListProvider";
 
-export default function SortControls() {
+export default function Sorter() {
   // Local state
   const [activeButton, setActiveButton] = useState("");
 
   // Global state
-  const [list, setList] = useRecoilState(listState);
+  const { list, dispatch } = useList();
 
   // Methods
   function sortyListByName(list, key) {
     const sortedList = sortByString(list, key);
 
     setActiveButton("name");
-    setList(sortedList);
+    dispatch({ type: "replaceList", list: sortedList });
   }
 
   function sortListByPrice(list, key) {
     const sortedList = sortByNumber(list, key);
 
     setActiveButton(key);
-    setList(sortedList);
+    dispatch({ type: "replaceList", list: sortedList });
   }
 
   return (

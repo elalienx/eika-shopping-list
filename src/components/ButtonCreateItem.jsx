@@ -1,6 +1,6 @@
 // Project files
-import { useList } from "../state/ListProvider";
 import requestNewItem from "../scripts/create-item/requestNewItem";
+import { useList } from "../state/ListProvider";
 
 export default function ButtonCreateItem() {
   // Global state

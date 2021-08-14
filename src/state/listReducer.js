@@ -4,6 +4,8 @@ export default function listReducer(state, action) {
       return addItem(state, action);
     case "editItem":
       return editItem(state, action);
+    case "replaceList":
+      return replaceList(state, action);
     default:
       throw new Error(`No action type found ${action.type}`);
   }
@@ -24,4 +26,11 @@ function editItem(state, action) {
 
   clonedState[index][key] = value;
   return clonedState;
+}
+
+// List modification
+function replaceList(state, action) {
+  const { list } = action;
+
+  return list;
 }

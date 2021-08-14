@@ -5,6 +5,7 @@ import { useState } from "react";
 import ButtonCreateItem from "../components/ButtonCreateItem";
 import ButtonToggle from "../components/ButtonToggle";
 import ShoppingList from "../components/ShoppingList";
+import Sorter from "../components/Sorter";
 import { useList } from "../state/ListProvider";
 
 export default function NormalScreen() {
@@ -21,6 +22,9 @@ export default function NormalScreen() {
   return (
     <div id="normal-page">
       <h1>Your shopping list</h1>
+
+      {/* Sort controls */}
+      <Sorter />
 
       {/* Pending list */}
       <ShoppingList list={pendingList} />
