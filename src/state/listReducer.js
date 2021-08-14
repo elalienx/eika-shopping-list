@@ -1,12 +1,7 @@
-// Project files
-import requestNewItem from "../scripts/create-item/requestNewItem";
-
-// Pending, think about the best way to sort the list
-
 export default function listReducer(state, action) {
   switch (action.type) {
-    case "createItem":
-      return createItem(state);
+    case "addItem":
+      return addItem(state, action);
     case "editItem":
       return editItem(state, action);
     default:
@@ -15,11 +10,10 @@ export default function listReducer(state, action) {
 }
 
 // Item modification
-function createItem(state) {
-  const newId = state.length;
-  const newItem = requestNewItem(newId);
+function addItem(state, action) {
+  const { item } = action;
 
-  if (newItem !== null) return [...state, newItem];
+  if (item !== null) return [...state, item];
   return state;
 }
 
@@ -29,6 +23,5 @@ function editItem(state, action) {
   const clonedState = [...state];
 
   clonedState[index][key] = value;
-
   return clonedState;
 }
