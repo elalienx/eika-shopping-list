@@ -3,6 +3,7 @@ import askName from "./askName";
 import askPrice from "./askPrice";
 
 export default function requestNewItem(newId) {
+  console.log("requestNewItem()");
   const name = askName();
   if (name === null) return null;
 

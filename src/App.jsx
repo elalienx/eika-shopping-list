@@ -11,7 +11,6 @@ import "./css/style.css";
 export default function App() {
   // Global state
   const { list } = useList();
-  console.log("2. App:", list);
 
   return (
     <div className="App">

@@ -16,6 +16,7 @@ export default function listReducer(state, action) {
 
 // Item modification
 function createItem(state) {
+  console.log("listReducer() createItem()");
   const newId = state.length;
   const newItem = requestNewItem(newId);
 
