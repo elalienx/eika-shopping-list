@@ -5,6 +5,11 @@ export default function ButtonCreateItem() {
   // Global state
   const { dispatch } = useList();
 
+  // Methods
+  function createItem(newId) {
+    const
+  }
+
   return (
     <button
       className="button-main"
