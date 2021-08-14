@@ -7,7 +7,7 @@ import "./css/style.css";
 
 export default function App() {
   // Global state
-  const { list } = useList();
+  const { list, dispatch } = useList();
 
   return (
     <div className="App">
