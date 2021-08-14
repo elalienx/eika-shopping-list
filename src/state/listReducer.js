@@ -9,9 +9,16 @@ export default function listReducer(state, action) {
       return createItem(state);
     case "editItem":
       return editItem(state, action);
+    case "loadList":
+      return [];
+    case "saveList":
+      return [];
+    default:
+      throw new Error("No action type found:", action.type);
   }
 }
 
+// Item modification
 function createItem(state) {
   const newId = state.length;
   const newItem = requestNewItem(newId);
@@ -27,4 +34,16 @@ function editItem(state, action) {
   clonedState[index][key] = value;
 
   return clonedState;
+}
+
+// List manipulation
+
+
+// Storage
+function loadList() {
+
+}
+
+function saveList() {
+  
 }
