@@ -20,7 +20,8 @@ function createItem(state) {
   const newId = state.length;
   const newItem = requestNewItem(newId);
 
-  return [...state, newItem];
+  if (newItem !== null) return [...state, newItem];
+  return state;
 }
 
 function editItem(state, action) {
