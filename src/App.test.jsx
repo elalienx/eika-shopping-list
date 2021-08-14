@@ -2,8 +2,8 @@
 import { render, screen } from "@testing-library/react";
 
 // Project files
-import App from "./App";
 import { ListProvider } from "./state/ListProvider";
+import App from "./App";
 
 test("Should show the welcome screen if the list is empty", () => {
   // Arrange
@@ -34,7 +34,6 @@ test("Should show the normal screen if the list has items", () => {
     imageURL: "",
   };
   const fakeData = [fakeItem];
-
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
 
   render(

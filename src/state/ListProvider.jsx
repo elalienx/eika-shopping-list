@@ -7,17 +7,13 @@ import listReducer from "./listReducer";
 
 // Properties
 const ListContext = React.createContext(null);
-const loadList = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 export function ListProvider(props) {
   // Global state
-  const [list, dispatch] = useReducer(listReducer, loadList);
+  const [list, dispatch] = useReducer(listReducer, loadList(STORAGE_KEY));
 
   // Methods
-  useEffect(
-    () => localStorage.setItem(STORAGE_KEY, JSON.stringify(list)),
-    [list]
-  );
+  useEffect(() => saveList(STORAGE_KEY, list), [list]);
 
   return (
     <ListContext.Provider value={{ list, dispatch }}>
@@ -30,4 +26,12 @@ export function useList() {
   const context = useContext(ListContext);
 
   return context;
+}
+
+function loadList(key) {
+  return JSON.parse(localStorage.getItem(key)) ?? [];
+}
+
+function saveList(key, list) {
+  localStorage.setItem(key, JSON.stringify(list));
 }
