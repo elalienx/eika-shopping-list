@@ -39,7 +39,7 @@ test("Should create an item item when press the new button", () => {
 
   // Act
   const buttonElement = screen.getByText("Add a new item");
-  const nameResult = "Eduardo";
+  const nameResult = /Eduardo/i;
   const priceResult = /777/i;
   fireEvent.click(buttonElement);
 
@@ -79,12 +79,12 @@ test("Should create a second item when user press the button twice", () => {
   requestItem.mockReturnValue(fakeItemA);
   fireEvent.click(buttonElement);
   expect(requestItem).toHaveBeenCalled();
-  expect(screen.getByText("Sofa")).toBeInTheDocument();
+  expect(screen.getByText(/Sofa/i)).toBeInTheDocument();
   expect(screen.getByText(/777/i)).toBeInTheDocument();
 
   requestItem.mockReturnValue(fakeItemB);
   fireEvent.click(buttonElement);
   expect(requestItem).toHaveBeenCalled();
-  expect(screen.getByText("TV Stand")).toBeInTheDocument();
+  expect(screen.getByText(/TV Stand/i)).toBeInTheDocument();
   expect(screen.getByText(/2500/i)).toBeInTheDocument();
 });

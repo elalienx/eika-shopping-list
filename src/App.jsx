@@ -8,6 +8,7 @@ import "./css/style.css";
 export default function App() {
   // Global state
   const { list, dispatch } = useList();
+  console.log("App.jsx list", list);
 
   return (
     <div className="App">
