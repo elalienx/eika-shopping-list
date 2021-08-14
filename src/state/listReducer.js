@@ -9,10 +9,6 @@ export default function listReducer(state, action) {
       return createItem(state);
     case "editItem":
       return editItem(state, action);
-    case "load":
-      return load(action);
-    case "save":
-      return save(state, action);
     default:
       throw new Error(`No action type found ${action.type}`);
   }
@@ -34,26 +30,4 @@ function editItem(state, action) {
   clonedState[index][key] = value;
 
   return clonedState;
-}
-
-// Storage
-function load(action) {
-  console.log("loading...");
-  const { key } = action;
-  const data = localStorage.getItem(key);
-  const list = JSON.parse(data) ?? [];
-
-  console.log("reducer() load() list", list);
-
-  return list;
-}
-
-function save(state, action) {
-  console.log("saving...");
-  console.log("save() state", state);
-  const { key } = action;
-  const data = JSON.stringify(state);
-  console.log("save() data", data);
-
-  localStorage.setItem(key, data);
 }

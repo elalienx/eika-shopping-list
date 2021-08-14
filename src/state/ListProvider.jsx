@@ -7,7 +7,7 @@ import listReducer from "./listReducer";
 
 // Properties
 const ListContext = React.createContext(null);
-const loadList = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+const loadList = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 export function ListProvider(props) {
   // Global state

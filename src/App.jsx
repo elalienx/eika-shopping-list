@@ -1,3 +1,6 @@
+// NPM Packages
+import React from "react";
+
 // Project files
 import Logo from "./assets/images/logo.svg";
 import NormalScreen from "./screens/NormalScreen";
@@ -7,8 +10,7 @@ import "./css/style.css";
 
 export default function App() {
   // Global state
-  const { list, dispatch } = useList();
-  console.log("App.jsx list", list);
+  const { list } = useList();
 
   return (
     <div className="App">
