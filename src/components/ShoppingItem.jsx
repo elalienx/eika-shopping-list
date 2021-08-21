@@ -12,7 +12,10 @@ export default function ShoppingItem({ item }) {
 
   // Methods
   function editedItem(item, key, value) {
-    dispatch({ type: "editItem", item, key, value });
+    const editedItem = item;
+
+    editedItem[key] = value;
+    dispatch({ type: "editItem", editedItem });
   }
 
   return (
@@ -24,7 +27,6 @@ export default function ShoppingItem({ item }) {
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
-      <ImageChooser onChange={() => editedItem(item, "imageURL", !acquired)} />
     </article>
   );
 }
