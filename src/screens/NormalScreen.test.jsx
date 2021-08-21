@@ -7,6 +7,10 @@ import { ListProvider } from "../state/ListProvider";
 import NormalScreen from "./NormalScreen";
 jest.mock("../scripts/create-item/requestNewItem");
 
+beforeEach(() => {
+  window.localStorage.clear();
+});
+
 test("Should have a create item button to start adding items", () => {
   // Arrange
   render(
@@ -29,17 +33,18 @@ test("Should create an item item when press the new button", () => {
       <NormalScreen />
     </ListProvider>
   );
-  requestItem.mockReturnValue({
+  const fakeItem = {
     id: 0,
-    name: "Eduardo",
+    name: "Sofa",
     price: 777,
     acquired: false,
     imageURL: "",
-  });
+  };
+  requestItem.mockReturnValue(fakeItem);
 
   // Act
   const buttonElement = screen.getByText("Add a new item");
-  const nameResult = /Eduardo/i;
+  const nameResult = /Sofa/i;
   const priceResult = /777/i;
   fireEvent.click(buttonElement);
 
@@ -76,12 +81,14 @@ test("Should create a second item when user press the button twice", () => {
   const buttonElement = screen.getByText("Add a new item");
 
   // Assert
+  // -- Item A
   requestItem.mockReturnValue(fakeItemA);
   fireEvent.click(buttonElement);
   expect(requestItem).toHaveBeenCalled();
   expect(screen.getByText(/Sofa/i)).toBeInTheDocument();
   expect(screen.getByText(/777/i)).toBeInTheDocument();
 
+  // -- Item B
   requestItem.mockReturnValue(fakeItemB);
   fireEvent.click(buttonElement);
   expect(requestItem).toHaveBeenCalled();
