@@ -8,7 +8,7 @@ export default function ShoppingItem({ item }) {
   const { dispatch } = useList();
 
   // Constants
-  const { name, price, acquired } = item;
+  const { name, price, acquired, imageURL } = item;
 
   // Methods
   function editedItem(item, key, value) {
@@ -27,6 +27,10 @@ export default function ShoppingItem({ item }) {
       <span className="name">{name}</span>
       <span className="spacer"></span>
       <span className="price">{price}:-</span>
+      <ImageChooser
+        imageURL={imageURL}
+        onChange={(imageURL) => editedItem(item, "imageURL", imageURL)}
+      />
     </article>
   );
 }
