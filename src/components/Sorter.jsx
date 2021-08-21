@@ -15,14 +15,14 @@ export default function Sorter() {
     const sortedList = sortByString(list, key);
 
     setActiveButton("name");
-    dispatch({ type: "replaceList", list: sortedList });
+    dispatch({ type: "replaceList", editedList: sortedList });
   }
 
   function sortListByPrice(list, key) {
     const sortedList = sortByNumber(list, key);
 
     setActiveButton(key);
-    dispatch({ type: "replaceList", list: sortedList });
+    dispatch({ type: "replaceList", editedList: sortedList });
   }
 
   return (

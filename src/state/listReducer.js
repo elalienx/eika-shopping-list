@@ -5,7 +5,7 @@ export default function listReducer(state, action) {
     case "editItem":
       return editItem(state, action);
     case "replaceList":
-      return replaceList(state, action);
+      return replaceList(action);
     default:
       throw new Error(`No action type found ${action.type}`);
   }
@@ -30,7 +30,7 @@ function editItem(state, action) {
 
 // List modification
 function replaceList(action) {
-  const { list } = action;
+  const { editedList } = action;
 
-  return list;
+  return editedList;
 }

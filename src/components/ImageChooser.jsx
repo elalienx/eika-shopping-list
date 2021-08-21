@@ -4,7 +4,6 @@ import { uploadImage } from "../scripts/upload-image";
 
 export default function ImageChooser({ imageURL, onChange }) {
   // Constants
-  console.log(imageURL);
   const Image = imageURL === "" ? Placeholder : imageURL;
 
   async function onEvent(event) {
