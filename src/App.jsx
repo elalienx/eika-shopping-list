@@ -23,9 +23,9 @@ export default function App() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
     const name = askName();
+    if (name === null) 
     const price = askPrice();
 
-    if (name !== null) newItem.name = name;
     if (price !== null) newItem.price = price;
 
     const newList = [...list, newItem];
