@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import EmptyState from "./components/EmptyState";
 import ShoppingList from "./components/ShoppingList";
 import "./css/style.css";
+import askName from "./scripts/askName";
+import askPrice from "./scripts/askPrice";
 
 export default function App() {
   // Local state
@@ -20,13 +22,11 @@ export default function App() {
   function onCreate() {
     const newId = list.length;
     const newItem = { name: "", price: "", id: newId, isCompleted: false };
-    const promptName = prompt("Whats the name of the shopping item?");
-    const promptPrice = prompt("Whats its price?");
+    const name = askName();
+    const price = askPrice();
 
-    if (promptName !== null) newItem.name = promptName;
-
-    // Note: Add some test to verify that the price is just a number
-    if (promptPrice !== null) newItem.price = promptPrice;
+    if (name !== null) newItem.name = name;
+    if (price !== null) newItem.price = price;
 
     const newList = [...list, newItem];
 
