@@ -21,17 +21,15 @@ export default function App() {
   // Methods
   function onCreate() {
     const newId = list.length;
-    const newItem = { name: "", price: "", id: newId, isCompleted: false };
     const name = askName();
-    if (name === null) 
     const price = askPrice();
+    const newItem = { name: name, price: price, id: newId, isCompleted: false };
 
-    if (price !== null) newItem.price = price;
-
-    const newList = [...list, newItem];
-
-    setList(newList);
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+    if (name !== null || price !== null) {
+      const newList = [...list, newItem];
+      setList(newList);
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+    }
   }
 
   function onUpdate(id) {

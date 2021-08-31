@@ -1,5 +1,5 @@
 export default function askName() {
-  let userInput = "";
+  let userInput;
 
   do {
     userInput = prompt("What's the name of the shopping item?");
@@ -8,15 +8,16 @@ export default function askName() {
     if (userInput === null) return null;
 
     // parse the user input
-    userInput = parseString(userInput);
-  } while (isEmpty(userInput));
+    userInput = _parseString(userInput);
+  } while (_isEmpty(userInput));
+
+  return userInput;
 }
 
-// code to validatean string
-export function parseString(string) {
+export function _parseString(string) {
   return string.trim() !== "" ? string.trim() : "";
 }
 
-export function isEmpty(string) {
+export function _isEmpty(string) {
   return string.trim() === "" ? true : false;
 }
