@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { listState } from "../state/listState";
 import { sortByNumber, sortByString } from "../scripts/sorter/list-sorter";
 
-export default function SortControls() {
+export default function Sorter() {
   // Local state
   const [activeButton, setActiveButton] = useState("");
 
