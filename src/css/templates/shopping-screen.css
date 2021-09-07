@@ -1,0 +1,8 @@
+#shopping-screen section {
+  margin-bottom: var(--space-big);
+}
+
+#shopping-page .button-main,
+#shopping-page .button-secondary {
+  margin-bottom: var(--space-medium);
+}

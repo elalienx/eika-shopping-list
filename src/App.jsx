@@ -3,7 +3,7 @@ import React from "react";
 
 // Project files
 import Logo from "./assets/images/logo.svg";
-import NormalScreen from "./screens/NormalScreen";
+import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { useList } from "./state/ListProvider";
 import "./css/style.css";
@@ -18,7 +18,7 @@ export default function App() {
         <img src={Logo} className="logo" alt="Company logo" />
       </header>
 
-      {list.length === 0 ? <WelcomeScreen /> : <NormalScreen />}
+      {list.length === 0 ? <WelcomeScreen /> : <ShoppingScreen />}
     </div>
   );
 }

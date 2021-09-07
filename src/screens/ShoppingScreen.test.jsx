@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 // Project files
 import requestItem from "../scripts/create-item/requestNewItem";
 import { ListProvider } from "../state/ListProvider";
-import NormalScreen from "./NormalScreen";
+import ShoppingScreen from "./ShoppingScreen";
 jest.mock("../scripts/create-item/requestNewItem");
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ test("Should have a create item button to start adding items", () => {
   // Arrange
   render(
     <ListProvider>
-      <NormalScreen />
+      <ShoppingScreen />
     </ListProvider>
   );
 
@@ -30,7 +30,7 @@ test("Should create an item item when press the new button", () => {
   // Arrange
   render(
     <ListProvider>
-      <NormalScreen />
+      <ShoppingScreen />
     </ListProvider>
   );
   const fakeItem = {
@@ -58,7 +58,7 @@ test("Should create a second item when user press the button twice", () => {
   // Arrange
   render(
     <ListProvider>
-      <NormalScreen />
+      <ShoppingScreen />
     </ListProvider>
   );
 

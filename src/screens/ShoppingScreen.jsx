@@ -8,7 +8,7 @@ import ShoppingList from "../components/ShoppingList";
 import Sorter from "../components/Sorter";
 import { useList } from "../state/ListProvider";
 
-export default function NormalScreen() {
+export default function ShoppingScreen() {
   // Local state
   const [showAcquired, setShowAcquired] = useState(false);
 
@@ -20,7 +20,7 @@ export default function NormalScreen() {
   const pendingList = list.filter((item) => item.acquired === false);
 
   return (
-    <div id="normal-page">
+    <div id="shopping-screen">
       <h1>Your shopping list</h1>
 
       {/* Sort controls */}

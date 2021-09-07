@@ -4,7 +4,7 @@ import ButtonCreateItem from "../components/ButtonCreateItem";
 
 export default function WelcomeScreen() {
   return (
-    <div id="welcome-page">
+    <div id="welcome-screen">
       <img src={Image} alt="Woman getting out of a store with shopping bags" />
       <h1>EIKA's shopping list</h1>
       <p>

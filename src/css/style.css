@@ -18,5 +18,5 @@
 @import url("./molecules/shopping-item.css");
 
 /* Templates */
-@import url("./templates/normal-page.css");
-@import url("./templates/welcome-page.css");
+@import url("./templates/shopping-screen.css");
+@import url("./templates/welcome-screen.css");

@@ -1,10 +1,10 @@
-#welcome-page img {
+#welcome-screen img {
   max-width: 200px;
   height: auto;
 }
 
 @media (min-width: 550px) {
-  #welcome-page img {
+  #welcome-screen img {
     max-width: 400px;
   }
 }
