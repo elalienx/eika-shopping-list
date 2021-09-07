@@ -11,7 +11,6 @@ export default function listReducer(state, action) {
   }
 }
 
-// Item modification
 function addItem(state, action) {
   const { item } = action;
 
@@ -28,7 +27,6 @@ function editItem(state, action) {
   return clonedState;
 }
 
-// List modification
 function replaceList(action) {
   const { editedList } = action;
 
